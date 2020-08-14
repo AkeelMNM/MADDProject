@@ -20,7 +20,7 @@
 
     <string name="admin_home_msg">Welcome to Admin Panel</string>
     <string name="create_ad">Create Job Ads &amp; View Existing Ads</string>
-    <string name="view_app_jobs">View Approved Jobs</string>
+    <string name="view_app_jobs">Create New Jobs &amp; View Existing Jobs </string>
     <string name="job_approve_requests">Job Approval Requests</string>
     <string name="help_center_req">Help Center Requests</string>
 
