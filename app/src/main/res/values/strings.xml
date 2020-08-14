@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Job Fixer</string>
+    <string name="help">Help</string>
+    <string name="about">About</string>
+
+    <string name="welcome_msg">welcome to job fixer!!!</string>
+    <string name="user_home_msg">Find Your Perfect Job</string>
+    <string name="resume">Resume</string>
+    <string name="search">Search</string>
+    <string name="all_jobs">Jobs</string>
+    <string name="help_center">Help Center</string>
+
+    <string name="log_out">Logout</string>
+    <string name="profile">Profile</string>
+
+    <string name="company_home_msg">Recruit Your Employee</string>
+    <string name="create_jobs">Create New Jobs</string>
+    <string name="requests">Requests</string>
+    <string name="c_profile">Company Profile</string>
+
+    <string name="admin_home_msg">Welcome to Admin Panel</string>
+    <string name="create_ad">Create Job Ads &amp; View Existing Ads</string>
+    <string name="view_app_jobs">View Approved Jobs</string>
+    <string name="job_approve_requests">Job Approval Requests</string>
+    <string name="help_center_req">Help Center Requests</string>
+
+
+</resources>
