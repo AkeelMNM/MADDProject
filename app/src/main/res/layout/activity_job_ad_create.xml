@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_Bg_Color"
+    tools:context=".JobAdCreateActivity">
+
+    <TextView
+        android:id="@+id/txtBanner"
+        android:layout_width="411dp"
+        android:layout_height="46dp"
+        android:background="#EFE9E9"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/job_cte_msg"
+        android:textAlignment="gravity"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewJobCat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewJobCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/job_cat"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/JobCatSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBanner" />
+
+    <TextView
+        android:id="@+id/textViewJobTit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/job_tit"
+        app:layout_constraintBottom_toTopOf="@+id/JobTiSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/JobCatSpinner" />
+
+    <TextView
+        android:id="@+id/textViewComName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/comp_name"
+        app:layout_constraintBottom_toTopOf="@+id/ComNaSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/JobTiSpinner" />
+
+    <TextView
+        android:id="@+id/textViewComAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/com_add"
+        app:layout_constraintBottom_toTopOf="@+id/TxtInputCompAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ComNaSpinner" />
+
+    <TextView
+        android:id="@+id/textViewJobType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/job_t"
+        app:layout_constraintBottom_toTopOf="@+id/TxtInputJobType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TxtInputCompAdd" />
+
+    <TextView
+        android:id="@+id/textViewJobSal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/job_sal"
+        app:layout_constraintBottom_toTopOf="@+id/TxtInputJobSal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TxtInputJobType" />
+
+    <Spinner
+        android:id="@+id/JobCatSpinner"
+        android:layout_width="401dp"
+        android:layout_height="46dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewJobTit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewJobCat" />
+
+    <Spinner
+        android:id="@+id/JobTiSpinner"
+        android:layout_width="401dp"
+        android:layout_height="46dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewComName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewJobTit" />
+
+    <Spinner
+        android:id="@+id/ComNaSpinner"
+        android:layout_width="403dp"
+        android:layout_height="46dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewComAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewComName" />
+
+    <EditText
+        android:id="@+id/TxtInputCompAdd"
+        android:layout_width="403dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/textViewJobType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewComAdd"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/TxtInputJobType"
+        android:layout_width="401dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/textViewJobSal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewJobType"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/TxtInputJobSal"
+        android:layout_width="401dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/btnCreate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewJobSal"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/btnCreate"
+        android:layout_width="401dp"
+        android:layout_height="46dp"
+        android:backgroundTint="@color/AdUpForm_Btn_Color"
+        android:text="@string/ad_cte_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TxtInputJobSal" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

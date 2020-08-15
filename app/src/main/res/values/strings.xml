@@ -26,5 +26,43 @@
 
     <!-- ****************************************************************************** -->
 
+    <!-- Advertisement Management Strings-->
+
+    <!-- Add job Ad & Update Job Strings-->
+    <string name="job_cte_msg">Create New Advertisement</string>
+    <string name="job_up_msg">Update Advertisement</string>
+    <string name="job_cat">Job Category</string>
+    <string name="job_tit"> Job Title</string>
+    <string name="comp_name">Company Name </string>
+    <string name="com_add">Company Address</string>
+    <string name="job_t">Job Type</string>
+    <string name="job_sal">Job Salary</string>
+    <string name="ad_cte_btn">Create</string>
+    <string name="ad_up_btn">Update</string>
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+    <!--  View Job Strings-->
+    <string name="job_ad_msg">Advertisements</string>
+    <string name="job_view_name">Software Engineer</string>
+    <string name="comp_view_name">Sysco Lab </string>
+    <string name="com_view_add">Colombo 02</string>
+    <string name="job_view_t">Full Time</string>
+    <string name="job_view_ad">AD</string>
+    <string name="job_view_sal">Up to 60000/Month</string>
+    <string name="ad_view_cte_btn">Create Advertisements</string>
+    <string name="view_remove_btn">Remove</string>
+    <string name="view_update_btn">Update</string>
+
+
+    <string name="job_view_name2">Software Architect</string>
+    <string name="comp_view_name2">IFS </string>
+    <string name="com_view_add2">Colombo 03</string>
+    <string name="job_view_sal2">Up to 80000/Month</string>
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+    <!-- ****************************************************************************** -->
 
 </resources>

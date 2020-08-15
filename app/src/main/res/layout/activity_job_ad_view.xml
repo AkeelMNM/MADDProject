@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_Bg_Color"
+    android:textDirection="firstStrongRtl"
+    tools:context=".JobAdViewActivity">
+
+
+    <TextView
+        android:id="@+id/txtBanner"
+        android:layout_width="411dp"
+        android:layout_height="46dp"
+        android:background="#EFE9E9"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/job_ad_msg"
+        android:textAlignment="gravity"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCreateAd" />
+
+    <Button
+        android:id="@+id/btnCreateAd"
+        android:layout_width="401dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@color/AdUpForm_Btn_Color"
+        android:text="@string/ad_view_cte_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="@dimen/view_LinearLayout_width"
+        android:layout_height="@dimen/view_LinearLayout_height"
+        android:layout_marginTop="16dp"
+        android:background="@color/View_List_Bg_Color"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBanner">
+
+        <TextView
+            android:id="@+id/textViewADL"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="360dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#FF9800"
+            android:paddingStart="3dp"
+            android:text="@string/job_view_ad"
+            android:textDirection="locale"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textViewCN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:text="@string/job_view_name"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:text="@string/comp_view_name" />
+
+        <TextView
+            android:id="@+id/textViewCL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="@string/com_view_add"
+            app:drawableStartCompat="@drawable/location" />
+
+        <TextView
+            android:id="@+id/textViewJS"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:text="@string/job_view_sal"
+            android:textDirection="rtl" />
+
+        <TextView
+            android:id="@+id/textViewJT"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:text="@string/job_view_t"
+            android:textDirection="rtl" />
+
+        <Button
+            android:id="@+id/btnUp"
+            android:layout_width="@dimen/list_view_btn_width"
+            android:layout_height="@dimen/list_view_btn_height"
+            android:layout_marginStart="200dp"
+            android:backgroundTint="@color/View_List_Up_Color"
+            android:text="@string/view_update_btn"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnRe"
+            android:layout_width="@dimen/list_view_btn_width"
+            android:layout_height="@dimen/list_view_btn_height"
+            android:layout_marginStart="200dp"
+            android:backgroundTint="@color/View_List_Re_Color"
+            android:text="@string/view_remove_btn"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/view_LinearLayout_width"
+        android:layout_height="@dimen/view_LinearLayout_height"
+        android:layout_marginTop="20dp"
+        android:background="@color/View_List_Bg_Color"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/textViewADL2"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="360dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#FF9800"
+            android:paddingStart="3dp"
+            android:text="@string/job_view_ad"
+            android:textDirection="locale"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textViewCN2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:text="@string/job_view_name2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:text="@string/comp_view_name2" />
+
+        <TextView
+            android:id="@+id/textViewCL2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="@string/com_view_add2"
+            app:drawableStartCompat="@drawable/location" />
+
+        <TextView
+            android:id="@+id/textViewJS2"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:text="@string/job_view_sal2"
+            android:textDirection="rtl" />
+
+        <TextView
+            android:id="@+id/textViewJT2"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:text="@string/job_view_t"
+            android:textDirection="rtl" />
+
+        <Button
+            android:id="@+id/btnUp2"
+            android:layout_width="@dimen/list_view_btn_width"
+            android:layout_height="@dimen/list_view_btn_height"
+            android:layout_marginStart="200dp"
+            android:backgroundTint="@color/View_List_Up_Color"
+            android:text="@string/view_update_btn"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnRe2"
+            android:layout_width="@dimen/list_view_btn_width"
+            android:layout_height="@dimen/list_view_btn_height"
+            android:layout_marginStart="200dp"
+            android:backgroundTint="@color/View_List_Re_Color"
+            android:text="@string/view_remove_btn"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
