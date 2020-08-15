@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 
-public class JobAdViewActivity extends AppCompatActivity {
+public class JobAdAdminViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_job_ad_view);
+        setContentView(R.layout.activity_job_ad_admin_view);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -42,7 +42,7 @@
 
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
-    <!--  View Job Strings-->
+    <!-- Admin View Job Strings-->
     <string name="job_ad_msg">Advertisements</string>
     <string name="job_view_name">Software Engineer</string>
     <string name="comp_view_name">Sysco Lab </string>
@@ -62,7 +62,13 @@
 
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
+    <!-- User View Job Strings-->
 
+    <string name="job_ad_user_msg">Still Looking For A Job!!!!!!</string>
+    <string name="view_job_btn">View</string>
+    <string name="view_apply_btn">Apply</string>
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <!-- ****************************************************************************** -->
 
 </resources>

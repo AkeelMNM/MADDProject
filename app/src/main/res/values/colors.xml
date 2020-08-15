@@ -6,9 +6,10 @@
 
     <color name="activity_Bg_Color">#CFD8DC</color>
     <color name="home_Btn_Color">#26A69A</color>
-
     <color name="AdUpForm_Btn_Color">#F44336</color>
-    <color name="View_List_Bg_Color">#00838F</color>
+
+    <color name="Admin_View_List_Bg_Color">#00838F</color>
+    <color name="User_View_List_Bg_Color">#607D8B</color>
     <color name="View_List_Re_Color">#F44336</color>
     <color name="View_List_Up_Color">#BDBDBD</color>
 </resources>
