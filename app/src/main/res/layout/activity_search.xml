@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_Bg_Color"
+    tools:context=".SearchActivity">
+
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="286dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="@dimen/view_SeLinearLayout_width"
+        android:layout_height="@dimen/view_SeLinearLayout_height"
+        android:layout_marginTop="56dp"
+        android:background="@color/User_SeView_List_Bg_Color"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView">
+
+        <TextView
+            android:id="@+id/tVCN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:text="@string/job_view_n"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tV3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:text="@string/comp_view_n" />
+
+        <TextView
+            android:id="@+id/tVCL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="@string/com_view_a"
+            app:drawableStartCompat="@drawable/location" />
+
+        <TextView
+            android:id="@+id/tVJS"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:text="@string/job_view_s"
+            android:textDirection="rtl" />
+
+        <TextView
+            android:id="@+id/tVJT"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:text="@string/job_view_t"
+            android:textDirection="rtl" />
+
+        <Button
+            android:id="@+id/btnU"
+            android:layout_width="@dimen/list_view_Sebtn_width"
+            android:layout_height="@dimen/list_view_Sebtn_height"
+            android:layout_marginStart="200dp"
+            android:backgroundTint="@color/View_List_Sview_Color"
+            android:text="@string/view_j_btn"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnR"
+            android:layout_width="@dimen/list_view_Sebtn_width"
+            android:layout_height="@dimen/list_view_Sebtn_height"
+            android:layout_marginStart="200dp"
+            android:backgroundTint="@color/View_List_Sapply_Color"
+            android:text="@string/view_ap_btn"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/job_search_title"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="@dimen/view_SeLinearLayout_width"
+        android:layout_height="@dimen/view_SeLinearLayout_height"
+        android:layout_marginTop="16dp"
+        android:background="@color/User_SeView_List_Bg_Color"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/tVCN2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:text="@string/job_view_n2"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tV32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:text="@string/comp_view_n2" />
+
+        <TextView
+            android:id="@+id/tVCL2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="@string/com_view_a2"
+            app:drawableStartCompat="@drawable/location" />
+
+        <TextView
+            android:id="@+id/tVJS2"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:text="@string/job_view_s2"
+            android:textDirection="rtl" />
+
+        <TextView
+            android:id="@+id/tVJT"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:text="@string/job_view_t"
+            android:textDirection="rtl" />
+
+        <Button
+            android:id="@+id/btnU"
+            android:layout_width="@dimen/list_view_Sebtn_width"
+            android:layout_height="@dimen/list_view_Sebtn_height"
+            android:layout_marginStart="200dp"
+            android:backgroundTint="@color/View_List_Sview_Color"
+            android:text="@string/view_j_btn"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnR"
+            android:layout_width="@dimen/list_view_Sebtn_width"
+            android:layout_height="@dimen/list_view_Sebtn_height"
+            android:layout_marginStart="200dp"
+            android:backgroundTint="@color/View_List_Sapply_Color"
+            android:text="@string/view_ap_btn"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

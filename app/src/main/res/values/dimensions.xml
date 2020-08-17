@@ -3,4 +3,9 @@
     <dimen name="home_btn_width">170dp</dimen>
     <dimen name="home_btn_height">150dp</dimen>
 
+    <dimen name="list_view_Sebtn_width">200dp</dimen>
+    <dimen name="list_view_Sebtn_height">35dp</dimen>
+
+    <dimen name="view_SeLinearLayout_width">400dp</dimen>
+    <dimen name="view_SeLinearLayout_height">190dp</dimen>
 </resources>
