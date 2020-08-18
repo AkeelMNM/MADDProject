@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CompanyViewJobActivity">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="#D5D3D3"
+        android:text="@string/Company_Jobs_Heading"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="@dimen/Company_View_Liner_width"
+        android:layout_height="@dimen/Company_View_Liner_height"
+        android:background="@color/Company_View_Liner_Bg_Color"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.194"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/Cv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:text="@string/Company_view_title"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/Cv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:text="@string/Company_view_Cname" />
+
+        <TextView
+            android:id="@+id/Cv3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="@string/Company_view_Address"
+            app:drawableStartCompat="@drawable/location" />
+
+        <TextView
+            android:id="@+id/Cv4"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Company_view_salary"
+            android:textDirection="rtl" />
+
+        <TextView
+            android:id="@+id/Cv5"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Company_view_JobType"
+            android:textDirection="rtl" />
+
+        <Button
+            android:id="@+id/btnRemove"
+            android:layout_width="@dimen/list_view_btn_width"
+            android:layout_height="@dimen/list_view_btn_height"
+            android:layout_marginStart="200dp"
+            android:backgroundTint="@color/View_List_Up_Color"
+            android:text="@string/Company_View_Edit_btn"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="@dimen/list_view_btn_width"
+            android:layout_height="@dimen/list_view_btn_height"
+            android:layout_marginStart="200dp"
+            android:backgroundTint="@color/View_List_Re_Color"
+            android:text="@string/Company_View_Remove_btn"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
