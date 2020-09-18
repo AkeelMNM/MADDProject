@@ -10,30 +10,28 @@
         android:id="@+id/textView8"
         android:layout_width="0dp"
         android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:background="#D5D3D3"
         android:text="@string/Company_Jobs_Heading"
         android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="@dimen/Company_View_Liner_width"
         android:layout_height="@dimen/Company_View_Liner_height"
+        android:layout_marginTop="20dp"
         android:background="@color/Company_View_Liner_Bg_Color"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.194"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
         tools:ignore="MissingConstraints">
 
         <TextView
