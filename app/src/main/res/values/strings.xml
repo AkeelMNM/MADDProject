@@ -54,6 +54,8 @@
     <string name="view_remove_btn">Remove</string>
     <string name="view_update_btn">Update</string>
 
+    <string name="q_Desc">Qualification : Degree in IT or SE, 2 Years Minimum Job Experience , A good team player , Good communication Skills</string>
+
 
     <string name="job_view_name2">Software Architect</string>
     <string name="comp_view_name2">IFS </string>
@@ -67,6 +69,8 @@
     <string name="job_ad_user_msg">Still Looking For A Job!!!!!!</string>
     <string name="view_job_btn">View</string>
     <string name="view_apply_btn">Apply</string>
+    <string name="qualifcText">Qualification</string>
+
 
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <!-- ****************************************************************************** -->

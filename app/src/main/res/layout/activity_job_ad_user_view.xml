@@ -19,6 +19,7 @@
         android:focusableInTouchMode="false"
         android:text="@string/search"
         android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/btnUserHelpCenter"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +35,7 @@
         android:focusableInTouchMode="false"
         android:text="@string/help_center"
         android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnUserSearch"
@@ -50,7 +52,7 @@
         android:paddingEnd="10dp"
         android:text="@string/job_ad_user_msg"
         android:textAlignment="gravity"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,14 +89,15 @@
             android:layout_height="wrap_content"
             android:paddingStart="5dp"
             android:text="@string/job_view_name"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="5dp"
-            android:text="@string/comp_view_name" />
+            android:text="@string/comp_view_name"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewCL"
@@ -103,21 +106,31 @@
             android:paddingTop="3dp"
             android:paddingBottom="3dp"
             android:text="@string/com_view_add"
+            android:textSize="18sp"
             app:drawableStartCompat="@drawable/location" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/q_Desc"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewJS"
             android:layout_width="395dp"
             android:layout_height="wrap_content"
             android:text="@string/job_view_sal"
-            android:textDirection="rtl" />
+            android:textDirection="rtl"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewJT"
             android:layout_width="395dp"
             android:layout_height="wrap_content"
             android:text="@string/job_view_t"
-            android:textDirection="rtl" />
+            android:textDirection="rtl"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnUp"
@@ -126,7 +139,7 @@
             android:layout_marginStart="200dp"
             android:backgroundTint="@color/View_List_Up_Color"
             android:text="@string/view_job_btn"
-            android:textSize="12sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnRe"
@@ -135,89 +148,8 @@
             android:layout_marginStart="200dp"
             android:backgroundTint="@color/View_List_Re_Color"
             android:text="@string/view_apply_btn"
-            android:textSize="12sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="@dimen/view_LinearLayout_width"
-        android:layout_height="@dimen/view_LinearLayout_height"
-        android:layout_marginTop="20dp"
-        android:background="@color/User_View_List_Bg_Color"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <TextView
-            android:id="@+id/textViewADL2"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="360dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="#FF9800"
-            android:paddingStart="3dp"
-            android:text="@string/job_view_ad"
-            android:textDirection="locale"
+            android:textColor="#FFFFFF"
             android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/textViewCN2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="5dp"
-            android:text="@string/job_view_name2"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/textView32"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="5dp"
-            android:text="@string/comp_view_name2" />
-
-        <TextView
-            android:id="@+id/textViewCL2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp"
-            android:text="@string/com_view_add2"
-            app:drawableStartCompat="@drawable/location" />
-
-        <TextView
-            android:id="@+id/textViewJS2"
-            android:layout_width="395dp"
-            android:layout_height="wrap_content"
-            android:text="@string/job_view_sal2"
-            android:textDirection="rtl" />
-
-        <TextView
-            android:id="@+id/textViewJT2"
-            android:layout_width="395dp"
-            android:layout_height="wrap_content"
-            android:text="@string/job_view_t"
-            android:textDirection="rtl" />
-
-        <Button
-            android:id="@+id/btnUp2"
-            android:layout_width="@dimen/list_view_btn_width"
-            android:layout_height="@dimen/list_view_btn_height"
-            android:layout_marginStart="200dp"
-            android:backgroundTint="@color/View_List_Up_Color"
-            android:text="@string/view_job_btn"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/btnRe2"
-            android:layout_width="@dimen/list_view_btn_width"
-            android:layout_height="@dimen/list_view_btn_height"
-            android:layout_marginStart="200dp"
-            android:backgroundTint="@color/View_List_Re_Color"
-            android:text="@string/view_apply_btn"
-            android:textSize="12sp" />
 
     </LinearLayout>
 
