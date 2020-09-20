@@ -9,25 +9,24 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="273dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="28dp"
         android:text="@string/adminreq"
         android:textAlignment="center"
-        android:textAllCaps="false"
+        android:textAllCaps="true"
         android:textColor="#090909"
         android:textSize="24sp"
-        android:textStyle="italic"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="125dp" />
+        tools:layout_editor_absoluteX="-29dp" />
 
     <Button
         android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="204dp"
-        android:layout_marginTop="52dp"
-        android:backgroundTint="#2196F3"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#009688"
         android:text="Reply"
         android:textColor="#0E0E0E"
         app:layout_constraintStart_toEndOf="@+id/textView27"
@@ -37,9 +36,9 @@
         android:id="@+id/button8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="208dp"
+        android:layout_marginStart="228dp"
         android:layout_marginTop="44dp"
-        android:backgroundTint="#2196F3"
+        android:backgroundTint="#009688"
         android:text="Reply"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -48,9 +47,9 @@
         android:id="@+id/button9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
+        android:layout_marginStart="220dp"
         android:layout_marginTop="44dp"
-        android:backgroundTint="#2196F3"
+        android:backgroundTint="#009688"
         android:text="Reply"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
@@ -62,7 +61,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="44dp"
         android:text="Smith"
-        android:textColor="#0C0C0C"
+        android:textColor="#009688"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -72,31 +71,34 @@
         android:layout_width="382dp"
         android:layout_height="87dp"
         android:layout_marginTop="21dp"
-        android:backgroundTint="#BF2626"
+        android:background="#fcfcfc"
         android:text="I’m also in the Society of Professional Journalists, and I’ve really enjoyed reading your posts. The piece you shared a week or two ago about the future of data journalism wa..."
+        android:textColor="#0B0B0B"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@+id/textView27"
         tools:layout_editor_absoluteX="19dp" />
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="244dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="375dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="16dp"
         android:text="I’m a college senior interested in working in marketing. For the last year, I’ve been following your work for Bryan and Associates, and it’s really impressed me. I particularly  "
+        android:textColor="#090909"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        tools:layout_editor_absoluteX="25dp" />
+        tools:layout_editor_absoluteX="19dp" />
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="228dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="372dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="16dp"
         android:text="I was really impressed by the social media strategy you put together for Bella Bru Coffee Shop. I’m also a small business owner  "
+        android:textColor="#0B0A0A"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintHorizontal_bias="0.655"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -107,7 +109,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="44dp"
         android:text="Jesica"
-        android:textColor="#0C0C0C"
+        android:textColor="#009688"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
@@ -116,12 +118,12 @@
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="68dp"
         android:text="PAUL"
-        android:textColor="#0C0C0C"
+        android:textColor="#009688"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:layout_editor_absoluteX="21dp" />
+        tools:layout_editor_absoluteX="4dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

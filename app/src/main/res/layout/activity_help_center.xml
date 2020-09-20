@@ -10,60 +10,63 @@
 
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextPName"
         android:layout_width="334dp"
         android:layout_height="47dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Name"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        tools:layout_editor_absoluteX="19dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="283dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:id="@+id/editTextPemail"
+        android:layout_width="334dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="52dp"
         android:ems="10"
+        android:hint="Email "
         android:inputType="textPersonName"
-        android:text="Email :"
         android:textAlignment="textStart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toTopOf="@+id/editTextPName" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="332dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="4dp"
+        android:id="@+id/editTextPmsg"
+        android:layout_width="334dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="56dp"
         android:ems="10"
+        android:hint="How can we help ?"
         android:inputType="textPersonName"
-        android:text="How can we help ?"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-        tools:layout_editor_absoluteX="21dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextPemail" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="318dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="16dp"
-        android:background="#DC004B"
+        android:id="@+id/btnsend"
+        android:layout_width="337dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:background="#009688"
         android:text="send"
         android:textAlignment="center"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
-        tools:layout_editor_absoluteX="24dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextPmsg" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:background="#989393"
+        android:layout_marginTop="12dp"
+        android:background="#FBFBFB"
         android:text="@string/job_helpcenter7"
-        android:textColor="#050505"
+        android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,65 +76,58 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:background="#A69F9F"
+        android:layout_marginTop="186dp"
+        android:background="#FBFBFB"
         android:text="@string/job_helpcenter8"
         android:textAlignment="center"
-        android:textColor="#050505"
+        android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/job_helpcenter10"
-        android:textAlignment="center"
-        android:textColor="#050505"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/job_helpcenter13"
+        android:layout_marginTop="55dp"
 
+        android:background="#FBFBFB"
+        android:text="@string/job_helpcenter13"
         android:textAlignment="center"
-        android:textColor="#050505"
+        android:textColor="@android:color/background_dark"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toTopOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="408dp"
-        android:layout_height="15dp"
+        android:layout_width="365dp"
+        android:layout_height="43dp"
 
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:background="#FBFBFB"
         android:text="@string/job_helpcenter14"
         android:textAlignment="center"
-        android:textColor="#050505"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        tools:layout_editor_absoluteX="0dp" />
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView9" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="405dp"
-        android:layout_height="174dp"
+        android:layout_width="402dp"
+        android:layout_height="182dp"
+        android:layout_marginTop="4dp"
         android:background="#FFFFFF"
-        android:backgroundTint="#090909"
+        android:backgroundTint="#009688"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="16dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <TextView
@@ -141,7 +137,7 @@
             android:layout_marginTop="32dp"
             android:text="@string/job_helpcenter1"
             android:textAlignment="center"
-            android:textColor="#F6F1F1"
+            android:textColor="#fcfffc"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -154,7 +150,7 @@
             android:layout_marginStart="16dp"
             android:text="@string/job_helpcenter2"
             android:textAlignment="center"
-            android:textColor="#FBF9F9"
+            android:textColor="#fcfffc"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -164,7 +160,7 @@
             android:layout_height="wrap_content"
             android:text="@string/job_helpcenter3"
             android:textAlignment="center"
-            android:textColor="#FDFCFC"
+            android:textColor="#fcfffc"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -172,15 +168,44 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/btnview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:backgroundTint="#B84141"
+            android:backgroundTint="#e1f0e5"
             android:text="@string/job_viewreq1"
             android:textColor="#040404" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnupdate"
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="48dp"
+        android:background="#e1f0e5"
+        android:text="UPDATE"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnsend" />
+
+    <Button
+        android:id="@+id/btndelete"
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="48dp"
+        android:background="#e1f0e5"
+        android:text="DELETE"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/btnupdate"
+        app:layout_constraintTop_toTopOf="@+id/btnsend" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
