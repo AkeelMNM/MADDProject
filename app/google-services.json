@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "972357594301",
+    "firebase_url": "https://jobfixer-8b950.firebaseio.com",
+    "project_id": "jobfixer-8b950",
+    "storage_bucket": "jobfixer-8b950.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972357594301:android:d05f02921db50153471bd4",
+        "android_client_info": {
+          "package_name": "com.firstapp.jobfixer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972357594301-dv1nqj5o7k73ge9rmrcosfl4b1u13uaj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBodByOFjuKqUgRHLHhkvQFVD8ocsG9kuY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972357594301-dv1nqj5o7k73ge9rmrcosfl4b1u13uaj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -84,7 +84,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textViewCN"
+            android:id="@+id/textViewJobTit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="5dp"
@@ -92,7 +92,7 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textCompany"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="5dp"
@@ -133,7 +133,7 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/btnUp"
+            android:id="@+id/btnView"
             android:layout_width="@dimen/list_view_btn_width"
             android:layout_height="@dimen/list_view_btn_height"
             android:layout_marginStart="200dp"
@@ -142,7 +142,7 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/btnRe"
+            android:id="@+id/btnApply"
             android:layout_width="@dimen/list_view_btn_width"
             android:layout_height="@dimen/list_view_btn_height"
             android:layout_marginStart="200dp"

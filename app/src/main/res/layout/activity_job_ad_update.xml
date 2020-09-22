@@ -14,11 +14,11 @@
         android:layout_height="wrap_content"
         android:text="@string/qualifcText"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/TxtInputUpJobSal"
+        app:layout_constraintBottom_toTopOf="@+id/TxtInputUpJobQualic"
         app:layout_constraintEnd_toStartOf="@+id/txtInputUpJobSal"
         app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comNaAddSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/jobTypeAddSpinner" />
 
     <EditText
         android:id="@+id/txtInputUpJobSal"
@@ -28,14 +28,14 @@
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/TxtInputUpJobSal"
+        app:layout_constraintBottom_toTopOf="@+id/TxtInputUpJobQualic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/comNaAddSpinner"
+        app:layout_constraintStart_toEndOf="@+id/jobTypeAddSpinner"
         app:layout_constraintTop_toBottomOf="@+id/textViewUpdateJobSal" />
 
     <Spinner
-        android:id="@+id/comNaAddSpinner"
+        android:id="@+id/jobTypeAddSpinner"
         android:layout_width="181dp"
         android:layout_height="44dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewUpdateJobSal2"
@@ -116,7 +116,7 @@
         android:layout_marginEnd="120dp"
         android:text="@string/job_t"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/comNaAddSpinner"
+        app:layout_constraintBottom_toTopOf="@+id/jobTypeAddSpinner"
         app:layout_constraintEnd_toStartOf="@+id/textViewUpdateJobSal"
         app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
@@ -180,7 +180,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewUpdateComAdd" />
 
     <EditText
-        android:id="@+id/TxtInputUpJobSal"
+        android:id="@+id/TxtInputUpJobQualic"
         android:layout_width="401dp"
         android:layout_height="46dp"
         android:ems="10"
@@ -204,6 +204,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TxtInputUpJobSal" />
+        app:layout_constraintTop_toBottomOf="@+id/TxtInputUpJobQualic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -54,8 +54,8 @@
     <string name="view_remove_btn">Remove</string>
     <string name="view_update_btn">Update</string>
 
-    <string name="q_Desc">Qualification : Degree in IT or SE, 2 Years Minimum Job Experience , A good team player , Good communication Skills</string>
-
+    <string name="q_Desc">Degree in IT or SE, 2 Years Minimum Job Experience , A good team player , Good communication Skills</string>
+    <string name="quaTit">Qualification :</string>
 
     <string name="job_view_name2">Software Architect</string>
     <string name="comp_view_name2">IFS </string>

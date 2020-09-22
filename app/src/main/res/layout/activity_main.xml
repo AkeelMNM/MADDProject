@@ -116,9 +116,8 @@
 
             <TextView
                 android:id="@+id/txtBanner2"
-                android:layout_width="397dp"
+                android:layout_width="match_parent"
                 android:layout_height="53dp"
-                android:layout_marginLeft="6dp"
                 android:layout_marginTop="20dp"
                 android:background="#EFE9E9"
                 android:paddingStart="10dp"
@@ -131,98 +130,12 @@
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
-                android:layout_height="31dp" />
+                android:layout_height="15dp" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="@dimen/view_LinearLayout_width"
-                android:layout_height="@dimen/view_LinearLayout_height"
-                android:layout_marginStart="6dp"
-                android:background="@color/Admin_View_List_Bg_Color"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textViewADL"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="360dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="#FF9800"
-                    android:paddingStart="3dp"
-                    android:text="@string/job_view_ad"
-                    android:textDirection="locale"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textViewCN"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="5dp"
-                    android:text="@string/job_view_name"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="5dp"
-                    android:text="@string/comp_view_name"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textViewCL"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
-                    android:text="@string/com_view_add"
-                    android:textSize="18sp"
-                    app:drawableStartCompat="@drawable/location" />
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/q_Desc"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textViewJS"
-                    android:layout_width="395dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/job_view_sal"
-                    android:textDirection="rtl"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textViewJT"
-                    android:layout_width="395dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/job_view_t"
-                    android:textDirection="rtl"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/btnUp"
-                    android:layout_width="@dimen/list_view_btn_width"
-                    android:layout_height="@dimen/list_view_btn_height"
-                    android:layout_marginStart="200dp"
-                    android:backgroundTint="@color/View_List_Up_Color"
-                    android:text="@string/view_job_btn"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/btnRe"
-                    android:layout_width="@dimen/list_view_btn_width"
-                    android:layout_height="@dimen/list_view_btn_height"
-                    android:layout_marginStart="200dp"
-                    android:backgroundTint="@color/View_List_Re_Color"
-                    android:text="@string/view_apply_btn"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
     </ScrollView>
