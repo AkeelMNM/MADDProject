@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/adminAdViewLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/User_View_List_Bg_Color" >
+    android:background="@color/User_View_List_Bg_Color">
 
     <TextView
         android:id="@+id/textViewADL"
@@ -132,4 +134,17 @@
         android:text="@string/quaTit"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtJobID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtJobCat"
+        android:layout_width="34dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible" />
 </RelativeLayout>

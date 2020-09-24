@@ -73,6 +73,66 @@
 
 
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+    <!-- Job category and Job Title String arrays-->
+
+    <string-array name="jobCat">
+        <item>Information Technology</item>
+        <item>Business Management and Administration</item>
+        <item>Engineering</item>
+        <item>Hospitality and Tourism</item>
+        <item>Architecture and Construction</item>
+    </string-array>
+
+    <string-array name="itJobCat">
+        <item>Software Engineer</item>
+        <item>Database Administrator</item>
+        <item>Software Architect</item>
+        <item>Network Engineer</item>
+        <item>Data Scientist</item>
+    </string-array>
+
+    <string-array name="bmJobCat">
+        <item>Accountant</item>
+        <item>Auditors</item>
+        <item>Budget Analyst</item>
+        <item>Financial Manager</item>
+        <item>Marketing Manager</item>
+    </string-array>
+
+    <string-array name="htJobCat">
+        <item>Food Service Manager</item>
+        <item>Lodging Manager</item>
+        <item>Waiters or Waitresses</item>
+        <item>Cooks, Restaurant</item>
+        <item>Bartender</item>
+    </string-array>
+
+    <string-array name="enJobCat">
+        <item>Automotive Engineer</item>
+        <item>Mechanical Engineer</item>
+        <item>Electric Engineer</item>
+        <item>Electronic Engineer</item>
+        <item>Materials Engineer</item>
+    </string-array>
+
+    <string-array name="arJobCat">
+        <item>Civil Engineer</item>
+        <item>Architect</item>
+        <item>Quantity saviour</item>
+        <item>Construction Manager</item>
+        <item>Electricians</item>
+    </string-array>
+
+    <string-array name="jobTy">
+        <item>Full Time</item>
+        <item>Part Time</item>
+        <item>Internship</item>
+
+    </string-array>
+
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <!-- ****************************************************************************** -->
 
 </resources>

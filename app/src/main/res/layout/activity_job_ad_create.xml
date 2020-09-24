@@ -168,7 +168,7 @@
         android:id="@+id/TxtInputJobSal"
         android:layout_width="193dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="24dp"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
