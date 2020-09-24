@@ -8,13 +8,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firstapp.jobfixer.Database.DBMaster;
 import com.firstapp.jobfixer.JobAdAdminViewActivity;
 import com.firstapp.jobfixer.JobAdUpdateActivity;
 import com.firstapp.jobfixer.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -29,6 +36,8 @@ public class AdAdminRecycleViewAdepter extends RecyclerView.Adapter<AdAdminRecyc
     private ArrayList<String> jobType = new ArrayList<>();
     private ArrayList<String> jobID = new ArrayList<>();
     private Context mContext;
+
+    DatabaseReference dbRef;
 
     public AdAdminRecycleViewAdepter(ArrayList<String> jobCat, ArrayList<String> jobName, ArrayList<String> compName, ArrayList<String> compLocation, ArrayList<String> jobQualification, ArrayList<String> jobSalary, ArrayList<String> jobType, ArrayList<String> jobID, Context mContext) {
         this.jobCat = jobCat;
@@ -68,6 +77,7 @@ public class AdAdminRecycleViewAdepter extends RecyclerView.Adapter<AdAdminRecyc
         holder.jobQua.setText(jobQualification.get(position));
         holder.jobId.setText(jobID.get(position));
 
+        //Sent the RecycleView item details to Update the form
         holder.btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,10 +97,31 @@ public class AdAdminRecycleViewAdepter extends RecyclerView.Adapter<AdAdminRecyc
             }
         });
 
+        //Delete the RecycleView item in the Firebase database directly
         holder.btnRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                final String id = jobID.get(position);
+                DatabaseReference delRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Advertisement.TABLE_NAME);
+                delRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.hasChild(id)){
+                            dbRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Advertisement.TABLE_NAME).child(id);
+                            dbRef.removeValue();
+                            Toast.makeText(mContext.getApplicationContext(), "Data Deleted Successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                Intent intent = new Intent(mContext.getApplicationContext(),JobAdAdminViewActivity.class);
+                mContext.startActivity(intent);
             }
         });
 

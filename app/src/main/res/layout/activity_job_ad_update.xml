@@ -185,14 +185,14 @@
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/btnCrteAd"
+        app:layout_constraintBottom_toTopOf="@+id/btnUpAd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewUpdateJobSal2" />
 
     <Button
-        android:id="@+id/btnCrteAd"
+        android:id="@+id/btnUpAd"
         android:layout_width="401dp"
         android:layout_height="46dp"
         android:backgroundTint="@color/AdUpForm_Btn_Color"
@@ -215,7 +215,8 @@
         app:layout_constraintEnd_toStartOf="@+id/txtBanner"
         app:layout_constraintHorizontal_bias="0.915"
         app:layout_constraintStart_toEndOf="@+id/txtBanner"
-        tools:layout_editor_absoluteY="-1dp" />
+        tools:layout_editor_absoluteY="-1dp"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

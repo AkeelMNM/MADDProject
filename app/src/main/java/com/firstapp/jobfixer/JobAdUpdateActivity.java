@@ -28,7 +28,8 @@ public class JobAdUpdateActivity extends AppCompatActivity {
 
     EditText txtCompanyAddress,txtJobSalary,txtQualification,txtJobID;
     Button btnUpdate;
-    String jName;
+    String jCa,jTitle,jType,jCn;
+    DatabaseReference dbRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class JobAdUpdateActivity extends AppCompatActivity {
         txtJobSalary = findViewById(R.id.txtInputUpJobSal);
         txtQualification = findViewById(R.id.TxtInputUpJobQualic);
         txtJobID=findViewById(R.id.txtJobID);
+        btnUpdate=findViewById(R.id.btnUpAd);
 
         Bundle bundle = getIntent().getExtras();
         txtCompanyAddress.setText(bundle.getString("cLoc"));
@@ -76,7 +78,13 @@ public class JobAdUpdateActivity extends AppCompatActivity {
         arrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spJobType.setAdapter(arrayAdapter2);
 
-        /*btnUpdate.setOnClickListener(new View.OnClickListener() {
+        jTitle=spJobTitle.getSelectedItem().toString();
+        jType = spJobType.getSelectedItem().toString();
+        jCa =spJobCategory.getSelectedItem().toString();
+        jCn =spCompanyName.getSelectedItem().toString();
+
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatabaseReference upRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Advertisement.TABLE_NAME);
@@ -84,17 +92,20 @@ public class JobAdUpdateActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                        Advertisement ad = new Advertisement();
                         if(dataSnapshot.hasChild(txtJobID.getText().toString().trim())) {
-                            Advertisement ad = new Advertisement();
-                            ad.setJobID("J002");
-                            //ad.setJobCategory(Select);
-                            //ad.setJobTitle(Select2);
+
+                            ad.setJobCategory(jCa);
+                            ad.setJobTitle(jTitle);
                             ad.setCompanyName("IFS");
-                            //ad.setJobType(Select3);
+                            ad.setJobType(jType);
                             ad.setCompanyAddress(txtCompanyAddress.getText().toString().trim());
                             ad.setJobSalary(txtJobSalary.getText().toString().trim());
                             ad.setQualification(txtQualification.getText().toString().trim());
                         }
+
+                        dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Advertisement.TABLE_NAME).child(txtJobID.getText().toString().trim());
+                        dbRef.setValue(ad);
                     }
 
                     @Override
@@ -102,8 +113,12 @@ public class JobAdUpdateActivity extends AppCompatActivity {
 
                     }
                 });
+
+                Intent intent = new Intent(JobAdUpdateActivity.this,JobAdAdminViewActivity.class);
+                startActivity(intent);
             }
-        });*/
+
+        });
 
 
     }
