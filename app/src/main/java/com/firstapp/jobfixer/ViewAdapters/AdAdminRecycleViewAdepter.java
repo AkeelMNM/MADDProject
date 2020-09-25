@@ -54,20 +54,20 @@ public class AdAdminRecycleViewAdepter extends RecyclerView.Adapter<AdAdminRecyc
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //Create view from xml layout(layoutList)
+        /** Create view from xml layout(layoutList)**/
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.admin_ad_view_recyleview_layout,parent,false);
 
-        //Create ViewHolder
+        /** Create ViewHolder **/
         ViewHolder viewHolder = new ViewHolder(view);
 
-        //return View Holder
+        /** return View Holder **/
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
-        //set Texts
+        /** set Texts **/
         holder.jobCato.setText(jobCat.get(position));
         holder.jobTitle.setText(jobName.get(position));
         holder.comName.setText(compName.get(position));
@@ -77,7 +77,7 @@ public class AdAdminRecycleViewAdepter extends RecyclerView.Adapter<AdAdminRecyc
         holder.jobQua.setText(jobQualification.get(position));
         holder.jobId.setText(jobID.get(position));
 
-        //Sent the RecycleView item details to Update the form
+        /** Sent the RecycleView item details to Update the from via Intent**/
         holder.btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +97,8 @@ public class AdAdminRecycleViewAdepter extends RecyclerView.Adapter<AdAdminRecyc
             }
         });
 
-        //Delete the RecycleView item in the Firebase database directly
+        /** Delete the RecycleView item in the Firebase database directly **/
+
         holder.btnRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,6 +142,8 @@ public class AdAdminRecycleViewAdepter extends RecyclerView.Adapter<AdAdminRecyc
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            /** Accessing the Views and Button of Recycle View **/
             jobTitle = itemView.findViewById(R.id.textViewJobTit);
             comName = itemView.findViewById(R.id.textCompany);
             comLoc = itemView.findViewById(R.id.textViewCL);
@@ -155,4 +158,6 @@ public class AdAdminRecycleViewAdepter extends RecyclerView.Adapter<AdAdminRecyc
             btnUpdate = itemView.findViewById(R.id.btnUpdate);
         }
     }
+
+
 }

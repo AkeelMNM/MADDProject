@@ -58,6 +58,7 @@ public class JobAdAdminViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                /**Redirecting to Create ad from via Intent**/
                 Intent intent = new Intent(JobAdAdminViewActivity.this,JobAdCreateActivity.class);
                 startActivity(intent);
             }
@@ -67,6 +68,7 @@ public class JobAdAdminViewActivity extends AppCompatActivity {
 
     private void initImageBitmaps() {
 
+        /** Retrieving All Data's from Firebase Database **/
 
         Query data = FirebaseDatabase.getInstance().getReference().child(DBMaster.Advertisement.TABLE_NAME);
 
@@ -98,6 +100,8 @@ public class JobAdAdminViewActivity extends AppCompatActivity {
     private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: started");
         RecyclerView recyclerView = findViewById(R.id.adminRecyleView);
+
+        /** Assigning the Retrieved Data's to admin_ad_recycleView_layout.xml via Constructor of AdAdminRecycleViewAdepter.java **/
         AdAdminRecycleViewAdepter adapter = new AdAdminRecycleViewAdepter(mJobCat,mJobName,mCompName,mCompLocation,mJobQualification,mJobSalary,mJobType,mJobID,this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

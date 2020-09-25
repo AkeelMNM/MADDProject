@@ -22,12 +22,15 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class JobAdCreateActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    private ArrayList<String> mJobID = new ArrayList<>();
+    public static final String AD_ID_PREFIX ="AD0";
 
     EditText txtCompanyAddress, txtJobSalary, txtQualification;
     String Select,Select2,Select3;
@@ -48,6 +51,8 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_ad_create);
 
+        /**Accessing the Spinners,TextViews and button in the Activity**/
+
         Spinner spJobCategory = (Spinner) findViewById(R.id.JobCatAddSpinner);
         Spinner spCompanyName = (Spinner) findViewById(R.id.ComNaAddSpinner);
         Spinner spJobType = (Spinner) findViewById(R.id.jobTypeAddSpinner);
@@ -57,18 +62,21 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
         txtQualification = findViewById(R.id.txtInputQualifcAdd);
         btnSave = findViewById(R.id.btnCreate);
 
-
+        /**Assigning the values to Job Category Spinner in the Activity**/
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.jobCat));
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spJobCategory.setAdapter(arrayAdapter);
         spJobCategory.setOnItemSelectedListener(this);
 
+        /**Assigning the values to Job Type Spinner in the Activity**/
         ArrayAdapter<String> arrayAdapterTy = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.jobTy));
         arrayAdapterTy.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spJobType.setAdapter(arrayAdapterTy);
-        Select3 = spJobType.getSelectedItem().toString();
-        Toast.makeText(this, Select3, Toast.LENGTH_SHORT).show();
 
+        /**Reading the values in Job Type Spinner in the Activity**/
+        Select3 = spJobType.getSelectedItem().toString();
+
+        /**Adding a new advertisement in firebase DB**/
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,9 +96,9 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
                         ad.setJobSalary(txtJobSalary.getText().toString().trim());
                         ad.setQualification(txtQualification.getText().toString().trim());
 
+                        String id = getAdID();
                         //Insert into Database
-                        //dbRef.push().setValue(std);
-                        dbRef.child("Ad3").setValue(ad);
+                        dbRef.child(id).setValue(ad);
 
                     }
 
@@ -111,10 +119,14 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
 
     @Override
     public void onItemSelected (AdapterView < ? > parent, View view,int position, long id){
+
+        /**Reading the values in Job Category Spinner in the Activity**/
         Select = parent.getItemAtPosition(position).toString();
 
 
         Spinner spJobTitle = (Spinner) findViewById(R.id.JobTiAddSpinner);
+
+        /**Change the values in Job Title according to the user selection of the job Category and assigning values to the job title Spinner in the Activity**/
 
         if (Select.equals("Information Technology")) {
             ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.itJobCat));
@@ -145,6 +157,7 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
             spJobTitle.setAdapter(arrayAdapterJ);
         }
 
+        /**Reading the values in Job Title Spinner in the Activity**/
         Select2 = spJobTitle.getSelectedItem().toString();
 
     }
@@ -152,5 +165,37 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
     @Override
     public void onNothingSelected (AdapterView < ? > parent){
 
+    }
+
+    private String getAdID(){
+
+        Query data = FirebaseDatabase.getInstance().getReference().child(DBMaster.Advertisement.TABLE_NAME);
+
+        data.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot st: dataSnapshot.getChildren()){
+                    mJobID.add(st.getKey().toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        String id = null;
+        int alSize = mJobID.size();
+        alSize++;
+        id=AD_ID_PREFIX + alSize;
+        if(mJobID.contains(id))
+        {
+            alSize++;
+            id=AD_ID_PREFIX + alSize;
+        }
+
+        return id;
     }
 }

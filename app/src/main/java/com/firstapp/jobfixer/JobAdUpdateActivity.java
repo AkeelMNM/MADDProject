@@ -47,11 +47,14 @@ public class JobAdUpdateActivity extends AppCompatActivity {
         txtJobID=findViewById(R.id.txtJobID);
         btnUpdate=findViewById(R.id.btnUpAd);
 
+        /** Retrieving the RecycleView item details from JobAdAdminViewActivity.java class via Intent**/
         Bundle bundle = getIntent().getExtras();
         txtCompanyAddress.setText(bundle.getString("cLoc"));
         txtJobSalary.setText(bundle.getString("jSal"));
         txtQualification.setText(bundle.getString("jQua"));
         txtJobID.setText(bundle.getString("jID"));
+
+        /** Assigning the job category detail to the spinner got from the Intent**/
 
         ArrayList<String> jCat = new ArrayList<String>();
         jCat.add(bundle.getString("jCat"));
@@ -59,12 +62,15 @@ public class JobAdUpdateActivity extends AppCompatActivity {
         arrayAdapterC.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spJobCategory.setAdapter(arrayAdapterC);
 
+        /** Assigning the job Title detail to the spinner got from the Intent**/
+
         ArrayList<String> jTit = new ArrayList<String>();
         jTit.add(bundle.getString("jTitle"));
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, jTit);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spJobTitle.setAdapter(arrayAdapter);
 
+        /** Assigning the company name detail to the spinner got from the Intent**/
 
         ArrayList<String> cN = new ArrayList<String>();
         cN.add(bundle.getString("cName"));
@@ -72,17 +78,22 @@ public class JobAdUpdateActivity extends AppCompatActivity {
         arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spCompanyName.setAdapter(arrayAdapter1);
 
+        /** Assigning the job type detail to the spinner got from the Intent**/
+
         ArrayList<String> jT = new ArrayList<String>();
         jT.add(bundle.getString("jType"));
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, jT);
         arrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spJobType.setAdapter(arrayAdapter2);
 
+        /** capturing the details in the spinner from the update form**/
         jTitle=spJobTitle.getSelectedItem().toString();
         jType = spJobType.getSelectedItem().toString();
         jCa =spJobCategory.getSelectedItem().toString();
         jCn =spCompanyName.getSelectedItem().toString();
 
+
+        /** Updating the details of the Advertisement**/
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +125,7 @@ public class JobAdUpdateActivity extends AppCompatActivity {
                     }
                 });
 
+                /**invoking jobAdAdminActivity via Intent after ad details updated **/
                 Intent intent = new Intent(JobAdUpdateActivity.this,JobAdAdminViewActivity.class);
                 startActivity(intent);
             }
