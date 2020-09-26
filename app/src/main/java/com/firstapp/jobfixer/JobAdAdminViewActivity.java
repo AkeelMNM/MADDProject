@@ -105,7 +105,7 @@ public class JobAdAdminViewActivity extends AppCompatActivity {
         AdAdminRecycleViewAdepter adapter = new AdAdminRecycleViewAdepter(mJobCat,mJobName,mCompName,mCompLocation,mJobQualification,mJobSalary,mJobType,mJobID,this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        for(int i=0;i<4;i++){ recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));}
+        for(int i=0;i<3;i++){ recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));}
 
 
     }

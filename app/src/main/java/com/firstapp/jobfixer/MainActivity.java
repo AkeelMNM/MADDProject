@@ -1,5 +1,6 @@
 package com.firstapp.jobfixer;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,7 +11,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 
+import com.firstapp.jobfixer.Database.DBMaster;
 import com.firstapp.jobfixer.ViewAdapters.AdRecycleViewAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -24,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> mJobSalary = new ArrayList<>();
     private ArrayList<String> mJobType = new ArrayList<>();
 
+    DatabaseReference dbRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,19 +44,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initImageBitmaps() {
-        mJobName.add("SE");
-        mCompName.add("IFS");
-        mCompLocation.add("Colombo");
-        mJobSalary.add("100000");
-        mJobType.add("FullTime");
-        mJobQualification.add("2 Years");
+        /** Retrieving Data's from Firebase Database According to the user specification**/
 
-        mJobName.add("IT");
-        mCompName.add("IFS");
-        mCompLocation.add("Colombo 03");
-        mJobSalary.add("100000");
-        mJobType.add("FullTime");
-        mJobQualification.add("3 Years");
+        dbRef=FirebaseDatabase.getInstance().getReference().child(DBMaster.Advertisement.TABLE_NAME);
+        Query data = dbRef.orderByChild(DBMaster.Advertisement.COLUMN_NAME_JOB_TITLE).equalTo("Software Engineer");
+
+        data.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot st: dataSnapshot.getChildren()){
+                    mJobName.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_TITLE).getValue().toString());
+                    mCompName.add(st.child(DBMaster.Advertisement.COLUMN_NAME_COMPANY_NAME).getValue().toString());
+                    mCompLocation.add(st.child(DBMaster.Advertisement.COLUMN_NAME_COMPANY_ADDRESS).getValue().toString());
+                    mJobSalary.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_SALARY).getValue().toString());
+                    mJobType.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_TYPE).getValue().toString());
+                    mJobQualification.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_QUALIFICATION).getValue().toString());
+                    initRecyclerView();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         initRecyclerView();
 
     }
@@ -63,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         AdRecycleViewAdapter adapter = new AdRecycleViewAdapter(mJobName,mCompName,mCompLocation,mJobQualification,mJobSalary,mJobType,this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        for(int i=0;i<4;i++){ recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));}
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
 
     }

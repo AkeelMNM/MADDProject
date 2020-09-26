@@ -3,6 +3,7 @@ package com.firstapp.jobfixer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -96,7 +97,20 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
                         ad.setJobSalary(txtJobSalary.getText().toString().trim());
                         ad.setQualification(txtQualification.getText().toString().trim());
 
-                        String id = getAdID();
+                        for(DataSnapshot st: dataSnapshot.getChildren()){
+                            mJobID.add(st.getKey().toString());
+                        }
+
+                        String id = null;
+                        int alSize = mJobID.size();
+                        alSize++;
+                        id=AD_ID_PREFIX + alSize;
+                        if(mJobID.contains(id))
+                        {
+                            alSize++;
+                            id=AD_ID_PREFIX + alSize;
+                        }
+
                         //Insert into Database
                         dbRef.child(id).setValue(ad);
 
@@ -107,6 +121,9 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
 
                     }
                 });
+                Toast.makeText(JobAdCreateActivity.this, "Advertisement Created Successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(JobAdCreateActivity.this,JobAdAdminViewActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -167,7 +184,7 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
 
     }
 
-    private String getAdID(){
+    /*private String getAdID(){
 
         Query data = FirebaseDatabase.getInstance().getReference().child(DBMaster.Advertisement.TABLE_NAME);
 
@@ -186,16 +203,6 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
             }
         });
 
-        String id = null;
-        int alSize = mJobID.size();
-        alSize++;
-        id=AD_ID_PREFIX + alSize;
-        if(mJobID.contains(id))
-        {
-            alSize++;
-            id=AD_ID_PREFIX + alSize;
-        }
 
-        return id;
-    }
+    }*/
 }
