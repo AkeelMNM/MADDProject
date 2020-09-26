@@ -25,6 +25,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG ="Main Activity" ;
+    private ArrayList<String> mJobCat = new ArrayList<>();
     private ArrayList<String> mJobName = new ArrayList<>();
     private ArrayList<String> mCompName = new ArrayList<>();
     private ArrayList<String> mCompLocation = new ArrayList<>();
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for(DataSnapshot st: dataSnapshot.getChildren()){
+                    mJobCat.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_CATEGORY).getValue().toString());
                     mJobName.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_TITLE).getValue().toString());
                     mCompName.add(st.child(DBMaster.Advertisement.COLUMN_NAME_COMPANY_NAME).getValue().toString());
                     mCompLocation.add(st.child(DBMaster.Advertisement.COLUMN_NAME_COMPANY_ADDRESS).getValue().toString());
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: started");
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        AdRecycleViewAdapter adapter = new AdRecycleViewAdapter(mJobName,mCompName,mCompLocation,mJobQualification,mJobSalary,mJobType,this);
+        AdRecycleViewAdapter adapter = new AdRecycleViewAdapter(mJobCat,mJobName,mCompName,mCompLocation,mJobQualification,mJobSalary,mJobType,this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));

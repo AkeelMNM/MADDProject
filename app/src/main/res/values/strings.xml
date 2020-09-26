@@ -70,6 +70,9 @@
     <string name="view_job_btn">View</string>
     <string name="view_apply_btn">Apply</string>
     <string name="qualifcText">Qualification</string>
+    <string name="jDesc">JOB DESCRIPTION</string>
+    <string name="jobReq">Job Requirements</string>
+    <string name="btnH">home</string>
 
 
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
