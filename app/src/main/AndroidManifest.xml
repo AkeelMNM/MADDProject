@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CompanyViewJobActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+             </activity>
+        <activity android:name=".CompanyEditJobActivity"></activity>
+        <activity android:name=".CompanyAddJobActivity" >  <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> </activity>
-        <activity android:name=".CompanyEditJobActivity"> </activity>
-        <activity android:name=".CompanyAddJobActivity" > </activity>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter> </activity>
         <activity android:name=".AdminHomeActivity" />
         <activity android:name=".CompanyHomeActivity" />
         <activity android:name=".MainActivity" />

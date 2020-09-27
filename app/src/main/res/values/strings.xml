@@ -52,6 +52,21 @@
     
     <string name="Company_View_Remove_btn">Remove</string>
     <string name="Company_View_Edit_btn">Edit</string>
+    <string name="compName">Company Name</string>
+    <string name="AddNewJob">Add New Job</string>
+
+    <string-array name="JobCatogary">
+        <item>IT</item>
+        <item>Education</item>
+        <item>Manufacturing</item>
+    </string-array>
+
+    <string-array name="JobType">
+        <item>Full Time</item>
+        <item>Part Time</item>
+        <item>Work from Home</item>
+    </string-array>
+
     <!-- Company LinearLayout End -->
 
     <!-- ****************************************************************************** -->
