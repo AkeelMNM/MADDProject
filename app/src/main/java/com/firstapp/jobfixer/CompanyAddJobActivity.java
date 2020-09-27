@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -27,6 +28,9 @@ public class CompanyAddJobActivity extends AppCompatActivity {
     EditText txtComName,txtComAdd,txtComSal,txtComDes;
     Button AddJobBtn;
     Button CanBtn;
+    Spinner jobCategory,JobTitle,JobType;
+    String[] JobCategoryArray,JobTitleArray,JobTypeArray;
+    ArrayAdapter CategoryAdapter,TileAdapter,TypeAdapter;
     DatabaseReference DBRef;
 
     @Override
@@ -34,9 +38,13 @@ public class CompanyAddJobActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_add_job);
 
-        Spinner sp=(Spinner) findViewById(R.id.AddJobCatogorySpinner);
-        Spinner sp1=(Spinner) findViewById(R.id.AddJobTitleSpinner);
-        Spinner sp2=(Spinner) findViewById(R.id.AddJobTypeSpinner);
+        jobCategory =(Spinner) findViewById(R.id.AddJobCatogorySpinner);
+        JobTitle =(Spinner) findViewById(R.id.AddJobTitleSpinner);
+        JobType =(Spinner) findViewById(R.id.AddJobTypeSpinner);
+
+        JobCategoryArray = getResources().getStringArray(R.array.JobCategory);
+        JobTitleArray = getResources().getStringArray(R.array.JobTitle);
+        JobTypeArray = getResources().getStringArray(R.array.JobType);
 
         txtComName = (EditText) findViewById(R.id.AddComName);
         txtComAdd = (EditText) findViewById(R.id.AddCompanyAddress);
@@ -45,6 +53,18 @@ public class CompanyAddJobActivity extends AppCompatActivity {
 
         AddJobBtn = (Button) findViewById(R.id.AddJobPostBtn);
         CanBtn = (Button) findViewById(R.id.AddJobCancelBtn);
+
+        CategoryAdapter = new ArrayAdapter(CompanyAddJobActivity.this,android.R.layout.simple_spinner_item,JobCategoryArray);
+        CategoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        jobCategory.setAdapter(CategoryAdapter);
+
+        TileAdapter = new ArrayAdapter(CompanyAddJobActivity.this,android.R.layout.simple_spinner_item,JobTitleArray);
+        TileAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        JobTitle.setAdapter(TileAdapter);
+
+        TypeAdapter = new ArrayAdapter(CompanyAddJobActivity.this,android.R.layout.simple_spinner_item,JobTypeArray);
+        TypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        JobType.setAdapter(TypeAdapter);
 
         AddJobBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,15 +77,15 @@ public class CompanyAddJobActivity extends AppCompatActivity {
                         Jobs job = new Jobs();
 
                         job.setUserID("01");
-                        job.setCategory("IT");
-                        job.setTitle("Engineering");
+                        job.setCategory(jobCategory.getSelectedItem().toString().trim());
+                        job.setTitle(JobTitle.getSelectedItem().toString().trim());
                         job.setCompanyName(txtComName.getText().toString().trim());
                         job.setCompanyAddress(txtComAdd.getText().toString().trim());
-                        job.setType("Full Time");
+                        job.setType(JobType.getSelectedItem().toString().trim());
                         job.setSalary(txtComSal.getText().toString().trim());
                         job.setDescription(txtComDes.getText().toString().trim());
 
-                        DBRef.child("J01").setValue(job);
+                        DBRef.child("J02").setValue(job);
 
                         Toast.makeText(CompanyAddJobActivity.this, "Your Job Posted successfully..!! ",Toast.LENGTH_LONG).show();
 
@@ -79,7 +99,6 @@ public class CompanyAddJobActivity extends AppCompatActivity {
 
                     }
                 });
-
             }
         });
 

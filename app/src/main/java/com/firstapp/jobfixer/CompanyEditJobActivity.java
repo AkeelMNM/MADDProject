@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -25,6 +26,9 @@ public class CompanyEditJobActivity extends AppCompatActivity {
     EditText t1,t2,t3,t4,JobID;
     Button UpdateBtn;
     Button CancelBtn;
+    Spinner EditjobCategory,EditJobTitle,EditJobType;
+    String[] JobCategoryArray,JobTitleArray,JobTypeArray;
+    ArrayAdapter CategoryAdapter,TileAdapter,TypeAdapter;
 
     DatabaseReference DBRef;
 
@@ -33,15 +37,21 @@ public class CompanyEditJobActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_edit_job);
 
-        Spinner sp=(Spinner) findViewById(R.id.EditJobCatogorySpinner);
-        Spinner sp1=(Spinner) findViewById(R.id.EditJobTitleSpinner);
-        Spinner sp2=(Spinner) findViewById(R.id.EditJobTypeSpinner);
+        EditjobCategory =(Spinner) findViewById(R.id.EditJobCatogorySpinner);
+        EditJobTitle =(Spinner) findViewById(R.id.EditJobTitleSpinner);
+        EditJobType =(Spinner) findViewById(R.id.EditJobTypeSpinner);
+
+        JobCategoryArray = getResources().getStringArray(R.array.JobCategory);
+        JobTitleArray = getResources().getStringArray(R.array.JobTitle);
+        JobTypeArray = getResources().getStringArray(R.array.JobType);
 
         t1=findViewById(R.id.EditComName);
         t2=findViewById(R.id.EditCompanyAddress);
         t3=findViewById(R.id.EditJobSalary);
         t4=findViewById(R.id.EditTxtDesc);
-        UpdateBtn = findViewById(R.id.EditJobUpdateBtn);
+
+        UpdateBtn = (Button) findViewById(R.id.EditJobUpdateBtn);
+        CancelBtn = (Button) findViewById(R.id.EditJobCancelBtn);
 
         UpdateBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -55,7 +55,7 @@
     <string name="compName">Company Name</string>
     <string name="AddNewJob">Add New Job</string>
 
-    <string-array name="JobCatogary">
+    <string-array name="JobCategory">
         <item>IT</item>
         <item>Education</item>
         <item>Manufacturing</item>
@@ -65,6 +65,10 @@
         <item>Full Time</item>
         <item>Part Time</item>
         <item>Work from Home</item>
+    </string-array>
+
+    <string-array name="JobTitle">
+        <item>Software Engineering</item>
     </string-array>
 
     <!-- Company LinearLayout End -->
