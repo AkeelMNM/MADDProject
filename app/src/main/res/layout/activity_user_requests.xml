@@ -8,10 +8,10 @@
 
     <Button
         android:id="@+id/button6"
-        android:layout_width="67dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginTop="152dp"
+        android:layout_width="86dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="148dp"
         android:backgroundTint="#009688"
         android:text="Reply"
         app:layout_constraintStart_toEndOf="@+id/textView19"
@@ -19,10 +19,10 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="67dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="236dp"
-        android:layout_marginTop="124dp"
+        android:layout_width="86dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="128dp"
         android:backgroundTint="#009688"
         android:text="Reply"
         app:layout_constraintStart_toEndOf="@+id/textView18"
@@ -42,10 +42,10 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="67dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="68dp"
+        android:layout_width="86dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="72dp"
         android:backgroundTint="#009688"
         android:text="Reply"
         app:layout_constraintStart_toEndOf="@+id/textView17"
@@ -95,9 +95,9 @@
         android:layout_height="92dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:background="#e1f0e5"
+        android:background="#FCFDFC"
         android:text="You have satisfied the prerequisites for the Job Request application. For more information, see Job Requests"
-        android:textColor="#8E8989"
+        android:textColor="#070707"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
@@ -108,8 +108,9 @@
         android:layout_height="84dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
-        android:background="#e1f0e5"
+        android:background="#FAFBFA"
         android:text="Register today for this segment of an upcoming Amazon Web Services (AWS) webinar series, featuring Eric Martinez, CEO, and Founder of modjoul. Learn how he partnered with Virtusa and AWS to create a mobile app and intelligent workplace  "
+        android:textColor="#070707"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -120,8 +121,9 @@
         android:layout_height="121dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:background="#e1f0e5"
+        android:background="#FBFBFB"
         android:text="Financial institutions are experiencing a wave of transformation as emerging technology and market conditions impact client behavior. To help banks retain clients and remain relevant in a competitive industry, we designed Virtu"
+        android:textColor="#070707"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />

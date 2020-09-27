@@ -18,14 +18,14 @@
         <activity android:name=".UserReplyActivity"></activity>
         <activity android:name=".AdminReplyActivity" ></activity>
         <activity android:name=".UserRequestsActivity" ></activity>
-        <activity android:name=".AdminRequestsActivity" ></activity>
-        <activity android:name=".HelpCenterActivity" ></activity>
-        <activity android:name=".SearchActivity">
-            <intent-filter>
-            <action android:name="android.intent.action.MAIN"/> >
+        <activity android:name=".AdminRequestsActivity" > <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
 
-            <category android:name="android.intent.category.LAUNCHER"/> >
-        </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter></activity>
+        <activity android:name=".HelpCenterActivity" >  </activity>
+        <activity android:name=".SearchActivity">
+
         </activity>
 
 

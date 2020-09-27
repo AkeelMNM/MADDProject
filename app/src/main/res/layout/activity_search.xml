@@ -10,12 +10,12 @@
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="359dp"
-        android:layout_height="49dp"
+        android:layout_width="273dp"
+        android:layout_height="37dp"
         android:layout_marginTop="48dp"
         android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
@@ -80,7 +80,7 @@
             android:layout_width="187dp"
             android:layout_height="@dimen/list_view_Sebtn_height"
             android:layout_marginStart="200dp"
-            android:backgroundTint="#d5e0d6"
+            android:backgroundTint="#8BC34A"
             android:text="@string/view_j_btn"
             android:textSize="12sp" />
 
@@ -166,7 +166,7 @@
             android:layout_width="183dp"
             android:layout_height="@dimen/list_view_Sebtn_height"
             android:layout_marginStart="200dp"
-            android:backgroundTint="#d5e0d6"
+            android:backgroundTint="#8BC34A"
             android:text="@string/view_j_btn"
             android:textSize="12sp" />
 
@@ -179,5 +179,15 @@
             android:text="@string/view_ap_btn"
             android:textSize="12sp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnsearch"
+        android:layout_width="88dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:background="#8BC34A"
+        android:text="Search"
+        app:layout_constraintStart_toEndOf="@+id/searchView"
+        tools:layout_editor_absoluteY="104dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
