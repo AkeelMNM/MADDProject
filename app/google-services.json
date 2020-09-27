@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "177804285047",
+    "firebase_url": "https://job-fixer-c2118.firebaseio.com",
+    "project_id": "job-fixer-c2118",
+    "storage_bucket": "job-fixer-c2118.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177804285047:android:6656d0ba09daa2f0352272",
+        "android_client_info": {
+          "package_name": "com.firstapp.jobfixer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177804285047-5kgfdgp7neru2pvgrc5p442da85s75ok.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.firstapp.jobfixer",
+            "certificate_hash": "c410ba714a43f29f14a7c9c6fc07a0ef57c48381"
+          }
+        },
+        {
+          "client_id": "177804285047-qiiomq07va3nfk9mg7qaugc31j3of3v8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrqbBcVbiGLayyq0t0IUhByBxKAjWU7eg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177804285047-qiiomq07va3nfk9mg7qaugc31j3of3v8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

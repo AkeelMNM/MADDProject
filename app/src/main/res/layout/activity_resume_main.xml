@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnCreateRes"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="245dp"
         android:layout_height="64dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btnViewRes"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="245dp"
         android:layout_height="64dp"
@@ -42,10 +42,10 @@
         android:text="@string/main_btn2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCreateRes" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btnUpdateRes"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="245dp"
         android:layout_height="64dp"
@@ -53,5 +53,5 @@
         android:text="@string/main_btn3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button8" />
+        app:layout_constraintTop_toBottomOf="@+id/btnViewRes" />
 </androidx.constraintlayout.widget.ConstraintLayout>
