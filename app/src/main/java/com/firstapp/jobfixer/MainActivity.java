@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.Button;
 
 import com.firstapp.jobfixer.Database.DBMaster;
 import com.firstapp.jobfixer.ViewAdapters.AdRecycleViewAdapter;
@@ -23,6 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    Button HUserJobs,HUserResume,HUserSearch,HUserHelpCenter;
 
     private static final String TAG ="Main Activity" ;
     private ArrayList<String> mJobCat = new ArrayList<>();
@@ -41,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initImageBitmaps();
 
+        HUserJobs=findViewById(R.id.btnUserJobs);
+        HUserResume=findViewById(R.id.btnUserResume);
+        HUserSearch=findViewById(R.id.btnUserSearch);
+        HUserHelpCenter=findViewById(R.id.btnUserHelpCenter);
 
     }
 
