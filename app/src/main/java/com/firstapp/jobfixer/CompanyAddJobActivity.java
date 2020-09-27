@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class CompanyAddJobActivity extends AppCompatActivity {
 
-    EditText t1,t2,t3,t4;
+    EditText txtComName,txtComAdd,txtComSal,txtComDes;
     Button AddJobBtn;
     Button CanBtn;
     DatabaseReference DBRef;
@@ -38,13 +38,13 @@ public class CompanyAddJobActivity extends AppCompatActivity {
         Spinner sp1=(Spinner) findViewById(R.id.AddJobTitleSpinner);
         Spinner sp2=(Spinner) findViewById(R.id.AddJobTypeSpinner);
 
-        t1=findViewById(R.id.AddComName);
-        t2=findViewById(R.id.AddCompanyAddress);
-        t3=findViewById(R.id.AddJobSalary);
-        t4=findViewById(R.id.AddtxtDesc);
+        txtComName = (EditText) findViewById(R.id.AddComName);
+        txtComAdd = (EditText) findViewById(R.id.AddCompanyAddress);
+        txtComSal = (EditText) findViewById(R.id.AddJobSalary);
+        txtComDes = (EditText) findViewById(R.id.AddtxtDesc);
 
-        AddJobBtn = findViewById(R.id.AddJobPostBtn);
-        CanBtn = findViewById(R.id.AddJobCancelBtn);
+        AddJobBtn = (Button) findViewById(R.id.AddJobPostBtn);
+        CanBtn = (Button) findViewById(R.id.AddJobCancelBtn);
 
         AddJobBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,18 +59,19 @@ public class CompanyAddJobActivity extends AppCompatActivity {
                         job.setUserID("01");
                         job.setCategory("IT");
                         job.setTitle("Engineering");
-                        job.setCompanyName(t1.getText().toString().trim());
-                        job.setCompanyAddress(t2.getText().toString().trim());
+                        job.setCompanyName(txtComName.getText().toString().trim());
+                        job.setCompanyAddress(txtComAdd.getText().toString().trim());
                         job.setType("Full Time");
-                        job.setSalary(t3.getText().toString().trim());
-                        job.setDescription(t4.getText().toString().trim());
+                        job.setSalary(txtComSal.getText().toString().trim());
+                        job.setDescription(txtComDes.getText().toString().trim());
 
                         DBRef.child("J01").setValue(job);
 
-                        Toast.makeText(CompanyAddJobActivity.this, "Your Job Posted...!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(CompanyAddJobActivity.this, "Your Job Posted successfully..!! ",Toast.LENGTH_LONG).show();
 
                         Intent intent = new Intent(CompanyAddJobActivity.this,CompanyViewJobActivity.class);
                         startActivity(intent);
+
                     }
 
                     @Override
@@ -78,6 +79,7 @@ public class CompanyAddJobActivity extends AppCompatActivity {
 
                     }
                 });
+
             }
         });
 
