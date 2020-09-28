@@ -56,7 +56,7 @@ public class Register extends AppCompatActivity {
                         loggedInUser.setPassword(RPassword.getText().toString().trim());
                         loggedInUser.setUserType("Company");
 
-                        dbRef.child("log02").setValue(loggedInUser);
+                        dbRef.child("log03").setValue(loggedInUser);
                     }
 
                     @Override
