@@ -13,7 +13,7 @@ public final class DBMaster {
     public static class Advertisement implements BaseColumns{
 
         public static final String TABLE_NAME ="Advertisement";
-        public static final String COLUMN_NAME_JOB_ID ="jobId";
+        public static final String COLUMN_NAME_JOB_ID ="jobID";
         public static final String COLUMN_NAME_JOB_CATEGORY ="jobCategory";
         public static final String COLUMN_NAME_JOB_TITLE ="jobTitle";
         public static final String COLUMN_NAME_COMPANY_NAME ="companyName";
