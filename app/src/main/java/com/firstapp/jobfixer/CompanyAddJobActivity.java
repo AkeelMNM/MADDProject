@@ -23,7 +23,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class CompanyAddJobActivity extends AppCompatActivity {
+
+    private ArrayList<String> JobID = new ArrayList<>();
+    public static final String JOBS_ID_PREFIX ="job0";
 
     EditText txtComName,txtComAdd,txtComSal,txtComDes;
     Button AddJobBtn;
@@ -85,7 +90,24 @@ public class CompanyAddJobActivity extends AppCompatActivity {
                         job.setSalary(txtComSal.getText().toString().trim());
                         job.setDescription(txtComDes.getText().toString().trim());
 
-                        DBRef.child("J02").setValue(job);
+                        for(DataSnapshot jb: snapshot.getChildren())
+                        {
+                            JobID.add(jb.getValue().toString());
+                        }
+
+                        String id = null ;
+                        int alSize = JobID.size();
+                        alSize++;
+                        id = JOBS_ID_PREFIX + alSize;
+
+                        if(JobID.contains(id))
+                        {
+                            alSize++;
+                            id = JOBS_ID_PREFIX + alSize;
+                        }
+
+                        //Insert into Database
+                        DBRef.child(id).setValue(job);
 
                         Toast.makeText(CompanyAddJobActivity.this, "Your Job Posted successfully..!! ",Toast.LENGTH_LONG).show();
 
