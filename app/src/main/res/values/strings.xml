@@ -47,7 +47,8 @@
     <string name="Company_view_Cname">IFS</string>
     <string name="Company_view_Address"> Colombo 10 </string>
 
-    <string name="Company_view_salary"> Rs. 90,000 </string>
+    <string name="Rs">Rs </string>
+    <string name="Company_view_salary"> 90,000 </string>
     <string name="Company_view_JobType">Full time</string>
     
     <string name="Company_View_Remove_btn">Remove</string>

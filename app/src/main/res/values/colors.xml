@@ -11,6 +11,7 @@
     <color name="Post_Job_btn">#45DC4B</color>
     <color name="Cancel_Job_btn">#FF2615</color>
     <color name="Update_Job_btn">#0BF315</color>
+    <color name="Layout_Color">#dcebfa</color>
 
     <!-- company View Job -->
     <color name="Company_View_Liner_Bg_Color">#607D8B</color>

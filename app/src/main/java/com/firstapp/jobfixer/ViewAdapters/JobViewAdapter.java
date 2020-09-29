@@ -8,32 +8,44 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firstapp.jobfixer.CompanyEditJobActivity;
+import com.firstapp.jobfixer.Database.DBMaster;
 import com.firstapp.jobfixer.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 public class JobViewAdapter extends RecyclerView.Adapter<JobViewAdapter.ViewHolder>{
 
     private ArrayList<String> mJobID = new ArrayList<>();
-    private ArrayList<String> mJobName = new ArrayList<>();
+    private ArrayList<String> mJobTitle = new ArrayList<>();
     private ArrayList<String> mComName = new ArrayList<>();
     private ArrayList<String> mJobAdd = new ArrayList<>();
     private ArrayList<String> mJobType = new ArrayList<>();
     private ArrayList<String> mJobSal = new ArrayList<>();
+    private ArrayList<String> mJobDes = new ArrayList<>();
+    private ArrayList<String> mJobCate = new ArrayList<>();
     private Context mContext;
 
-    public JobViewAdapter(ArrayList<String> mJobID, ArrayList<String> mJobName, ArrayList<String> mComName, ArrayList<String> mJobAdd, ArrayList<String> mJobType, ArrayList<String> mJobSal, Context mContext) {
+    public JobViewAdapter(ArrayList<String> mJobID, ArrayList<String> mJobTitle, ArrayList<String> mComName, ArrayList<String> mJobAdd, ArrayList<String> mJobType, ArrayList<String> mJobSal, ArrayList<String> mJobDes , ArrayList<String> mJobCate, Context mContext) {
         this.mJobID = mJobID;
-        this.mJobName = mJobName;
+        this.mJobTitle = mJobTitle;
         this.mComName = mComName;
         this.mJobAdd = mJobAdd;
         this.mJobType = mJobType;
         this.mJobSal = mJobSal;
+        this.mJobDes = mJobDes;
+        this.mJobCate = mJobCate;
         this.mContext = mContext;
     }
 
@@ -52,16 +64,24 @@ public class JobViewAdapter extends RecyclerView.Adapter<JobViewAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
+        holder.txtTi.setText(mJobTitle.get(position));
+        holder.txtComNa.setText(mComName.get(position));
+        holder.txtComAdd.setText(mJobAdd.get(position));
+        holder.txtSaary.setText(mJobSal.get(position));
+        holder.txtType.setText(mJobType.get(position));
+
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent = new Intent(mContext.getApplicationContext(), CompanyEditJobActivity.class);
-                intent.putExtra("jName",mJobName.get(position));
-                intent.putExtra("JCom",mComName.get(position));
+                intent.putExtra("jTitle",mJobTitle.get(position));
+                intent.putExtra("JComName",mComName.get(position));
                 intent.putExtra("comAdd",mJobAdd.get(position));
                 intent.putExtra("jType",mJobType.get(position));
                 intent.putExtra("jSal",mJobSal.get(position));
+                intent.putExtra("jDes",mJobDes.get(position));
+                intent.putExtra("jCate",mJobCate.get(position));
                 intent.putExtra("jID",mJobID.get(position));
 
                 mContext.startActivity(intent);
@@ -73,28 +93,48 @@ public class JobViewAdapter extends RecyclerView.Adapter<JobViewAdapter.ViewHold
             @Override
             public void onClick(View view) {
 
+                final String id = mJobID.get(position);
+                final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME);
+                dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.hasChild(id))
+                        {
+                            DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME).child(id);
+                            dbRef.removeValue();
+                            Toast.makeText(mContext.getApplicationContext(), "Job Deleted Successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         });
     }
 
     @Override
-    public int getItemCount() {
-        return 0;
+    public int getItemCount()
+    {
+        return mJobTitle.size();
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView txtJN,txtCN,txtCA,txtJT,txtJS;
+        TextView txtTi,txtComNa,txtComAdd,txtSaary,txtType;
         Button btnEdit,btnRemove;
         RelativeLayout parentLayout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            txtJN=itemView.findViewById(R.id.Cv1);
-            txtCN=itemView.findViewById(R.id.Cv2);
-            txtCA=itemView.findViewById(R.id.Cv3);
-            txtJS=itemView.findViewById(R.id.Cv4);
-            txtJT=itemView.findViewById(R.id.Cv5);
+            txtTi =itemView.findViewById(R.id.Cv1);
+            txtComNa =itemView.findViewById(R.id.Cv2);
+            txtComAdd =itemView.findViewById(R.id.Cv3);
+            txtSaary =itemView.findViewById(R.id.Cv4);
+            txtType =itemView.findViewById(R.id.Cv5);
 
             btnEdit = itemView.findViewById(R.id.bEdit);
             btnRemove=itemView.findViewById(R.id.btRemove);

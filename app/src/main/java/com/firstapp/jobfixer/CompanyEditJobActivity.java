@@ -21,14 +21,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class CompanyEditJobActivity extends AppCompatActivity {
 
-    EditText t1,t2,t3,t4,JobID;
+    EditText txtComName,txtComAddress,txtSalary,txtDes,txtJobID;
     Button UpdateBtn;
     Button CancelBtn;
-    Spinner EditjobCategory,EditJobTitle,EditJobType;
-    String[] JobCategoryArray,JobTitleArray,JobTypeArray;
-    ArrayAdapter CategoryAdapter,TileAdapter,TypeAdapter;
+    Spinner spJobCategory,spJobTitle,spJobType;
+    String jCa,jTitle,jTyp;
 
     DatabaseReference DBRef;
 
@@ -37,21 +38,52 @@ public class CompanyEditJobActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_edit_job);
 
-        EditjobCategory =(Spinner) findViewById(R.id.EditJobCatogorySpinner);
-        EditJobTitle =(Spinner) findViewById(R.id.EditJobTitleSpinner);
-        EditJobType =(Spinner) findViewById(R.id.EditJobTypeSpinner);
+        spJobTitle =(Spinner) findViewById(R.id.EditJobTitleSpinner);
+        spJobCategory =(Spinner) findViewById(R.id.EditJobCatogorySpinner);
+        spJobType =(Spinner) findViewById(R.id.EditJobTypeSpinner);
 
-        JobCategoryArray = getResources().getStringArray(R.array.JobCategory);
-        JobTitleArray = getResources().getStringArray(R.array.JobTitle);
-        JobTypeArray = getResources().getStringArray(R.array.JobType);
-
-        t1=findViewById(R.id.EditComName);
-        t2=findViewById(R.id.EditCompanyAddress);
-        t3=findViewById(R.id.EditJobSalary);
-        t4=findViewById(R.id.EditTxtDesc);
+        txtComName =findViewById(R.id.EditComName);
+        txtComAddress =findViewById(R.id.EditCompanyAddress);
+        txtSalary =findViewById(R.id.EditJobSalary);
+        txtDes =findViewById(R.id.EditTxtDesc);
+        txtJobID = findViewById(R.id.EditJobID);
 
         UpdateBtn = (Button) findViewById(R.id.EditJobUpdateBtn);
         CancelBtn = (Button) findViewById(R.id.EditJobCancelBtn);
+
+        /** Retrieving the RecycleView item details from CompanyViewActivity.java class via Intent **/
+        Bundle bundle = getIntent().getExtras();
+        txtComName.setText(bundle.getString("JComName"));
+        txtComAddress.setText(bundle.getString("comAdd"));
+        txtSalary.setText(bundle.getString("jSal"));
+        txtDes.setText(bundle.getString("jDes"));
+        txtJobID.setText(bundle.getString("jID"));
+
+        /** Assigning the job title detail to the spinner got from the Intent**/
+        ArrayList<String> jTit = new ArrayList<String>();
+        jTit.add(bundle.getString("jTitle"));
+        ArrayAdapter<String> arrayAdapterTitle = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, jTit);
+        arrayAdapterTitle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spJobTitle.setAdapter(arrayAdapterTitle);
+
+        /** Assigning the job category detail to the spinner got from the Intent**/
+        ArrayList<String> jCate = new ArrayList<String>();
+        jCate.add(bundle.getString("jCate"));
+        ArrayAdapter<String> arrayAdapterC = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, jCate);
+        arrayAdapterC.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spJobCategory.setAdapter(arrayAdapterC);
+
+        /** Assigning the job Type detail to the spinner got from the Intent**/
+        ArrayList<String> jType = new ArrayList<String>();
+        jType.add(bundle.getString("jType"));
+        ArrayAdapter<String> arrayAdapterType = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, jType);
+        arrayAdapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spJobType.setAdapter(arrayAdapterType);
+
+        /** capturing the details in the spinner from the update form**/
+        jTitle = spJobTitle.getSelectedItem().toString();
+        jCa = spJobCategory.getSelectedItem().toString();
+        jTyp = spJobType.getSelectedItem().toString();
 
         UpdateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,25 +91,24 @@ public class CompanyEditJobActivity extends AppCompatActivity {
 
                 DBRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME);
                 DBRef.addListenerForSingleValueEvent(new ValueEventListener() {
-
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                         Jobs job = new Jobs();
 
-                        if(snapshot.hasChild(JobID.getText().toString().trim())){
+                        if(snapshot.hasChild(txtJobID.getText().toString().trim())){
 
-                            job.setCategory("IT");
-                            job.setTitle("Engineering");
-                            job.setCompanyName(t1.getText().toString().trim());
-                            job.setCompanyAddress(t2.getText().toString().trim());
-                            job.setType("Full Time");
-                            job.setSalary(t3.getText().toString().trim());
-                            job.setDescription(t4.getText().toString().trim());
+                            job.setCategory(jCa);
+                            job.setTitle(jTitle);
+                            job.setCompanyName(txtComName.getText().toString().trim());
+                            job.setCompanyAddress(txtComAddress.getText().toString().trim());
+                            job.setType(jTyp);
+                            job.setSalary(txtSalary.getText().toString().trim());
+                            job.setDescription(txtDes.getText().toString().trim());
 
                         }
 
-                        DBRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME).child(JobID.getText().toString().trim());
+                        DBRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME).child(txtJobID.getText().toString().trim());
                         DBRef.setValue(job);
 
                     }
