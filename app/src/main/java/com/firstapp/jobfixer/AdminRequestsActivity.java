@@ -2,6 +2,7 @@ package com.firstapp.jobfixer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 
 public class AdminRequestsActivity extends AppCompatActivity {
 
-    private static final String TAG ="AdminRequestActivity";
+    private static final String TAG ="AdminRequestsActivity";
     private ArrayList<String> name = new ArrayList<>();
     private ArrayList<String> message = new ArrayList<>();
     private ArrayList<String> email = new ArrayList<>();
@@ -63,10 +64,12 @@ public class AdminRequestsActivity extends AppCompatActivity {
 
     private void initRecyclerView(){
         Log.d(TAG, "initRecyclerView: started");
-        RecyclerView recyclerView = findViewById(R.id.reqrecycler_view);
+        RecyclerView recyclerView =(RecyclerView) findViewById(R.id.reqrecycler_view);
         AdminRequestViewAdapter adapter = new AdminRequestViewAdapter(name,message,email,this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
     }
 
 

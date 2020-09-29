@@ -56,18 +56,18 @@ public class HelpCenterActivity extends AppCompatActivity {
         btnsend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbRef= FirebaseDatabase.getInstance().getReference().child("Helpcenter");
+                dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.HelpCenter.TABLE_NAME);
                 //take inputs from user and assigning them to this instance (hlpc) of the student...
                 hlpc.setName(editTextPName.getText().toString().trim());
                 hlpc.setEmail(editTextPemail.getText().toString().trim());
                 hlpc.setMessage(editTextPmsg.getText().toString().trim());
 
                 //insert into the database
-                dbRef.child("H01").setValue(hlpc);
+                dbRef.child("H02").setValue(hlpc);
 
                 //feedback to the user via toast
 
-                Toast.makeText(HelpCenterActivity.this, "Data Saved Succesfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HelpCenterActivity.this, "Message Sent Succesfully", Toast.LENGTH_SHORT).show();
 
                 clearControls();
             }
