@@ -8,15 +8,16 @@
     <color name="home_Btn_Color">#26A69A</color>
 
     <!-- ************************ Create Job and view job ************************* -->
-    <color name="Post_Job_btn">#45DC4B</color>
-    <color name="Cancel_Job_btn">#FF2615</color>
-    <color name="Update_Job_btn">#0BF315</color>
+    <color name="Post_Job_btn">#2B7A78</color>
+    <color name="Cancel_Job_btn">#d93f3d</color>
+    <color name="Update_Job_btn">#2B7A78</color>
     <color name="Layout_Color">#dcebfa</color>
 
     <!-- company View Job -->
     <color name="Company_View_Liner_Bg_Color">#607D8B</color>
-    <color name="View_List_Up_Color">#79EA79</color>
-    <color name="View_List_Re_Color">#E91E63</color>
+    <color name="View_List_Up_Color">#3ac23c</color>
+    <color name="View_List_Re_Color">#d93f3d</color>
+    <color name="AddJobBtn_Color">#58ab35</color>
     
     <!-- *************************************************************************** -->
 </resources>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -90,11 +91,6 @@ public class CompanyAddJobActivity extends AppCompatActivity {
                         job.setSalary(txtComSal.getText().toString().trim());
                         job.setDescription(txtComDes.getText().toString().trim());
 
-                        for(DataSnapshot jb: snapshot.getChildren())
-                        {
-                            JobID.add(jb.getValue().toString());
-                        }
-
                         String id = null ;
                         int alSize = JobID.size();
                         alSize++;
@@ -106,13 +102,36 @@ public class CompanyAddJobActivity extends AppCompatActivity {
                             id = JOBS_ID_PREFIX + alSize;
                         }
 
-                        //Insert into Database
-                        DBRef.child(id).setValue(job);
+                        if(TextUtils.isEmpty(txtComName.getText())){
+                            Toast.makeText(CompanyAddJobActivity.this,"Enter Company Name.. ",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else if(TextUtils.isEmpty(txtComAdd.getText())){
+                            Toast.makeText(CompanyAddJobActivity.this,"Enter Company Address.. ",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else if(TextUtils.isEmpty(txtComSal.getText())){
+                            Toast.makeText(CompanyAddJobActivity.this,"Enter Salary.. ",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else if(TextUtils.isEmpty(txtComDes.getText())){
+                            Toast.makeText(CompanyAddJobActivity.this,"Enter Description.. ",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else
+                        {
+                            for(DataSnapshot jb: snapshot.getChildren())
+                            {
+                                JobID.add(jb.getValue().toString());
+                            }
+                            //Insert into Database
+                            DBRef.child(id).setValue(job);
 
-                        Toast.makeText(CompanyAddJobActivity.this, "Your Job Posted successfully..!! ",Toast.LENGTH_LONG).show();
+                            Toast.makeText(CompanyAddJobActivity.this, "Your Job Posted successfully..!! ",Toast.LENGTH_LONG).show();
 
-                        Intent intent = new Intent(CompanyAddJobActivity.this,CompanyViewJobActivity.class);
-                        startActivity(intent);
+                            Intent intent = new Intent(CompanyAddJobActivity.this,CompanyViewJobActivity.class);
+                            startActivity(intent);
+                        }
 
                     }
 

@@ -6,10 +6,13 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.firstapp.jobfixer.Database.DBMaster;
@@ -35,14 +38,25 @@ public class CompanyViewJobActivity extends AppCompatActivity {
     private ArrayList<String> mJobDes = new ArrayList<>();
     private ArrayList<String> mJobCate = new ArrayList<>();
 
-    DatabaseReference dbRef;
+    Button AddJob;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_view_job);
 
+        AddJob =findViewById(R.id.ViewAddJobBtn);
+
         initImageBitmaps();
+
+        AddJob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(CompanyViewJobActivity.this,CompanyAddJobActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -84,7 +98,7 @@ public class CompanyViewJobActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(),DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

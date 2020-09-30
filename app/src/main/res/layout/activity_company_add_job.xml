@@ -24,6 +24,7 @@
         android:layout_marginTop="20dp"
         android:background="@color/Post_Job_btn"
         android:text="@string/Post_Job_btn"
+        android:radius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
