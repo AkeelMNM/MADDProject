@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.firstapp.jobfixer.Database.DBMaster;
 import com.firstapp.jobfixer.Model.Jobs;
@@ -118,6 +119,17 @@ public class CompanyEditJobActivity extends AppCompatActivity {
 
                     }
                 });
+
+                Intent intent = new Intent(CompanyEditJobActivity.this,CompanyViewJobActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(CompanyEditJobActivity.this, "Cancel Edit job..",Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(CompanyEditJobActivity.this,CompanyViewJobActivity.class);
                 startActivity(intent);
