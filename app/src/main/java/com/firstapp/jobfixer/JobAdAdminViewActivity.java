@@ -99,7 +99,7 @@ public class JobAdAdminViewActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: started");
-        RecyclerView recyclerView = findViewById(R.id.adminRecyleView);
+        RecyclerView recyclerView = findViewById(R.id.adminADRecyclerView);
 
         /** Assigning the Retrieved Data's to admin_ad_recycleView_layout.xml via Constructor of AdAdminRecycleViewAdepter.java **/
         AdAdminRecycleViewAdepter adapter = new AdAdminRecycleViewAdepter(mJobCat,mJobName,mCompName,mCompLocation,mJobQualification,mJobSalary,mJobType,mJobID,this);

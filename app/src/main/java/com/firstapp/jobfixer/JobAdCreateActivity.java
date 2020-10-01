@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class JobAdCreateActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private ArrayList<String> mJobID = new ArrayList<>();
+    private ArrayList<String> AdID = new ArrayList<>();
     public static final String AD_ID_PREFIX ="AD0";
 
     EditText txtCompanyAddress, txtJobSalary, txtQualification;
@@ -95,14 +95,14 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
                         ad.setQualification(txtQualification.getText().toString().trim());
 
                         for(DataSnapshot st: dataSnapshot.getChildren()){
-                            mJobID.add(st.getKey().toString());
+                            AdID.add(st.getKey().toString());
                         }
 
                         String id = null;
-                        int alSize = mJobID.size();
+                        int alSize = AdID.size();
                         alSize++;
                         id=AD_ID_PREFIX + alSize;
-                        if(mJobID.contains(id))
+                        if(AdID.contains(id))
                         {
                             alSize++;
                             id=AD_ID_PREFIX + alSize;
@@ -181,25 +181,4 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
 
     }
 
-    /*private String getAdID(){
-
-        Query data = FirebaseDatabase.getInstance().getReference().child(DBMaster.Advertisement.TABLE_NAME);
-
-        data.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for(DataSnapshot st: dataSnapshot.getChildren()){
-                    mJobID.add(st.getKey().toString());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-    }*/
 }

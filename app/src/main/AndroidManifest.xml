@@ -9,25 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".JobViewForUserActivity">
-
-        </activity>
-        <activity android:name=".JobAdAdminViewActivity">
+        <activity android:name=".AdminLoginActivity"></activity>
+        <activity android:name=".UserRegisterActivity" />
+        <activity android:name=".LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".JobViewForUserActivity" />
+        <activity android:name=".JobAdAdminViewActivity" />
         <activity android:name=".JobAdUpdateActivity" />
-        <activity android:name=".JobAdCreateActivity">
+        <activity android:name=".JobAdCreateActivity" />
+        <activity android:name=".AdminHomeActivity">
 
         </activity>
-        <activity android:name=".AdminHomeActivity" />
         <activity android:name=".CompanyHomeActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

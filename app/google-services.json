@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "972357594301",
-    "firebase_url": "https://jobfixer-8b950.firebaseio.com",
-    "project_id": "jobfixer-8b950",
-    "storage_bucket": "jobfixer-8b950.appspot.com"
+    "project_number": "1038561968854",
+    "firebase_url": "https://job-fixer-635de.firebaseio.com",
+    "project_id": "job-fixer-635de",
+    "storage_bucket": "job-fixer-635de.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:972357594301:android:d05f02921db50153471bd4",
+        "mobilesdk_app_id": "1:1038561968854:android:8543d4a95c82ba228f3f77",
         "android_client_info": {
           "package_name": "com.firstapp.jobfixer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "972357594301-dv1nqj5o7k73ge9rmrcosfl4b1u13uaj.apps.googleusercontent.com",
+          "client_id": "1038561968854-601elsvlrseciob343t0ksa9rpk21dh3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.firstapp.jobfixer",
+            "certificate_hash": "c6073ee46f11bca4a0b5b0dedf9dad81d5b2b614"
+          }
+        },
+        {
+          "client_id": "1038561968854-8kf96b5rusf4anl7icif4i4s61ggaplc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBodByOFjuKqUgRHLHhkvQFVD8ocsG9kuY"
+          "current_key": "AIzaSyCLRN1I83YA4Y0-aOIzX4RTl7mafgBhfUE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "972357594301-dv1nqj5o7k73ge9rmrcosfl4b1u13uaj.apps.googleusercontent.com",
+              "client_id": "1038561968854-8kf96b5rusf4anl7icif4i4s61ggaplc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

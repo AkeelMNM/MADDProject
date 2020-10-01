@@ -73,6 +73,16 @@
     <string name="jDesc">JOB DESCRIPTION</string>
     <string name="jobReq">Job Requirements</string>
     <string name="btnH">home</string>
+    <string name="signTitle">Create Account</string>
+    <string name="register_btn_name">Register</string>
+    <string name="register_login_name">Log In</string>
+    <string name="login_title">User Log In</string>
+    <string name="app_login_title">Welcome to Job Fixer</string>
+    <string name="btn_login_pg">Log in</string>
+    <string name="btn_login_signup">Register</string>
+    <string name="admin_link">Admin Login</string>
+    <string name="user_link">User Login</string>
+    <string name="admin_login_title">Admin Log In</string>
 
 
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
