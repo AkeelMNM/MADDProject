@@ -9,90 +9,16 @@
 
 
     <SearchView
-        android:id="@+id/searchView"
+        android:id="@+id/searchBox"
         android:layout_width="273dp"
         android:layout_height="37dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="48dp"
         android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintEnd_toStartOf="@+id/btnsearch"
+        app:layout_constraintHorizontal_bias="0.058"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="386dp"
-        android:layout_height="181dp"
-        android:layout_marginTop="56dp"
-        android:background="#FFFFFF"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView">
-
-        <TextView
-            android:id="@+id/tVCN"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="5dp"
-            android:text="@string/job_view_n"
-            android:textColor="#000000"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tV3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="5dp"
-            android:text="@string/comp_view_n"
-            android:textColor="#020202" />
-
-        <TextView
-            android:id="@+id/tVCL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp"
-            android:text="@string/com_view_a"
-            android:textColor="#020202"
-            app:drawableStartCompat="@drawable/location" />
-
-        <TextView
-            android:id="@+id/tVJS"
-            android:layout_width="351dp"
-            android:layout_height="wrap_content"
-            android:text="@string/job_view_s"
-            android:textColor="#040404"
-            android:textDirection="rtl" />
-
-        <TextView
-            android:id="@+id/tVJT"
-            android:layout_width="286dp"
-            android:layout_height="wrap_content"
-            android:text="@string/job_view_t"
-            android:textColor="#040404"
-            android:textDirection="rtl" />
-
-        <Button
-            android:id="@+id/btnU"
-            android:layout_width="187dp"
-            android:layout_height="@dimen/list_view_Sebtn_height"
-            android:layout_marginStart="200dp"
-            android:backgroundTint="#8BC34A"
-            android:text="@string/view_j_btn"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/btnR"
-            android:layout_width="186dp"
-            android:layout_height="@dimen/list_view_Sebtn_height"
-            android:layout_marginStart="200dp"
-            android:backgroundTint="#009688"
-            android:text="@string/view_ap_btn"
-            android:textSize="12sp" />
-    </LinearLayout>
 
     <TextView
         android:id="@+id/textView1"
@@ -106,88 +32,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="385dp"
-        android:layout_height="189dp"
-        android:layout_marginTop="16dp"
-        android:background="#FFFFFF"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <TextView
-            android:id="@+id/tVCN2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="5dp"
-            android:text="@string/job_view_n2"
-            android:textColor="#020202"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tV32"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="5dp"
-            android:text="@string/comp_view_n2"
-            android:textColor="#020202" />
-
-        <TextView
-            android:id="@+id/tVCL2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp"
-            android:text="@string/com_view_a2"
-            android:textColor="#020202"
-            app:drawableStartCompat="@drawable/location" />
-
-        <TextView
-            android:id="@+id/tVJS2"
-            android:layout_width="353dp"
-            android:layout_height="wrap_content"
-            android:text="@string/job_view_s2"
-            android:textColor="#040404"
-            android:textDirection="rtl" />
-
-        <TextView
-            android:id="@+id/tVJT"
-            android:layout_width="290dp"
-            android:layout_height="wrap_content"
-            android:text="@string/job_view_t"
-            android:textColor="#040404"
-            android:textDirection="rtl" />
-
-        <Button
-            android:id="@+id/btnU"
-            android:layout_width="183dp"
-            android:layout_height="@dimen/list_view_Sebtn_height"
-            android:layout_marginStart="200dp"
-            android:backgroundTint="#8BC34A"
-            android:text="@string/view_j_btn"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/btnR"
-            android:layout_width="183dp"
-            android:layout_height="@dimen/list_view_Sebtn_height"
-            android:layout_marginStart="200dp"
-            android:backgroundTint="#009688"
-            android:text="@string/view_ap_btn"
-            android:textSize="12sp" />
-    </LinearLayout>
-
     <Button
         android:id="@+id/btnsearch"
-        android:layout_width="88dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="114dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="8dp"
         android:background="#8BC34A"
         android:text="Search"
-        app:layout_constraintStart_toEndOf="@+id/searchView"
-        tools:layout_editor_absoluteY="104dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchRelativeLayout"
+        android:layout_width="409dp"
+        android:layout_height="587dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchBox" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
