@@ -10,9 +10,7 @@
         app:showAsAction="ifRoom" />
     <item android:id="@+id/action_help"
         android:title="@string/help_center" />
-    <item android:id="@+id/action_save"
-        android:title="@string/profile" />
-    <item android:id="@+id/action_label"
+    <item android:id="@+id/action_logout"
         android:title="@string/log_out" />
 
 </menu>
