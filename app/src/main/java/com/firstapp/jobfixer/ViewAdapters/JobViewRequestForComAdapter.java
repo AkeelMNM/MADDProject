@@ -20,11 +20,14 @@ public class JobViewRequestForComAdapter extends RecyclerView.Adapter<JobViewReq
 
     private ArrayList<String> ReqUserName = new ArrayList<>();
     private ArrayList<String> ReqUserEmail = new ArrayList<>();
+    private ArrayList<String> ReqUserDate = new ArrayList<>();
+
     private Context mContext;
 
-    public JobViewRequestForComAdapter(ArrayList<String> reqUserName, ArrayList<String> reqUserEmail, Context mContext) {
+    public JobViewRequestForComAdapter(ArrayList<String> reqUserName, ArrayList<String> reqUserEmail, ArrayList<String> reqUserDate, Context mContext) {
         ReqUserName = reqUserName;
         ReqUserEmail = reqUserEmail;
+        ReqUserDate = reqUserDate;
         this.mContext = mContext;
     }
 
@@ -46,6 +49,7 @@ public class JobViewRequestForComAdapter extends RecyclerView.Adapter<JobViewReq
 
         holder.ReqUserN.setText(ReqUserName.get(position));
         holder.ReqUserMail.setText(ReqUserEmail.get(position));
+        holder.ReqUserDate.setText(ReqUserDate.get(position));
 
         holder.compReqViewLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +66,7 @@ public class JobViewRequestForComAdapter extends RecyclerView.Adapter<JobViewReq
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView ReqUserN,ReqUserMail;
+        TextView ReqUserN,ReqUserMail,ReqUserDate;
         RelativeLayout compReqViewLayout;
 
         public ViewHolder(@NonNull View itemView) {
@@ -71,6 +75,7 @@ public class JobViewRequestForComAdapter extends RecyclerView.Adapter<JobViewReq
             /** Accessing the Views and Button of Recycle View **/
             ReqUserN = itemView.findViewById(R.id.textViewUName);
             ReqUserMail = itemView.findViewById(R.id.textViewUnEmail);
+            ReqUserDate = itemView.findViewById(R.id.userViewCompDate);
             compReqViewLayout = itemView.findViewById(R.id.adminAdViewLayout);
 
         }
