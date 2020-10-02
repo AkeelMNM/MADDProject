@@ -25,6 +25,7 @@
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/AddJobBtn_Color"
                 android:text="@string/AddNewJob"
+                android:textColor="#FFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.473"
                 app:layout_constraintStart_toStartOf="parent"

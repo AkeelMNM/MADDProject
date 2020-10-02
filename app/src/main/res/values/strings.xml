@@ -48,8 +48,6 @@
     <string name="Company_view_Address"> Colombo 10 </string>
 
     <string name="Rs">Rs </string>
-    <string name="Company_view_salary"> 90,000 </string>
-    <string name="Company_view_JobType">Full time</string>
 
     <string name="Company_View_Remove_btn">Remove</string>
     <string name="Company_View_Edit_btn">Edit</string>
@@ -59,6 +57,7 @@
     <string name="user_apply_btn">Apply</string>
     <string name="JobDesc">Job Description :</string>
     <string name="job">Jobs</string>
+    <string name="Job_Request_Btn">Job Request</string>
 
     <string-array name="JobCategory">
         <item>IT</item>

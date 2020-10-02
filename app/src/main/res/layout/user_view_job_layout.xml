@@ -55,7 +55,7 @@
         android:layout_marginStart="319dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="7dp"
-        android:text="@string/Company_view_salary"
+        android:text="90,000"
         android:textDirection="rtl" />
 
     <TextView
@@ -68,7 +68,7 @@
         android:layout_marginStart="268dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="7dp"
-        android:text="@string/Company_view_JobType"
+        android:text="Full time"
         android:textDirection="rtl" />
 
     <Button
@@ -140,6 +140,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="148dp"
+        android:gravity="left"
         android:paddingStart="6dp"
         android:text="Degree in IT or SE, 2 Years Minimum Job Experience. A good team player, Good communication Skills."
         android:textSize="12sp" />

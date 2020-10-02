@@ -75,17 +75,6 @@ public class JobUserViewAdapter extends RecyclerView.Adapter<JobUserViewAdapter.
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(mContext.getApplicationContext(), CompanyEditJobActivity.class);
-                intent.putExtra("jTitle",mJobTitle.get(position));
-                intent.putExtra("JComName",mComName.get(position));
-                intent.putExtra("comAdd",mJobAdd.get(position));
-                intent.putExtra("jType",mJobType.get(position));
-                intent.putExtra("jSal",mJobSal.get(position));
-                intent.putExtra("jDes",mJobDes.get(position));
-                intent.putExtra("jCate",mJobCate.get(position));
-                intent.putExtra("jID",mJobID.get(position));
-
-                mContext.startActivity(intent);
 
             }
         });

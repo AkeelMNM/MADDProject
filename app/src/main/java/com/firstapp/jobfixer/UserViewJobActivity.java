@@ -10,10 +10,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.Button;
 
 import com.firstapp.jobfixer.Database.DBMaster;
 import com.firstapp.jobfixer.ViewAdapters.JobUserViewAdapter;
-import com.firstapp.jobfixer.ViewAdapters.JobViewAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -34,10 +34,14 @@ public class UserViewJobActivity extends AppCompatActivity {
     private ArrayList<String> mJobDes = new ArrayList<>();
     private ArrayList<String> mJobCate = new ArrayList<>();
 
+    Button Request_Btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_view_job);
+
+        Request_Btn = findViewById(R.id.ReqBtn);
 
         initImageBitmaps();
     }
