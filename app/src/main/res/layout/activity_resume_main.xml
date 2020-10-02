@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnCreateRes" />
 
     <Button
-        android:id="@+id/btnUpdateResM"
+        android:id="@+id/btnBHome"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="245dp"
         android:layout_height="64dp"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewResume">
+    tools:context=".CompanyViewResumeActivity">
 
     <TextView
         android:id="@+id/textView10"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/vFname"
+        android:id="@+id/compVfname"
         android:layout_width="100dp"
         android:layout_height="44dp"
         android:layout_marginStart="32dp"
@@ -29,13 +29,13 @@
         android:text="Asram"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/vLname"
+        app:layout_constraintEnd_toStartOf="@+id/compVLname"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
-        android:id="@+id/vPhone"
+        android:id="@+id/compVPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -44,10 +44,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vLocation" />
+        app:layout_constraintTop_toBottomOf="@+id/compVLocation" />
 
     <TextView
-        android:id="@+id/vLocation"
+        android:id="@+id/compVLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -56,10 +56,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vFname" />
+        app:layout_constraintTop_toBottomOf="@+id/compVfname" />
 
     <TextView
-        android:id="@+id/vEmail"
+        android:id="@+id/compVEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -68,10 +68,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.119"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/compVPhone" />
 
     <TextView
-        android:id="@+id/vJobs"
+        android:id="@+id/compVJobs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -81,7 +81,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/compVEmail" />
 
     <TextView
         android:id="@+id/textView16"
@@ -94,10 +94,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vJobs" />
+        app:layout_constraintTop_toBottomOf="@+id/compVJobs" />
 
     <TextView
-        android:id="@+id/vAboutme"
+        android:id="@+id/compVAboutme"
         android:layout_width="344dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -118,10 +118,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vAboutme" />
+        app:layout_constraintTop_toBottomOf="@+id/compVAboutme" />
 
     <TextView
-        android:id="@+id/vWorkExp"
+        android:id="@+id/compVWorkExp"
         android:layout_width="344dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
@@ -142,10 +142,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vWorkExp" />
+        app:layout_constraintTop_toBottomOf="@+id/compVWorkExp" />
 
     <TextView
-        android:id="@+id/vEduc"
+        android:id="@+id/compVEduc"
         android:layout_width="334dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
@@ -158,51 +158,49 @@
         app:layout_constraintVertical_bias="0.07" />
 
     <Button
-        android:id="@+id/btnvUpdate"
+        android:id="@+id/btncompVrespond"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="190dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="200dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="33dp"
         android:backgroundTint="#4CAF50"
-        android:text="@string/v_upBtn"
+        android:text="@string/company_response"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnvDelete"
-        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintEnd_toStartOf="@+id/btncompVCancel"
+        app:layout_constraintHorizontal_bias="0.21"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vEduc"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/compVEduc"
+        app:layout_constraintVertical_bias="0.22" />
 
     <Button
-        android:id="@+id/btnvDelete"
+        android:id="@+id/btncompVCancel"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="190dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="#F80404"
-        android:text="@string/v_deltBtn"
+        android:text="@string/company_cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnvUpdate"
-        app:layout_constraintTop_toBottomOf="@+id/vEduc"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/compVEduc"
+        app:layout_constraintVertical_bias="0.229" />
 
     <TextView
-        android:id="@+id/vLname"
+        android:id="@+id/compVLname"
         android:layout_width="117dp"
         android:layout_height="43dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="144dp"
         android:layout_marginBottom="69dp"
         android:text="Ahamed"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/vEmail"
+        app:layout_constraintBottom_toTopOf="@+id/compVEmail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/vFname"
+        app:layout_constraintStart_toEndOf="@+id/compVfname"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

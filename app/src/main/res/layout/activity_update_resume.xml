@@ -11,7 +11,7 @@
         style="@style/Widget.AppCompat.TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:text="@string/u_head"
         android:textColor="#070707"
         android:textSize="24sp"
@@ -22,18 +22,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtFirstName"
-        android:layout_width="150dp"
+        android:id="@+id/Upfname"
+        android:layout_width="177dp"
         android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
 
-        android:layout_marginTop="32dp"
+        android:background="@drawable/textview_border"
         android:breakStrategy="high_quality"
         android:bufferType="spannable"
         android:ems="10"
         android:hint="@string/r_Fnm"
         android:inputType="textPersonName"
+        android:paddingStart="7dp"
         app:layout_constraintEnd_toStartOf="@+id/txtUpReLastName"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.386"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -41,38 +44,46 @@
         android:id="@+id/txtUpReLastName"
         android:layout_width="177dp"
         android:layout_height="40dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/textview_border"
         android:bufferType="normal"
         android:ems="10"
         android:hint="@string/r_lnm"
         android:inputType="textPersonName"
+        android:paddingStart="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtReUpLocation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.076" />
 
     <EditText
         android:id="@+id/txtREUpPhone"
-        android:layout_width="177dp"
+        android:layout_width="270dp"
         android:layout_height="39dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/textview_border"
         android:ems="10"
         android:hint="@string/r_phone"
         android:inputType="phone"
+        android:paddingStart="7dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtReUpLocation" />
 
     <EditText
         android:id="@+id/txtReUpEmail"
-        android:layout_width="177dp"
+        android:layout_width="270dp"
         android:layout_height="39dp"
         android:layout_marginTop="12dp"
+        android:background="@drawable/textview_border"
         android:ems="10"
         android:hint="@string/r_mail"
         android:inputType="textEmailAddress"
+        android:paddingStart="7dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtREUpPhone" />
 
@@ -96,19 +107,21 @@
         android:entries="@array/job_role"
         app:layout_constraintBottom_toTopOf="@+id/txtReUpAboutMe"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUpReLastName"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintTop_toBottomOf="@+id/txtReUpEmail"
+        app:layout_constraintVertical_bias="0.551" />
 
     <EditText
         android:id="@+id/txtReUpAboutMe"
-        android:layout_width="306dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="363dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/textview_border"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:paddingStart="7dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -119,6 +132,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/r_abt"
         android:textStyle="bold"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,14 +152,16 @@
 
     <EditText
         android:id="@+id/txtReUpWorkExp"
-        android:layout_width="306dp"
+        android:layout_width="363dp"
         android:layout_height="46dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/textview_border"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:paddingStart="7dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt" />
 
@@ -163,21 +179,23 @@
 
     <EditText
         android:id="@+id/txtReUpEdu"
-        android:layout_width="290dp"
+        android:layout_width="363dp"
         android:layout_height="49dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/textview_border"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:paddingStart="7dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <Button
         android:id="@+id/btnReUpdate"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="153dp"
+        android:layout_width="200dp"
         android:layout_height="49dp"
         android:backgroundTint="#F44336"
         android:text="@string/update_btn"
@@ -190,15 +208,17 @@
 
     <EditText
         android:id="@+id/txtReUpLocation"
-        android:layout_width="177dp"
+        android:layout_width="270dp"
         android:layout_height="39dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/textview_border"
         android:ems="10"
         android:hint="Location"
         android:inputType="textPersonName"
+        android:paddingStart="7dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtFirstName" />
+        app:layout_constraintTop_toBottomOf="@+id/Upfname" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

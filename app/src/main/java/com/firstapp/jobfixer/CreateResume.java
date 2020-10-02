@@ -1,11 +1,13 @@
 package com.firstapp.jobfixer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.firstapp.jobfixer.Model.Resume;
 import com.google.firebase.database.DataSnapshot;
@@ -56,36 +58,47 @@ public class CreateResume extends AppCompatActivity {
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME);
-                dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        Resume resume = new Resume();
+                insertResume();
+                Intent intent = new Intent(CreateResume.this,ViewResume.class);
+                startActivity(intent);
 
-                        resume.setUserId("Us02");
-                        resume.setFirstName(firstName.getText().toString().trim());
-                        resume.setLastName(lastName.getText().toString().trim());
-                        resume.setPhone(phone.getText().toString().trim());
-                        resume.setLocation(location.getText().toString().trim());
-                        resume.setEmail(email.getText().toString().trim());
-                        resume.setEducation(education.getText().toString().trim());
-                        resume.setAboutMe(aboutMe.getText().toString().trim());
-                        resume.setJobCat("IT");
-                        resume.setJobTit("Software Eng");
-
-                        dbRef.child("Re03").setValue(resume);
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
             }
         });
 
+    }
+
+    private void insertResume() {
+        dbRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME);
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Resume resume = new Resume();
+
+                resume.setUserId("Us02");
+                resume.setFirstName(firstName.getText().toString().trim());
+                resume.setLastName(lastName.getText().toString().trim());
+                resume.setPhone(phone.getText().toString().trim());
+                resume.setLocation(location.getText().toString().trim());
+                resume.setEmail(email.getText().toString().trim());
+                resume.setEducation(education.getText().toString().trim());
+                resume.setWorkExp(workExperience.getText().toString().trim());
+                resume.setAboutMe(aboutMe.getText().toString().trim());
+                resume.setJobCat("IT");
+                resume.setJobTit("Software Eng");
+
+                dbRef.child("Re08").setValue(resume);
+
+                Toast.makeText(CreateResume.this, "Data Updated Successfully", Toast.LENGTH_SHORT).show();
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

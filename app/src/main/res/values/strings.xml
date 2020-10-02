@@ -141,7 +141,9 @@
     <string name="main_head">Resume</string>
     <string name="main_btn1">Create Resume</string>
     <string name="main_btn2">View Resume</string>
-    <string name="main_btn3">Update Resume</string>
+    <string name="main_btn3">Home</string>
+    <string name="company_response">respond</string>
+    <string name="company_cancel">cancel</string>
 
     <!-- ****************************************************************************** -->
 </resources>
