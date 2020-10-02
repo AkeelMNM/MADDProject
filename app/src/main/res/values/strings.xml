@@ -50,11 +50,15 @@
     <string name="Rs">Rs </string>
     <string name="Company_view_salary"> 90,000 </string>
     <string name="Company_view_JobType">Full time</string>
-    
+
     <string name="Company_View_Remove_btn">Remove</string>
     <string name="Company_View_Edit_btn">Edit</string>
     <string name="compName">Company Name</string>
     <string name="AddNewJob">Add New Job</string>
+    <string name="user_View_btn">View more</string>
+    <string name="user_apply_btn">Apply</string>
+    <string name="JobDesc">Job Description :</string>
+    <string name="job">Jobs</string>
 
     <string-array name="JobCategory">
         <item>IT</item>

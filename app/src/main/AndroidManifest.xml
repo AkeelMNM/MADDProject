@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CompanyViewJobActivity">  </activity>
-        <activity android:name=".CompanyAddJobActivity" > <intent-filter>
+        <activity android:name=".UserViewJobActivity">  <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>  </activity>
-        <activity android:name=".CompanyEditJobActivity"> </activity>
+        </intent-filter> </activity>
+        <activity android:name=".CompanyViewJobActivity"></activity>
+        <activity android:name=".CompanyAddJobActivity"> </activity>
+        <activity android:name=".CompanyEditJobActivity"></activity>
         <activity android:name=".AdminHomeActivity" />
         <activity android:name=".CompanyHomeActivity" />
         <activity android:name=".MainActivity" />

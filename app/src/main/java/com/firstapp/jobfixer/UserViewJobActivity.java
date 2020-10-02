@@ -6,15 +6,13 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.View;
-import android.widget.Button;
 
 import com.firstapp.jobfixer.Database.DBMaster;
+import com.firstapp.jobfixer.ViewAdapters.JobUserViewAdapter;
 import com.firstapp.jobfixer.ViewAdapters.JobViewAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,9 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class CompanyViewJobActivity extends AppCompatActivity {
+public class UserViewJobActivity extends AppCompatActivity {
 
-    private static final String TAG ="CompanyViewJobActivity" ;
+    private static final String TAG ="UserViewJobActivity" ;
     private ArrayList<String> mJobID = new ArrayList<>();
     private ArrayList<String> mJobName = new ArrayList<>();
     private ArrayList<String> mComName = new ArrayList<>();
@@ -36,26 +34,12 @@ public class CompanyViewJobActivity extends AppCompatActivity {
     private ArrayList<String> mJobDes = new ArrayList<>();
     private ArrayList<String> mJobCate = new ArrayList<>();
 
-    Button AddJob;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_company_view_job);
-
-        AddJob =findViewById(R.id.ViewAddJobBtn);
+        setContentView(R.layout.activity_user_view_job);
 
         initImageBitmaps();
-
-        AddJob.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(CompanyViewJobActivity.this,CompanyAddJobActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     private void initImageBitmaps() {
@@ -91,8 +75,8 @@ public class CompanyViewJobActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: started");
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.viewComTable);
-        JobViewAdapter adapter = new JobViewAdapter(mJobID,mJobName,mComName,mJobAdd,mJobType,mJobSal,mJobDes,mJobCate,this);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.userJobTable);
+        JobUserViewAdapter adapter = new JobUserViewAdapter(mJobID,mJobName,mComName,mJobAdd,mJobType,mJobSal,mJobDes,mJobCate,this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
-public class JobViewAdapter extends RecyclerView.Adapter<JobViewAdapter.ViewHolder>{
+public class JobUserViewAdapter extends RecyclerView.Adapter<JobUserViewAdapter.ViewHolder>{
 
     private ArrayList<String> mJobID = new ArrayList<>();
     private ArrayList<String> mJobTitle = new ArrayList<>();
@@ -37,7 +37,7 @@ public class JobViewAdapter extends RecyclerView.Adapter<JobViewAdapter.ViewHold
     private ArrayList<String> mJobCate = new ArrayList<>();
     private Context mContext;
 
-    public JobViewAdapter(ArrayList<String> mJobID, ArrayList<String> mJobTitle, ArrayList<String> mComName, ArrayList<String> mJobAdd, ArrayList<String> mJobType, ArrayList<String> mJobSal, ArrayList<String> mJobDes , ArrayList<String> mJobCate, Context mContext) {
+    public JobUserViewAdapter(ArrayList<String> mJobID, ArrayList<String> mJobTitle, ArrayList<String> mComName, ArrayList<String> mJobAdd, ArrayList<String> mJobType, ArrayList<String> mJobSal, ArrayList<String> mJobDes , ArrayList<String> mJobCate, Context mContext) {
         this.mJobID = mJobID;
         this.mJobTitle = mJobTitle;
         this.mComName = mComName;
@@ -53,7 +53,7 @@ public class JobViewAdapter extends RecyclerView.Adapter<JobViewAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.company_view_layout,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_view_job_layout,parent,false);
 
         ViewHolder viewHolder = new ViewHolder(view);
 
@@ -71,7 +71,7 @@ public class JobViewAdapter extends RecyclerView.Adapter<JobViewAdapter.ViewHold
         holder.txtSaary.setText(mJobSal.get(position));
         holder.txtType.setText(mJobType.get(position));
 
-        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+        holder.btnViewMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -90,30 +90,6 @@ public class JobViewAdapter extends RecyclerView.Adapter<JobViewAdapter.ViewHold
             }
         });
 
-        holder.btnRemove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                final String id = mJobID.get(position);
-                final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME);
-                dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.hasChild(id))
-                        {
-                            DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME).child(id);
-                            dbRef.removeValue();
-                            Toast.makeText(mContext.getApplicationContext(), "Job Deleted Successfully", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-            }
-        });
     }
 
     @Override
@@ -126,21 +102,21 @@ public class JobViewAdapter extends RecyclerView.Adapter<JobViewAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView txtTi,txtComNa,txtComAdd,txtSaary,txtType,txtDes;
-        Button btnEdit,btnRemove;
+        Button btnApply,btnViewMore;
         RelativeLayout parentLayout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            txtTi =itemView.findViewById(R.id.Cv1);
-            txtComNa =itemView.findViewById(R.id.Cv2);
-            txtComAdd =itemView.findViewById(R.id.Cv3);
-            txtSaary =itemView.findViewById(R.id.Cv4);
-            txtType =itemView.findViewById(R.id.Cv5);
-            txtDes =itemView.findViewById(R.id.Des_CV);
+            txtTi =itemView.findViewById(R.id.CV_tit);
+            txtComNa =itemView.findViewById(R.id.Cv_Nam);
+            txtComAdd =itemView.findViewById(R.id.Cv_Add);
+            txtSaary =itemView.findViewById(R.id.Cv_Sal);
+            txtType =itemView.findViewById(R.id.Cv_typ);
+            txtDes =itemView.findViewById(R.id.CV_Des);
 
-            btnEdit = itemView.findViewById(R.id.bEdit);
-            btnRemove=itemView.findViewById(R.id.btRemove);
-            parentLayout=itemView.findViewById(R.id.parent_layout);
+            btnViewMore = itemView.findViewById(R.id.userViewMoreBtn);
+            btnApply=itemView.findViewById(R.id.userApplyBtn);
+            parentLayout=itemView.findViewById(R.id.user_parent_layout);
         }
     }
 
