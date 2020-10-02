@@ -23,4 +23,14 @@ public final class DBMaster {
         public static final String COLUMN_NAME_JOB_QUALIFICATION ="qualification";
 
     }
+
+    public static class Register implements BaseColumns{
+
+        public static final String TABLE_NAME ="Register";
+        public static final String COLUMN_NAME_USER_NAME ="username";
+        public static final String COLUMN_NAME_USER_PASSWORD ="password";
+        public static final String COLUMN_NAME_USER_TYPE ="type";
+
+
+    }
 }

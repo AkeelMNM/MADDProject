@@ -76,13 +76,14 @@
 
     <Spinner
         android:id="@+id/RegisterUTypeSpinner"
-        android:layout_width="350dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="255dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/RegisterUPassword2" />
 
     <Button
@@ -112,5 +113,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnUserRegister" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/register_uType"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/RegisterUTypeSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterUPassword2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

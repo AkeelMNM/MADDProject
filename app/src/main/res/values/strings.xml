@@ -67,7 +67,7 @@
     <!-- User View Job Strings-->
 
     <string name="job_ad_user_msg">Still Looking For A Job!!!!!!</string>
-    <string name="view_job_btn">View</string>
+    <string name="view_job_btn">View more</string>
     <string name="view_apply_btn">Apply</string>
     <string name="qualifcText">Qualification</string>
     <string name="jDesc">JOB DESCRIPTION</string>
@@ -76,13 +76,14 @@
     <string name="signTitle">Create Account</string>
     <string name="register_btn_name">Register</string>
     <string name="register_login_name">Log In</string>
-    <string name="login_title">User Log In</string>
-    <string name="app_login_title">Welcome to Job Fixer</string>
+    <string name="login_title">Log In</string>
+    <string name="app_login_title">Job Fixer</string>
     <string name="btn_login_pg">Log in</string>
     <string name="btn_login_signup">Register</string>
     <string name="admin_link">Admin Login</string>
     <string name="user_link">User Login</string>
     <string name="admin_login_title">Admin Log In</string>
+    <string name="register_uType">User Type</string>
 
 
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -141,7 +142,11 @@
         <item>Full Time</item>
         <item>Part Time</item>
         <item>Internship</item>
+    </string-array>
 
+    <string-array name="UserTy">
+        <item>Job Seeker</item>
+        <item>Company</item>
     </string-array>
 
 
