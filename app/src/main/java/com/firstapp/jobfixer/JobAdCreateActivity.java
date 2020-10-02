@@ -211,6 +211,8 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
     }
 
     private void helpCenter() {
+         /*Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
+        startActivity(intent);*/
     }
 
     @Override

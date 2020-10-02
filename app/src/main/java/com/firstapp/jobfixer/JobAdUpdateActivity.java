@@ -170,6 +170,8 @@ public class JobAdUpdateActivity extends AppCompatActivity {
     }
 
     private void helpCenter() {
+         /*Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
+        startActivity(intent);*/
     }
 
     @Override
