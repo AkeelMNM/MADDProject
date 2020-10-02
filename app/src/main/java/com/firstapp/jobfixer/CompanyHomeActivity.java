@@ -10,6 +10,7 @@ import android.widget.Button;
 public class CompanyHomeActivity extends AppCompatActivity {
 
     Button HCompJobs,HCompProfile,HCompRequests,HCompHelpCent;
+    String SesUID,SesName, SesType, SesEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,12 @@ public class CompanyHomeActivity extends AppCompatActivity {
         HCompProfile=findViewById(R.id.btnCompanyProfile);
         HCompRequests=findViewById(R.id.btnCompanyRequest);
         HCompHelpCent=findViewById(R.id.btnUserHelpCenter);
+
+        /** Session Application class to get user Details**/
+        SesUID=SessionApplication.getUserID();
+        SesName=SessionApplication.getUserName();
+        SesType=SessionApplication.getUserType();
+        SesEmail=SessionApplication.getUserEmail();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

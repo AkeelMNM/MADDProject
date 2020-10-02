@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.firstapp.jobfixer.Database.DBMaster;
 import com.firstapp.jobfixer.ViewAdapters.AdRecycleViewAdapter;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     Button HUserJobs,HUserResume,HUserSearch,HUserHelpCenter;
+    String SesName,SesUID,SesType,SesEmail;
 
     private static final String TAG ="Main Activity" ;
     private ArrayList<String> mJobCat = new ArrayList<>();
@@ -48,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
         HUserResume=findViewById(R.id.btnUserResume);
         HUserSearch=findViewById(R.id.btnUserSearch);
         HUserHelpCenter=findViewById(R.id.btnUserHelpCenter);
+
+        /** Session Application class to get user Details**/
+        SesUID=SessionApplication.getUserID();
+        SesName=SessionApplication.getUserName();
+        SesType=SessionApplication.getUserType();
+        SesEmail=SessionApplication.getUserEmail();
 
     }
 

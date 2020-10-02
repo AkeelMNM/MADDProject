@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText UName,UPassword;
     Button btnLogIn,btnLogUp;
     TextView adminLog;
-    String GName,GPassword,GType;
+    String GName,GPassword,GType,GUserID,GEmail;
 
     private FirebaseAuth firebaseAuth;
     DatabaseReference dbRef;
@@ -112,10 +112,16 @@ public class LoginActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for (DataSnapshot st: dataSnapshot.getChildren()) {
+                    GUserID=st.getKey();
                     GName=st.child(DBMaster.Register.COLUMN_NAME_USER_NAME).getValue().toString();
                     GPassword=st.child(DBMaster.Register.COLUMN_NAME_USER_PASSWORD).getValue().toString();
                     GType=st.child(DBMaster.Register.COLUMN_NAME_USER_TYPE).getValue().toString();
+                    GEmail=st.child(DBMaster.Register.COLUMN_NAME_USER_EMAIL).getValue().toString();
                 }
+                SessionApplication.setUserID(GUserID);
+                SessionApplication.setUserName(GName);
+                SessionApplication.setUserType(GType);
+                SessionApplication.setUserEmail(GEmail);
 
                 if(GType.equals("Job Seeker")){
                     Intent intent= new Intent(LoginActivity.this,MainActivity.class);

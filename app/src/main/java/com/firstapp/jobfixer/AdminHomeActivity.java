@@ -12,6 +12,7 @@ import android.widget.Button;
 public class AdminHomeActivity extends AppCompatActivity {
 
     Button HAdminJobsAds,HAdminJobApproval,HCompRequests,HAdminHelpCent;
+    String SesUID, SesName,SesType,SesEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,13 @@ public class AdminHomeActivity extends AppCompatActivity {
         HAdminJobsAds=findViewById(R.id.btnAdmJobsAds);
         HAdminHelpCent=findViewById(R.id.btnAdminHelpCenter);
         HAdminJobApproval=findViewById(R.id.btnAdminCompanyJobApproval);
+
+        /** Session Application class to get user Details**/
+        SesUID=SessionApplication.getUserID();
+        SesName=SessionApplication.getUserName();
+        SesType=SessionApplication.getUserType();
+        SesEmail=SessionApplication.getUserEmail();
+
 
         HAdminJobsAds.setOnClickListener(new View.OnClickListener() {
             @Override
