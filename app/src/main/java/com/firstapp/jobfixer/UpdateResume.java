@@ -88,9 +88,9 @@ public class UpdateResume extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 updateResume();
-               /** Intent intent = new Intent(UpdateResume.this,ViewResume.class);
-                startActivity(intent);**/
-
+                Intent intent = new Intent(UpdateResume.this,ViewResume.class);
+                startActivity(intent);
+                Toast.makeText(UpdateResume.this, "Data Changed Successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -116,9 +116,10 @@ public class UpdateResume extends AppCompatActivity {
             resume.setJobCat("IT");
             resume.setJobTit("Software Eng");
 //tis code is not working properly need to check
-            dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME).child(ResumID);
-            dbRef.setValue(ResumID);
-            Toast.makeText(UpdateResume.this, "Data Changed Successfully", Toast.LENGTH_SHORT).show();
+            dbRef= FirebaseDatabase.getInstance().getReference().child("Resume").child("Re08");
+            dbRef.setValue(resume);
+
+
         }
 
         @Override

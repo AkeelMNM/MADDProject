@@ -64,7 +64,7 @@ public class ViewResume extends AppCompatActivity {
                             vWorkEx.setText(st.child("workExp").getValue().toString());
 
                         }
-                       /** if(dataSnapshot.hasChildren()){
+                        /**  if( dataSnapshot.hasChildren()){
                             vfname.setText(dataSnapshot.child("firstName").getValue().toString());
                             vlname.setText(dataSnapshot.child("lastName").getValue().toString());
                             vloc.setText(dataSnapshot.child("location").getValue().toString());
@@ -72,7 +72,7 @@ public class ViewResume extends AppCompatActivity {
                             vEmail.setText(dataSnapshot.child("email").getValue().toString());
                             vJob.setText(dataSnapshot.child("jobTit").getValue().toString());
                             vAbout.setText(dataSnapshot.child("aboutMe").getValue().toString());
-                            vWorkEx.setText(dataSnapshot.child("WorkEx").getValue().toString());
+                            vWorkEx.setText(dataSnapshot.child("workExp").getValue().toString());
                             vEdu.setText(dataSnapshot.child("education").getValue().toString());
                         }
                         else{
@@ -94,18 +94,27 @@ public class ViewResume extends AppCompatActivity {
                     }
                 });
 
-                /**DeleteinV.setOnClickListener(new View.OnClickListener() {
+                DeleteinV.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         final DatabaseReference dre =FirebaseDatabase.getInstance().getReference().child("Resume");
                         dre.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                if(dataSnapshot.hasChild("res06")){
+                                if(dataSnapshot.hasChild("Re08")){
 
-                                    data =FirebaseDatabase.getInstance().getReference().child("Resume").child("Re06");
+                                   dBRead =FirebaseDatabase.getInstance().getReference().child("Resume").child("Re08");
+                                   dBRead.removeValue();
+                                    Toast.makeText(ViewResume.this, "Data Deleted Successfully", Toast.LENGTH_SHORT).show();
+
 
                                 }
+                                else{
+                                    Toast.makeText(ViewResume.this, "No sources Available", Toast.LENGTH_SHORT).show();
+                                }
+
+                                Intent intent = new Intent(ViewResume.this,ResumeMain.class);
+                                startActivity(intent);
                             }
 
                             @Override
@@ -114,7 +123,7 @@ public class ViewResume extends AppCompatActivity {
                             }
                         });
                     }
-                });**/
+                });
 
 
 

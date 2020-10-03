@@ -2,6 +2,7 @@ package com.firstapp.jobfixer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -18,12 +19,17 @@ import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+
 import DataBase.DBMaster;
 
 
 public class CreateResume extends AppCompatActivity {
 
     EditText firstName,lastName,location ,phone , email ,aboutMe ,workExperience , education;
+    public static final String RESUME_ID_PREFIX ="Re";
+    private ArrayList<String> ResId = new ArrayList<>();
     String JobCat ,JobTit;
     Resume res;
     DatabaseReference dbRef;
@@ -44,6 +50,9 @@ public class CreateResume extends AppCompatActivity {
         education = findViewById(R.id.txtEdu);
         btnCreate = findViewById(R.id.btnCreate);
         //Spinner JobCategory = (Spinner) findViewById(R.id.JobCatSpinner);
+
+
+
 
 
         /** Assigning a the values to job category **/
@@ -86,9 +95,68 @@ public class CreateResume extends AppCompatActivity {
                 resume.setJobCat("IT");
                 resume.setJobTit("Software Eng");
 
-                dbRef.child("Re08").setValue(resume);
 
-                Toast.makeText(CreateResume.this, "Data Updated Successfully", Toast.LENGTH_SHORT).show();
+
+                for(DataSnapshot jb: dataSnapshot.getChildren())
+                {
+                    ResId.add(jb.getValue().toString());
+                }
+
+                String id = null ;
+
+                int alSize = ResId.size();
+                alSize++;
+                id = RESUME_ID_PREFIX + alSize;
+                if(ResId.contains(id))
+                {
+                    alSize++;
+                    id = RESUME_ID_PREFIX + alSize;
+                }
+
+                if(TextUtils.isEmpty(firstName.getText())){
+                    Toast.makeText(CreateResume.this,"Enter First Name.. ",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if(TextUtils.isEmpty(lastName.getText())){
+                    Toast.makeText(CreateResume.this,"Enter Company Address.. ",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if(TextUtils.isEmpty(phone.getText())){
+                    Toast.makeText(CreateResume.this,"Enter Phone Number.. ",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if(TextUtils.isEmpty(location.getText())){
+                    Toast.makeText(CreateResume.this,"Enter Location.. ",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if(TextUtils.isEmpty(email.getText())){
+                    Toast.makeText(CreateResume.this,"Enter Email .. ",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if(TextUtils.isEmpty(education.getText())){
+                    Toast.makeText(CreateResume.this,"Enter Education.. ",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if(TextUtils.isEmpty(workExperience.getText())){
+                    Toast.makeText(CreateResume.this,"Enter workExperience.. ",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if(TextUtils.isEmpty(aboutMe.getText())){
+                    Toast.makeText(CreateResume.this,"Enter AboutMe.. ",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else
+                {
+                    //Insert into Database
+                    dbRef.child(id).setValue(resume);
+
+                    Toast.makeText(CreateResume.this, "Data Updated Successfully", Toast.LENGTH_SHORT).show();
+
+
+                }
+
+
+
 
 
 

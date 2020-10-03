@@ -36,7 +36,7 @@
         android:inputType="textPersonName"
         android:paddingStart="7dp"
         app:layout_constraintEnd_toStartOf="@+id/txtUpReLastName"
-        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -93,6 +93,7 @@
         android:layout_height="28dp"
         android:layout_marginTop="16dp"
         android:entries="@array/job_cat"
+        android:spinnerMode="dropdown"
         app:layout_constraintEnd_toStartOf="@+id/JobReUpTitSpinner"
         app:layout_constraintHorizontal_bias="0.19"
         app:layout_constraintStart_toStartOf="parent"
