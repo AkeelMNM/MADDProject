@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firstapp.jobfixer.Database.DBMaster;
+//import com.firstapp.jobfixer.Model.UserRequest;
 import com.firstapp.jobfixer.Model.UserRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

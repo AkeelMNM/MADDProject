@@ -23,7 +23,6 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         HAdminJobsAds=findViewById(R.id.btnAdmJobsAds);
         HAdminHelpCent=findViewById(R.id.btnAdminHelpCenter);
-        HAdminJobApproval=findViewById(R.id.btnAdminCompanyJobApproval);
 
         /** Session Application class to get user Details**/
         SesUID=SessionApplication.getUserID();
@@ -37,6 +36,13 @@ public class AdminHomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AdminHomeActivity.this,JobAdAdminViewActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        HAdminHelpCent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHomeActivity.this,UserRequestsActivity.class);
             }
         });
 

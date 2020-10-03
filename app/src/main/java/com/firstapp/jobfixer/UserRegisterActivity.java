@@ -86,7 +86,7 @@ public class UserRegisterActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     FirebaseUser user = firebaseAuth.getCurrentUser();
 
-                    Register register =new Register(UName,UEmail,UPassword,type);
+                    Register register =new Register(UName,UEmail,UPassword,"Admin");
                     dbRef  = FirebaseDatabase.getInstance().getReference().child(DBMaster.Register.TABLE_NAME);
                     dbRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(register);
 

@@ -8,39 +8,24 @@
     tools:context=".AdminHomeActivity">
 
     <Button
-        android:id="@+id/btnAdminCompanyResume"
-        android:layout_width="170dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="244dp"
-        android:backgroundTint="@color/home_Btn_Color"
-        android:drawableTop="@drawable/company_profile"
-        android:focusableInTouchMode="false"
-        android:text="@string/view_app_jobs"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toEndOf="@+id/btnAdmJobsAds"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/btnAdmJobsAds"
         android:layout_width="170dp"
         android:layout_height="150dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginTop="160dp"
         android:backgroundTint="@color/home_Btn_Color"
         android:drawableTop="@drawable/jobs"
         android:focusableInTouchMode="false"
         android:text="@string/create_ad"
         android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/btnAdminHelpCenter"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtWelMsg2" />
 
     <Button
         android:id="@+id/btnAdminHelpCenter"
         android:layout_width="170dp"
         android:layout_height="150dp"
-        android:layout_marginTop="40dp"
         android:backgroundTint="@color/home_Btn_Color"
         android:drawableTop="@drawable/helpcenter"
         android:focusableInTouchMode="false"
@@ -48,26 +33,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toEndOf="@+id/btnAdminCompanyJobApproval"
-        app:layout_constraintTop_toBottomOf="@+id/btnAdminCompanyResume"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/btnAdminCompanyJobApproval"
-        android:layout_width="170dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/home_Btn_Color"
-        android:drawableTop="@drawable/requests"
-        android:focusableInTouchMode="false"
-        android:text="@string/job_approve_requests"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAdmJobsAds"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnAdmJobsAds"
+        app:layout_constraintTop_toBottomOf="@+id/txtWelMsg2"
+        app:layout_constraintVertical_bias="0.376" />
 
     <TextView
         android:id="@+id/txtWelMsg"

@@ -11,17 +11,12 @@
 
     <color name="Admin_View_List_Bg_Color">#C0D6D8</color>
     <color name="User_View_List_Bg_Color">#C0D6D8</color>
-    <color name="View_List_Re_Color">#F44336</color>
-    <color name="View_List_Up_Color">#BDBDBD</color>
- <!-- **************************Nushky**************************************************** -->
+
     <color name="View_List_Sapply_Color">#F44336</color>
     <color name="View_List_Sview_Color">#BDBDBD</color>
 
     <color name="User_SeView_List_Bg_Color">#607D8B</color>
 
-
-
- <!-- **************************Nushky**************************************************** -->
 
     <!-- ************************ Create Job and view job ************************* -->
     <color name="Post_Job_btn">#2B7A78</color>
@@ -36,5 +31,4 @@
     <color name="AddJobBtn_Color">#58ab35</color>
     
     <!-- *************************************************************************** -->
- <!-- **************************Nushky**************************************************** -->
 </resources>

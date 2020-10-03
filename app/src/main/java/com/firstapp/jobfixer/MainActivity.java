@@ -73,6 +73,38 @@ public class MainActivity extends AppCompatActivity {
         SesType=SessionApplication.getUserType();
         SesEmail=SessionApplication.getUserEmail();
 
+        HUserJobs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,UserViewJobActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        HUserResume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ResumeMain.class);
+                startActivity(intent);
+            }
+        });
+
+        HUserSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        HUserHelpCenter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void initImageBitmaps() {

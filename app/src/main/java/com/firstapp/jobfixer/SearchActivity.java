@@ -3,6 +3,7 @@ package com.firstapp.jobfixer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.firstapp.jobfixer.Database.DBMaster;
+import com.firstapp.jobfixer.ViewAdapters.JobViewAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +25,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
-/*
+
+    private static final String TAG ="SearchActivity";
     private ArrayList<String> seJobID = new ArrayList<>();
     private ArrayList<String> seJobName = new ArrayList<>();
     private ArrayList<String> seComName = new ArrayList<>();
@@ -44,8 +47,10 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        initImageBitmaps();
 
+        if(seText != null) {
+            initImageBitmaps();
+        }
         seBox = findViewById(R.id.searchBox);
         btnSe=findViewById(R.id.btnsearch);
 
@@ -53,9 +58,11 @@ public class SearchActivity extends AppCompatActivity {
 
     }
 
+
+
     private void initImageBitmaps() {
-        //Query data = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME);
-//        Query data =dbRef.orderByChild(DBMaster.Job.TABLE_NAME).startAt(seText).endAt(seText +"\uf8ff");
+
+      Query data =dbRef.orderByChild(DBMaster.Job.TABLE_NAME).startAt(seText).endAt(seText +"\uf8ff");
         data.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -97,6 +104,4 @@ public class SearchActivity extends AppCompatActivity {
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
-
- */
 }

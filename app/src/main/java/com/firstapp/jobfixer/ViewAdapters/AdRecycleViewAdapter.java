@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdRecycleViewAdapter  extends RecyclerView.Adapter<AdRecycleViewAdapter.ViewHolder> {
 

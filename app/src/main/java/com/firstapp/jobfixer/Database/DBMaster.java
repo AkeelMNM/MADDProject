@@ -77,4 +77,48 @@ public final class DBMaster {
         public static final String COLUMN_NAME_DESCRIPTION = "description";
     }
 
+    public static class Resume implements BaseColumns {
+
+        public static final String TABLE_NAME ="Resume";
+        public static final String COLUMN_NAME_RESUME_ID ="ResId";
+        public static final String COLUMN_NAME_USER_ID ="userId";
+        public static final String COLUMN_NAME_FIRST_NAME ="firstName";
+        public static final String COLUMN_NAME_LAST_NAME ="lastName";
+        public static final String COLUMN_NAME_LOCATION ="location";
+
+        public static final String COLUMN_NAME_PHONE ="phone";
+
+        public static final String COLUMN_NAME_EMAIL ="email";
+        public static final String COLUMN_NAME_JOB_CATEGORY ="jobCat";
+        public static final String COLUMN_NAME_JOB_TITLE ="jobTit";
+        public static final String COLUMN_NAME_JOB_ABOUT_ME ="aboutMe";
+        public static final String COLUMN_NAME_JOB_WORK_EXPERIENCE ="workExp";
+        public static final String COLUMN_NAME_JOB_EDUCTION ="eduction";
+
+
+    }
+
+    public static class HelpCenter implements BaseColumns{
+        public static final String TABLE_NAME="Helpcenter";
+        public static final String COLUM_NAME_USER_ID="userId";
+
+        public static final String COLUM_NAME_USERNAME="name";
+        public static final String COLUM_NAME_EMAIL="email";
+        public static final String COLUM_NAME_MESSAGE="message";
+
+
+    }
+
+    public static class UserRequest  implements BaseColumns{
+
+        public static final String TABLE_NAME="UserMessages";
+
+
+        public static final String COLUM_NAME_ADMINUSERNAME="adminname";
+        public static final String COLUM_NAME_ADMINEMAIL="adminemail";
+        public static final String COLUM_NAME_ADMINMESSAGE="adminmsg";
+        public static final String COLUM_NAME_USERID="userid";
+
+    }
+
 }

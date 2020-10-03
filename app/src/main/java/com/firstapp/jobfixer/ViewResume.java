@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firstapp.jobfixer.Database.DBMaster;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import DataBase.DBMaster;
 
 public class ViewResume extends AppCompatActivity {
     TextView vfname ,vlname , vloc ,vphone ,vEmail , vJob ,vAbout ,vWorkEx ,vEdu;

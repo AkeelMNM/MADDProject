@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.firstapp.jobfixer.Database.DBMaster;
 import com.firstapp.jobfixer.Model.Resume;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,7 +23,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-import DataBase.DBMaster;
 
 
 public class CreateResume extends AppCompatActivity {

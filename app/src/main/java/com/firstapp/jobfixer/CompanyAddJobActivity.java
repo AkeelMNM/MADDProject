@@ -48,9 +48,9 @@ public class CompanyAddJobActivity extends AppCompatActivity {
         JobTitle =(Spinner) findViewById(R.id.AddJobTitleSpinner);
         JobType =(Spinner) findViewById(R.id.AddJobTypeSpinner);
 
-        JobCategoryArray = getResources().getStringArray(R.array.JobCategory);
-        JobTitleArray = getResources().getStringArray(R.array.JobTitle);
-        JobTypeArray = getResources().getStringArray(R.array.JobType);
+        JobCategoryArray = getResources().getStringArray(R.array.arJobCat);
+        //JobTitleArray = getResources().getStringArray(R.array.);
+        //JobTypeArray = getResources().getStringArray(R.array.JobType);
 
         txtComName = (EditText) findViewById(R.id.AddComName);
         txtComAdd = (EditText) findViewById(R.id.AddCompanyAddress);

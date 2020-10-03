@@ -18,29 +18,26 @@
         tools:ignore="ExtraText">
         <activity android:name=".UserReplyActivity"></activity>
         <activity android:name=".AdminReplyActivity" ></activity>
-        <activity android:name=".UserRequestsActivity" >  <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter> </activity>
+        <activity android:name=".UserRequestsActivity" ></activity>
         <activity android:name=".AdminRequestsActivity" > </activity>
         <activity android:name=".HelpCenterActivity" > </activity>
-        <activity android:name=".SearchActivity">
-        android:theme="@style/AppTheme">
+        <activity android:name=".SearchActivity"></activity>
 
         <activity android:name=".UserViewAppliedCompanyRequestActivity"></activity>
-        <activity android:name=".CompViewAllApplicantJobRequestActivity" >
+        <activity android:name=".CompViewAllApplicantJobRequestActivity" ></activity>
           
         <activity android:name=".CompanyViewResumeActivity"></activity>
-        <activity android:name=".ResumeMain">
-
-        </activity>
+        <activity android:name=".ResumeMain"></activity>
         <activity android:name=".ComReplyToJobRequestedUserActivity" />
-        <activity android:name=".AdminLoginActivity">
-
-        </activity>
+        <activity android:name=".AdminLoginActivity"></activity>
         <activity android:name=".UserRegisterActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".JobViewForUserActivity" />
         <activity android:name=".JobAdAdminViewActivity" >
 
@@ -49,35 +46,25 @@
         <activity android:name=".JobAdCreateActivity" />
         <activity android:name=".AdminHomeActivity" />
         <activity android:name=".CompanyHomeActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".UserViewJobActivity">
 
-
-        <activity android:name=".AdminHomeActivity" />
-        <activity android:name=".CompanyHomeActivity" />
-        <activity android:name=".MainActivity" />
- 
-      
-        <activity android:name=".UserViewJobActivity">  <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter> </activity>
+        </activity>
         <activity android:name=".CompanyViewJobActivity"></activity>
         <activity android:name=".CompanyAddJobActivity"> </activity>
         <activity android:name=".CompanyEditJobActivity"></activity>
-        <activity android:name=".AdminHomeActivity" />
-        <activity android:name=".CompanyHomeActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".CompanyViewResumeActivity"> </activity>
-        <activity android:name=".ResumeMain"> </activity>
+
 
         <activity android:name=".ViewResume"></activity>
         <activity android:name=".UpdateResume"></activity>
         <activity android:name=".CreateResume"></activity>
-        <activity android:name=".AdminHomeActivity" />
-        <activity android:name=".CompanyHomeActivity" />
-        <activity android:name=".MainActivity" />
+
 
         <meta-data
             android:name="preloaded_fonts"

@@ -57,10 +57,10 @@
     <string name="job_view_name">Software Engineer</string>
     <string name="comp_view_name">Sysco Lab </string>
     <string name="com_view_add">Colombo 02</string>
-    <string name="job_view_t">Full Time</string>
-    <string name="job_view_ad">AD</string>
+    <!--<string name="job_view_t">Full Time</string>-->
+    <!--<string name="job_view_ad">AD</string>-->
     <string name="job_view_sal">Up to 60000/Month</string>
-    <string name="ad_view_cte_btn">Create Advertisements</string>
+    <!--<string name="ad_view_cte_btn">Create Advertisements</string>-->
     <string name="view_remove_btn">Remove</string>
     <string name="view_update_btn">Update</string>
 

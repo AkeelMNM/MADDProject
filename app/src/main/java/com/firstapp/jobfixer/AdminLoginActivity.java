@@ -111,10 +111,10 @@ public class AdminLoginActivity extends AppCompatActivity {
                 SessionApplication.setUserType(GType);
                 SessionApplication.setUserEmail(GEmail);
 
-                Intent intent = new Intent(AdminLoginActivity.this,AdminHomeActivity.class);
-                intent.putExtra("AdminName",GName);
-                intent.putExtra("AdminID",id);
-                startActivity(intent);
+                    Intent intent = new Intent(AdminLoginActivity.this, AdminHomeActivity.class);
+                    intent.putExtra("AdminName", GName);
+                    intent.putExtra("AdminID", id);
+                    startActivity(intent);
 
             }
 

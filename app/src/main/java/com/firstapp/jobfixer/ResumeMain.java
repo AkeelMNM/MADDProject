@@ -39,6 +39,7 @@ public class ResumeMain extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ResumeMain.this,MainActivity.class);
+                startActivity(intent);
             }
         });
 

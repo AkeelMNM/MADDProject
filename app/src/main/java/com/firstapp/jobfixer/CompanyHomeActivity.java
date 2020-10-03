@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 public class CompanyHomeActivity extends AppCompatActivity {
@@ -30,6 +31,28 @@ public class CompanyHomeActivity extends AppCompatActivity {
         SesName=SessionApplication.getUserName();
         SesType=SessionApplication.getUserType();
         SesEmail=SessionApplication.getUserEmail();
+
+        HCompJobs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CompanyHomeActivity.this,CompanyViewJobActivity.class);
+            }
+        });
+        HCompHelpCent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CompanyHomeActivity.this,HelpCenterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        HCompRequests.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CompanyHomeActivity.this,CompViewAllApplicantJobRequestActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
