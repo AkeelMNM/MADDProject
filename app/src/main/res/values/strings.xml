@@ -23,9 +23,19 @@
     <string name="view_app_jobs">Create New Jobs &amp; View Existing Jobs </string>
     <string name="job_approve_requests">Job Approval Requests</string>
     <string name="help_center_req">Help Center Requests</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 
     <!-- ****************************************************************************** -->
 
+ <!-- **************************Nushky**************************************************** -->
     <!-- Search interface-->
     <string name="job_view_n">Software Engineer</string>
     <string name="comp_view_n">Sysco Lab </string>
@@ -105,5 +115,117 @@
     <!-- ****************************************************************************** -->
 
 
+ <!-- **************************Nushky**************************************************** -->
+    <!-- All Register Strings  -->
+ <!-- **************************Nushky**************************************************** -->
 
+    <string name="sign_up">Sign Up</string>
+    <string name="su_name">username</string>
+    <string name="su_email">email</string>
+    <string name="su_pw">password</string>
+    <string name="su_Cpw">confirm password</string>
+    <string name="ck_bx">By signing you accept</string>
+    <string name="ck_bx1">Terms of Services</string>
+    <string name="ck_bx2">and</string>
+    <string name="ck_bx3">Privacy Policy</string>
+    <string name="lg_btn">Sign In</string>
+    <string name="sg_up">Sign Up</string>
+
+    <!-- ****************************************************************************** -->
+
+    <!-- All Register Strings  -->
+
+    <string name="log_in">Log In</string>
+    <string name="lg_name">username or email</string>
+    <string name="lg_pw">password</string>
+    <string name="ck_bx4">Remember me</string>
+    <string-array name="Account_Cat">
+        <item>Company</item>
+        <item>Applicant</item>
+
+    </string-array>
+    <!-- ****************************************************************************** -->
+
+    <!-- All Create Resume Strings  -->
+    <string name="r_head">Create Resume</string>
+    <string name="r_Fnm">First Name</string>
+    <string name="r_lnm">Last Name</string>
+    <string name="r_phone">Phone</string>
+    <string name="r_mail">Email</string>
+    <string name="r_abt">About Me</string>
+    <string name="r_work">Work Experience</string>
+    <string name="r_edu">Education</string>
+    <string name="r_submit">Submit</string>
+    <string-array name="City">
+        <item>Kandy</item>
+        <item>Colombo</item>
+        <item>Kegalle</item>
+        <item>Galle</item>
+        <item>Kurunegala</item>
+        <item>Jaffna</item>
+        <item>Nuwaraeliya</item>
+        <item>Anuradhapura</item>
+        <item>Negombo</item>
+        <item>Matara</item>
+        <item>Dambulla</item>
+    </string-array>
+
+    <string-array name="job_cat">
+        <item>Accounts</item>
+        <item>Technology sector</item>
+        <item>Software Engineering</item>
+        <item>Sales Job</item>
+        <item>Medical</item>
+
+    </string-array>
+
+    <string-array name="job_role">
+        <item>Accountant</item>
+        <item>Technology Assistant</item>
+        <item>Software Engineer</item>
+        <item>Sales Manger</item>
+        <item>Medical Distributor</item>
+
+    </string-array>
+
+
+    <!-- ****************************************************************************** -->
+
+    <!-- All Create Resume Strings  -->
+    <string name="u_head">Update Resume</string>
+    <string name="update_btn">update</string>
+
+
+    <!-- ****************************************************************************** -->
+
+
+    <!-- All View Resume Strings  -->
+    <string name="v_head">Resume</string>
+    <string name="v_name">JOHN SMITH</string>
+    <string name="v_city">kandy</string>
+    <string name="v_phone">0775689246</string>
+    <string name="v_mail">JohnK@gmail.com</string>
+    <string name="v_Role">Software Engineer</string>
+    <string name="v_Abt">About Me</string>
+    <string name="v_abtDetail">I am a hard worker
+    </string>
+    <string name="v_abtDetail1">I use creative Approach to problem solving
+    </string>
+    <string name="v_work">Work Experience</string>
+    <string name="v_wrkDetails">Student</string>
+    <string name="v_Edu">Education</string>
+    <string name="v_eduDetail">Bsc in software Engineering</string>
+    <string name="v_upBtn">Update</string>
+    <string name="v_deltBtn">Delete</string>
+    <!-- ****************************************************************************** -->
+
+    <!-- All Main Resume Strings  -->
+    <string name="main_head">Resume</string>
+    <string name="main_btn1">Create Resume</string>
+    <string name="main_btn2">View Resume</string>
+    <string name="main_btn3">Home</string>
+    <string name="company_response">respond</string>
+    <string name="company_cancel">cancel</string>
+
+    <!-- ****************************************************************************** -->
 </resources>

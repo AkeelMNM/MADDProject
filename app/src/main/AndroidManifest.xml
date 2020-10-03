@@ -13,6 +13,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+ <!-- **************************Nushky**************************************************** -->
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
         <activity android:name=".UserReplyActivity"></activity>
@@ -25,13 +26,33 @@
         <activity android:name=".AdminRequestsActivity" > </activity>
         <activity android:name=".HelpCenterActivity" > </activity>
         <activity android:name=".SearchActivity">
+ <!-- **************************Nushky**************************************************** -->
+        android:theme="@style/AppTheme">
+        <activity android:name=".CompanyViewResumeActivity"></activity>
+        <activity android:name=".ResumeMain">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+ <!-- **************************Nushky**************************************************** -->
 
         </activity>
+ <!-- **************************Nushky**************************************************** -->
 
 
         <activity android:name=".AdminHomeActivity" />
         <activity android:name=".CompanyHomeActivity" />
         <activity android:name=".MainActivity" />
+ <!-- **************************Nushky**************************************************** -->
+        <activity android:name=".ViewResume"></activity>
+        <activity android:name=".UpdateResume"></activity>
+        <activity android:name=".CreateResume"></activity>
+        <activity android:name=".AdminHomeActivity" />
+        <activity android:name=".CompanyHomeActivity" />
+        <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+ <!-- **************************Nushky**************************************************** -->
     </application>
 
 </manifest>
