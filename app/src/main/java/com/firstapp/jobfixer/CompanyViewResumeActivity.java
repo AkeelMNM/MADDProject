@@ -84,6 +84,7 @@ public class CompanyViewResumeActivity extends AppCompatActivity {
                 intent.putExtra("ApplicantID",AID);
                 intent.putExtra("AppName",AName1+" "+AName2);
                 intent.putExtra("AppEmail",UEmail);
+                intent.putExtra("AppJob",AJob);
 
             }
         });

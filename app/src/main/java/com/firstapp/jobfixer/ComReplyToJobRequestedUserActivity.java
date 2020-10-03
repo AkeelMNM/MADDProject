@@ -47,12 +47,12 @@ public class ComReplyToJobRequestedUserActivity extends AppCompatActivity {
 
         /** Retrieving the RecycleView item details from JobAdAdminViewActivity.java class via Intent**/
         Bundle bundle = getIntent().getExtras();
-        compName.setText(bundle.getString("cName"));
-        compEmail.setText(bundle.getString("cEmail"));
-        AppName.setText(bundle.getString("aName"));
-        AppEmail.setText(bundle.getString("aEmail"));
-        uId=bundle.getString("userID");
-        JName=bundle.getString("uJobName");
+        compName.setText(bundle.getString(SessionApplication.getUserName()));
+        compEmail.setText(bundle.getString(SessionApplication.getUserEmail()));
+        AppName.setText(bundle.getString("AppName"));
+        AppEmail.setText(bundle.getString("AppEmail"));
+        uId=bundle.getString("ApplicantID");
+        JName=bundle.getString("AppJob");
 
         btnGoBack.setOnClickListener(new View.OnClickListener() {
             @Override
