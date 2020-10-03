@@ -104,19 +104,18 @@ public class LoginActivity extends AppCompatActivity {
 
     private void getUserDetails(String id) {
 
-        dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Register.TABLE_NAME);
-        Query data =dbRef.orderByChild(id);
+        dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Register.TABLE_NAME).child(id);
 
-        data.addListenerForSingleValueEvent(new ValueEventListener() {
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot st: dataSnapshot.getChildren()) {
-                    GUserID=st.getKey();
-                    GName=st.child(DBMaster.Register.COLUMN_NAME_USER_NAME).getValue().toString();
-                    GPassword=st.child(DBMaster.Register.COLUMN_NAME_USER_PASSWORD).getValue().toString();
-                    GType=st.child(DBMaster.Register.COLUMN_NAME_USER_TYPE).getValue().toString();
-                    GEmail=st.child(DBMaster.Register.COLUMN_NAME_USER_EMAIL).getValue().toString();
+                if(dataSnapshot.hasChildren()){
+                    GUserID=dataSnapshot.getKey();
+                    GName=dataSnapshot.child(DBMaster.Register.COLUMN_NAME_USER_NAME).getValue().toString();
+                    GPassword=dataSnapshot.child(DBMaster.Register.COLUMN_NAME_USER_PASSWORD).getValue().toString();
+                    GType=dataSnapshot.child(DBMaster.Register.COLUMN_NAME_USER_TYPE).getValue().toString();
+                    GEmail=dataSnapshot.child(DBMaster.Register.COLUMN_NAME_USER_EMAIL).getValue().toString();
                 }
                 SessionApplication.setUserID(GUserID);
                 SessionApplication.setUserName(GName);
@@ -128,7 +127,8 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if(GType.equals("Company")){
-                    Intent intent= new Intent(LoginActivity.this,AdminHomeActivity.class);
+
+                    Intent intent= new Intent(LoginActivity.this,CompanyHomeActivity.class);
                     startActivity(intent);
                 }
                 else{
