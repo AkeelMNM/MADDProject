@@ -23,8 +23,18 @@
     <string name="view_app_jobs">Create New Jobs &amp; View Existing Jobs </string>
     <string name="job_approve_requests">Job Approval Requests</string>
     <string name="help_center_req">Help Center Requests</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 
     <!-- ****************************************************************************** -->
+<!-- ****************************************** Zumry ****************************************************************** -->
 
     <!-- Advertisement Management Strings-->
 
@@ -157,4 +167,236 @@
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <!-- ****************************************************************************** -->
 
+    <string name="job_Category">Job Category</string>
+    <string name="job_title">Job Title </string>
+    <string name="Work_place_address">Company Address </string>
+    <string name="Work_place_address_hint">Work place Address</string>
+    <string name="job_type">Job Type </string>
+    <string name="Salary">Salary (per month)</string>
+    <string name="Salary_hint">Salary</string>
+    <string name="Job_Description">Job Description</string>
+    <string name="Job_Description_hint">Job Description</string>
+    <string name="Post_Job_btn">Post Job</string>
+
+    <string name="Update_Job_btn">Update</string>
+    <string name="Cancel_btn">Cancel</string>
+
+    <string name="Company_Jobs_Heading">  Company Jobs</string>
+
+    <!-- Company LinearLayout Start -->
+    <string name="Company_view_title">Software Engineer </string>
+    <string name="Company_view_Cname">IFS</string>
+    <string name="Company_view_Address"> Colombo 10 </string>
+
+    <string name="Rs">Rs </string>
+
+    <string name="Company_View_Remove_btn">Remove</string>
+    <string name="Company_View_Edit_btn">Edit</string>
+    <string name="compName">Company Name</string>
+    <string name="AddNewJob">Add New Job</string>
+    <string name="user_View_btn">View more</string>
+    <string name="user_apply_btn">Apply</string>
+    <string name="JobDesc">Job Description :</string>
+    <string name="job">Jobs</string>
+    <string name="Job_Request_Btn">Job Request</string>
+
+<!-- **************************************************************************************************************** -->
+
+<!-- Company LinearLayout End -->
+
+    <!-- ****************************************************************************** -->
+
+ <!-- **************************Nushky**************************************************** -->
+    <!-- Search interface-->
+    <string name="job_view_n">Software Engineer</string>
+    <string name="comp_view_n">Sysco Lab </string>
+    <string name="com_view_a">Colombo 02</string>
+    <string name="job_view_t">Full Time</string>
+    <string name="job_view_ad">AD</string>
+    <string name="job_view_s">Up to 60000/Month</string>
+    <string name="ad_view_cte_btn">Create Advertisements</string>
+    <string name="view_ap_btn">Apply</string>
+    <string name="view_j_btn">View</string>
+    <string name="job_view_n2">Software Architect</string>
+    <string name="comp_view_n2">IFS </string>
+    <string name="com_view_a2">Colombo 03</string>
+    <string name="job_view_s2">Up to 80000/Month</string>
+    <string name="job_search_title">Search for your next job</string>
+    <!-- ****************************************************************************** -->
+    <!-- Helpcenter interface-->
+    <string name="job_helpcenter1">Get in Touch</string>
+    <string name="job_helpcenter2">want to Get in Touch?We love to hear from you</string>
+    <string name="job_helpcenter3">Here is how you can reach us...</string>
+    <string name="job_helpcenter4">Name :</string>
+    <string name="job_helpcenter5">Email :</string>
+    <string name="job_helpcenter6">How can we help ?</string>
+    <string name="job_helpcenter7">Contact Customer Support</string>
+    <string name="job_helpcenter8">Talk to us</string>
+    <string name="job_helpcenter14">Just pick up the phone to speak with a member  </string>
+    <string name="job_helpcenter10">of our team</string>
+    <string name="job_helpcenter13">+945976585491</string>
+    <string name="job_viewreq1">View Requests</string>
+    <!-- ****************************************************************************** -->
+    <!-- Admin request interface-->
+    <string name="adminreq">Admin Requests</string>
+    <string name="adminmsg1">PAUL</string>
+    <string name="adminmsg11">I’m also in the </string>
+    <string name="adminmsg2">SMITH</string>
+    <string name="adminmsg22">I’m a college senior interested in working in marketing. For the last year, I’ve been following your work for Bryan and Associates, and it’s really impressed me. I particularly  </string>
+    <string name="adminmsg3">I’ve been following your work for Bryan and Associates, and it’s really impressed me. I particularly </string>
+    <string name="adminmsg31">JESICA</string>
+    <string name="adminmsg33">I was really impressed by the </string>
+    <string name="adminmsg4"> social media strategy you put together for Bella Bru Coffee Shop. I’m also a small business owner </string>
+    <!-- ****************************************************************************** -->
+    <!-- user request interface-->
+    <string name="usermsg1">USER REQUEST</string>
+    <string name="usermsg11">COM BANK</string>
+    <string name="usermsg2">You have satisfied the prerequisites for the Job Request application. For more information, see Job Requests</string>
+    <string name="usermsg22">VIRTUZA</string>
+    <string name="usermsg3">Financial institutions are experiencing a wave of transformation as emerging technology and market conditions impact client behavior. To help banks retain clients and remain relevant in a competitive industry, we designed Virtu</string>
+    <string name="usermsg33">IFS</string>
+    <string name="usermsg4">Register today for this segment of an upcoming Amazon Web Services (AWS) webinar series, featuring Eric Martinez, CEO, and Founder of modjoul. Learn how he partnered with Virtusa and AWS to create a mobile app and intelligent workplace  </string>
+    <string name="usermsg44">UNILIVER</string>
+    <string name="usermsg5">Prepare for the upcoming compliance deadline for the final Centers for Medicare and Medicaid Services (CMS) interoperability rules with a streamlined solution for coordinated care and improved health outcomes. Download the brochu</string>
+    <string name="usermsg55">For insurance companies, agility and speed are critical in the underwriting process. Read on to learn how we</string>
+    <!-- ****************************************************************************** -->
+    <!-- user reply interface-->
+    <string name="userrep1">GET IN </string>
+    <string name="userrep12">TOUCH</string>
+    <string name="userrep2">Heres  </string>
+    <string name="userrep21">how you  </string>
+    <string name="userrep22"> can </string>
+    <string name="userrep23"> reach us</string>
+    <string name="userrep3">USER REPLY</string>
+    <string name="userrep4">Cc/</string>
+    <string name="userrep5">Bcc</string>
+    <string name="userep6">Mesage</string>
+    <!-- ****************************************************************************** -->
+    <!-- adminreply interface-->
+    <string name="adminrep1">GET IN </string>
+    <string name="adminrep12">TOUCH</string>
+    <string name="adminrep2">Heres </string>
+    <string name="adminrep21">how you </string>
+    <string name="adminrep22">can </string>
+    <string name="adminrep23">reach us</string>
+    <string name="adminrep3">Admin REPLY</string>
+    <string name="adminrep4">Cc/</string>
+    <string name="adminrep5">Bcc</string>
+    <string name="adminrep6">Mesage</string>
+    <!-- ****************************************************************************** -->
+
+
+ <!-- **************************Nushky**************************************************** -->
+    <!-- All Register Strings  -->
+ <!-- **************************Nushky**************************************************** -->
+
+    <string name="sign_up">Sign Up</string>
+    <string name="su_name">username</string>
+    <string name="su_email">email</string>
+    <string name="su_pw">password</string>
+    <string name="su_Cpw">confirm password</string>
+    <string name="ck_bx">By signing you accept</string>
+    <string name="ck_bx1">Terms of Services</string>
+    <string name="ck_bx2">and</string>
+    <string name="ck_bx3">Privacy Policy</string>
+    <string name="lg_btn">Sign In</string>
+    <string name="sg_up">Sign Up</string>
+
+    <!-- ****************************************************************************** -->
+
+    <!-- All Register Strings  -->
+
+    <string name="log_in">Log In</string>
+    <string name="lg_name">username or email</string>
+    <string name="lg_pw">password</string>
+    <string name="ck_bx4">Remember me</string>
+    <string-array name="Account_Cat">
+        <item>Company</item>
+        <item>Applicant</item>
+
+    </string-array>
+    <!-- ****************************************************************************** -->
+
+    <!-- All Create Resume Strings  -->
+    <string name="r_head">Create Resume</string>
+    <string name="r_Fnm">First Name</string>
+    <string name="r_lnm">Last Name</string>
+    <string name="r_phone">Phone</string>
+    <string name="r_mail">Email</string>
+    <string name="r_abt">About Me</string>
+    <string name="r_work">Work Experience</string>
+    <string name="r_edu">Education</string>
+    <string name="r_submit">Submit</string>
+    <string-array name="City">
+        <item>Kandy</item>
+        <item>Colombo</item>
+        <item>Kegalle</item>
+        <item>Galle</item>
+        <item>Kurunegala</item>
+        <item>Jaffna</item>
+        <item>Nuwaraeliya</item>
+        <item>Anuradhapura</item>
+        <item>Negombo</item>
+        <item>Matara</item>
+        <item>Dambulla</item>
+    </string-array>
+
+    <string-array name="job_cat">
+        <item>Accounts</item>
+        <item>Technology sector</item>
+        <item>Software Engineering</item>
+        <item>Sales Job</item>
+        <item>Medical</item>
+
+    </string-array>
+
+    <string-array name="job_role">
+        <item>Accountant</item>
+        <item>Technology Assistant</item>
+        <item>Software Engineer</item>
+        <item>Sales Manger</item>
+        <item>Medical Distributor</item>
+
+    </string-array>
+
+
+    <!-- ****************************************************************************** -->
+
+    <!-- All Create Resume Strings  -->
+    <string name="u_head">Update Resume</string>
+    <string name="update_btn">update</string>
+
+
+    <!-- ****************************************************************************** -->
+
+
+    <!-- All View Resume Strings  -->
+    <string name="v_head">Resume</string>
+    <string name="v_name">JOHN SMITH</string>
+    <string name="v_city">kandy</string>
+    <string name="v_phone">0775689246</string>
+    <string name="v_mail">JohnK@gmail.com</string>
+    <string name="v_Role">Software Engineer</string>
+    <string name="v_Abt">About Me</string>
+    <string name="v_abtDetail">I am a hard worker
+    </string>
+    <string name="v_abtDetail1">I use creative Approach to problem solving
+    </string>
+    <string name="v_work">Work Experience</string>
+    <string name="v_wrkDetails">Student</string>
+    <string name="v_Edu">Education</string>
+    <string name="v_eduDetail">Bsc in software Engineering</string>
+    <string name="v_upBtn">Update</string>
+    <string name="v_deltBtn">Delete</string>
+    <!-- ****************************************************************************** -->
+
+    <!-- All Main Resume Strings  -->
+    <string name="main_head">Resume</string>
+    <string name="main_btn1">Create Resume</string>
+    <string name="main_btn2">View Resume</string>
+    <string name="main_btn3">Home</string>
+    <string name="company_response">respond</string>
+    <string name="company_cancel">cancel</string>
+
+    <!-- ****************************************************************************** -->
 </resources>

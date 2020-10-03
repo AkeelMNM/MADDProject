@@ -6,10 +6,35 @@
 
     <color name="activity_Bg_Color">#FFFFFF</color>
     <color name="home_Btn_Color">#26A69A</color>
+
     <color name="AdUpForm_Btn_Color">#F44336</color>
 
     <color name="Admin_View_List_Bg_Color">#C0D6D8</color>
     <color name="User_View_List_Bg_Color">#C0D6D8</color>
     <color name="View_List_Re_Color">#F44336</color>
     <color name="View_List_Up_Color">#BDBDBD</color>
+ <!-- **************************Nushky**************************************************** -->
+    <color name="View_List_Sapply_Color">#F44336</color>
+    <color name="View_List_Sview_Color">#BDBDBD</color>
+
+    <color name="User_SeView_List_Bg_Color">#607D8B</color>
+
+
+
+ <!-- **************************Nushky**************************************************** -->
+
+    <!-- ************************ Create Job and view job ************************* -->
+    <color name="Post_Job_btn">#2B7A78</color>
+    <color name="Cancel_Job_btn">#d93f3d</color>
+    <color name="Update_Job_btn">#2B7A78</color>
+    <color name="Layout_Color">#dcebfa</color>
+
+    <!-- company View Job -->
+    <color name="Company_View_Liner_Bg_Color">#607D8B</color>
+    <color name="View_List_Up_Color">#3ac23c</color>
+    <color name="View_List_Re_Color">#d93f3d</color>
+    <color name="AddJobBtn_Color">#58ab35</color>
+    
+    <!-- *************************************************************************** -->
+ <!-- **************************Nushky**************************************************** -->
 </resources>

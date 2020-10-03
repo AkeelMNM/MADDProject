@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.firstapp.jobfixer">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" />
 
     <application
         android:name=".SessionApplication"
@@ -9,14 +14,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="ExtraText">
+        <activity android:name=".UserReplyActivity"></activity>
+        <activity android:name=".AdminReplyActivity" ></activity>
+        <activity android:name=".UserRequestsActivity" >  <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter> </activity>
+        <activity android:name=".AdminRequestsActivity" > </activity>
+        <activity android:name=".HelpCenterActivity" > </activity>
+        <activity android:name=".SearchActivity">
         android:theme="@style/AppTheme">
+
         <activity android:name=".UserViewAppliedCompanyRequestActivity"></activity>
         <activity android:name=".CompViewAllApplicantJobRequestActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+          
+        <activity android:name=".CompanyViewResumeActivity"></activity>
+        <activity android:name=".ResumeMain">
 
         </activity>
         <activity android:name=".ComReplyToJobRequestedUserActivity" />
@@ -34,6 +50,40 @@
         <activity android:name=".AdminHomeActivity" />
         <activity android:name=".CompanyHomeActivity" />
         <activity android:name=".MainActivity" />
+        </activity>
+
+
+        <activity android:name=".AdminHomeActivity" />
+        <activity android:name=".CompanyHomeActivity" />
+        <activity android:name=".MainActivity" />
+ 
+      
+        <activity android:name=".UserViewJobActivity">  <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter> </activity>
+        <activity android:name=".CompanyViewJobActivity"></activity>
+        <activity android:name=".CompanyAddJobActivity"> </activity>
+        <activity android:name=".CompanyEditJobActivity"></activity>
+        <activity android:name=".AdminHomeActivity" />
+        <activity android:name=".CompanyHomeActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".CompanyViewResumeActivity"> </activity>
+        <activity android:name=".ResumeMain"> </activity>
+
+        <activity android:name=".ViewResume"></activity>
+        <activity android:name=".UpdateResume"></activity>
+        <activity android:name=".CreateResume"></activity>
+        <activity android:name=".AdminHomeActivity" />
+        <activity android:name=".CompanyHomeActivity" />
+        <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+
     </application>
 
 </manifest>

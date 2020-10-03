@@ -3,6 +3,7 @@
     <dimen name="home_btn_width">170dp</dimen>
     <dimen name="home_btn_height">150dp</dimen>
 
+
     <!-- Advertisement Management Dimensions-->
     <dimen name="form_banner_width">400dp</dimen>
     <dimen name="form_banner_height">60dp</dimen>
@@ -21,4 +22,40 @@
 
     <!-- **************************************************** -->
 
+
+ <!-- **************************Nushky**************************************************** -->
+    <dimen name="list_view_Sebtn_width">200dp</dimen>
+    <dimen name="list_view_Sebtn_height">35dp</dimen>
+
+    <dimen name="view_SeLinearLayout_width">400dp</dimen>
+    <dimen name="view_SeLinearLayout_height">190dp</dimen>
+ <!-- **************************Nushky**************************************************** -->
+    <!-- ************************ Create Job and view job ************************* -->
+    <dimen name="Add_job_TextBox_Width">350dp</dimen>
+    <dimen name="Add_job_TextBox_height">25dp</dimen>
+
+    <dimen name="Add_job_TextSize">18sp</dimen>
+    <dimen name="Hint_TextSize">16sp</dimen>
+
+    <dimen name="Add_job_select_box_Width">350dp</dimen>
+    <dimen name="Add_job_select_box_height">30dp</dimen>
+
+    <dimen name="Add_job_InputText_box_Width">350dp</dimen>
+    <dimen name="Add_job_InputText_box_height">45dp</dimen>
+
+    <!-- Btn post Job -->
+    <dimen name="Post_Job_btn_width">350dp</dimen>
+    <dimen name="Post_Job_btn_height">32dp</dimen>
+
+    <!-- company View Job -->
+    <dimen name="Company_View_Liner_width">400dp</dimen>
+    <dimen name="Company_View_Liner_height">200dp</dimen>
+    
+    <dimen name="list_view_btn_width">200dp</dimen>
+    <dimen name="list_view_btn_height"> 35dp </dimen>
+
+
+    <!-- ****************************************************************************** -->
+
+ <!-- **************************Nushky**************************************************** -->
 </resources>
