@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firstapp.jobfixer.CompanyViewResumeActivity;
 import com.firstapp.jobfixer.R;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class JobViewRequestForComAdapter extends RecyclerView.Adapter<JobViewReq
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
         holder.ReqUserN.setText(ReqUserName.get(position));
         holder.ReqUserMail.setText(ReqUserEmail.get(position));
@@ -58,7 +59,9 @@ public class JobViewRequestForComAdapter extends RecyclerView.Adapter<JobViewReq
         holder.compReqViewLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
+                Intent intent = new Intent(mContext.getApplicationContext(), CompanyViewResumeActivity.class);
+                intent.putExtra("ApplicantEmail",ReqUserEmail.get(position));
+                mContext.startActivity(intent);
             }
         });
     }
