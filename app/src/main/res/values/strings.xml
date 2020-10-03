@@ -36,6 +36,136 @@
     <!-- ****************************************************************************** -->
 <!-- ****************************************** Zumry ****************************************************************** -->
 
+    <!-- Advertisement Management Strings-->
+
+    <!-- Add job Ad & Update Job Strings-->
+    <string name="job_cte_msg">Create New Advertisement</string>
+    <string name="job_up_msg">Update Advertisement</string>
+    <string name="job_cat">Job Category</string>
+    <string name="job_tit"> Job Title</string>
+    <string name="comp_name">Company Name </string>
+    <string name="com_add">Company Address</string>
+    <string name="job_t">Job Type</string>
+    <string name="job_sal">Job Salary</string>
+    <string name="ad_cte_btn">Create</string>
+    <string name="ad_up_btn">Update</string>
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+    <!-- Admin View Job Strings-->
+    <string name="job_ad_msg">Advertisements</string>
+    <string name="job_view_name">Software Engineer</string>
+    <string name="comp_view_name">Sysco Lab </string>
+    <string name="com_view_add">Colombo 02</string>
+    <string name="job_view_t">Full Time</string>
+    <string name="job_view_ad">AD</string>
+    <string name="job_view_sal">Up to 60000/Month</string>
+    <string name="ad_view_cte_btn">Create Advertisements</string>
+    <string name="view_remove_btn">Remove</string>
+    <string name="view_update_btn">Update</string>
+
+    <string name="q_Desc">Degree in IT or SE, 2 Years Minimum Job Experience , A good team player , Good communication Skills</string>
+    <string name="quaTit">Qualification :</string>
+
+    <string name="job_view_name2">Software Architect</string>
+    <string name="comp_view_name2">IFS </string>
+    <string name="com_view_add2">Colombo 03</string>
+    <string name="job_view_sal2">Up to 80000/Month</string>
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+    <!-- User View Job Strings-->
+
+    <string name="job_ad_user_msg">Still Looking For A Job!!!!!!</string>
+    <string name="view_job_btn">View more</string>
+    <string name="view_apply_btn">Apply</string>
+    <string name="qualifcText">Qualification</string>
+    <string name="jDesc">JOB DESCRIPTION</string>
+    <string name="jobReq">Job Requirements</string>
+    <string name="btnH">home</string>
+    <string name="signTitle">Create Account</string>
+    <string name="register_btn_name">Register</string>
+    <string name="register_login_name">Log In</string>
+    <string name="login_title">Log In</string>
+    <string name="app_login_title">Job Fixer</string>
+    <string name="btn_login_pg">Log in</string>
+    <string name="btn_login_signup">Register</string>
+    <string name="admin_link">Admin Login</string>
+    <string name="user_link">User Login</string>
+    <string name="admin_login_title">Admin Log In</string>
+    <string name="register_uType">User Type</string>
+    <string name="comp_rep_to_user_job_btn">Send Message</string>
+    <string name="com_req_job_rep_layout_title">Respone to the Applicant</string>
+    <string name="applicant_req_title">Applicant Requests</string>
+    <string name="comp_req_view_layout_title">Company Requests</string>
+
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+    <!-- Job category and Job Title String arrays-->
+
+    <string-array name="jobCat">
+        <item>Information Technology</item>
+        <item>Business Management and Administration</item>
+        <item>Engineering</item>
+        <item>Hospitality and Tourism</item>
+        <item>Architecture and Construction</item>
+    </string-array>
+
+    <string-array name="itJobCat">
+        <item>Software Engineer</item>
+        <item>Database Administrator</item>
+        <item>Software Architect</item>
+        <item>Network Engineer</item>
+        <item>Data Scientist</item>
+    </string-array>
+
+    <string-array name="bmJobCat">
+        <item>Accountant</item>
+        <item>Auditors</item>
+        <item>Budget Analyst</item>
+        <item>Financial Manager</item>
+        <item>Marketing Manager</item>
+    </string-array>
+
+    <string-array name="htJobCat">
+        <item>Food Service Manager</item>
+        <item>Lodging Manager</item>
+        <item>Waiters or Waitresses</item>
+        <item>Cooks, Restaurant</item>
+        <item>Bartender</item>
+    </string-array>
+
+    <string-array name="enJobCat">
+        <item>Automotive Engineer</item>
+        <item>Mechanical Engineer</item>
+        <item>Electric Engineer</item>
+        <item>Electronic Engineer</item>
+        <item>Materials Engineer</item>
+    </string-array>
+
+    <string-array name="arJobCat">
+        <item>Civil Engineer</item>
+        <item>Architect</item>
+        <item>Quantity saviour</item>
+        <item>Construction Manager</item>
+        <item>Electricians</item>
+    </string-array>
+
+    <string-array name="jobTy">
+        <item>Full Time</item>
+        <item>Part Time</item>
+        <item>Internship</item>
+    </string-array>
+
+    <string-array name="UserTy">
+        <item>Job Seeker</item>
+        <item>Company</item>
+    </string-array>
+
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ****************************************************************************** -->
 
     <string name="job_Category">Job Category</string>
     <string name="job_title">Job Title </string>

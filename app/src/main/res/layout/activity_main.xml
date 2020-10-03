@@ -7,94 +7,137 @@
     android:background="@color/activity_Bg_Color"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnUserResume"
-        android:layout_width="170dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="244dp"
-        android:backgroundTint="@color/home_Btn_Color"
-        android:drawableTop="@drawable/user_home"
-        android:focusableInTouchMode="false"
-        android:text="@string/resume"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toEndOf="@+id/btnUserJobs"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnUserJobs"
-        android:layout_width="170dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="244dp"
-        android:backgroundTint="@color/home_Btn_Color"
-        android:drawableTop="@drawable/jobs"
-        android:focusableInTouchMode="false"
-        android:text="@string/all_jobs"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnUserHelpCenter"
-        android:layout_width="170dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/home_Btn_Color"
-        android:drawableTop="@drawable/helpcenter"
-        android:focusableInTouchMode="false"
-        android:text="@string/help_center"
-        android:textColor="#FFFFFF"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toEndOf="@+id/btnUserSearch"
-        app:layout_constraintTop_toBottomOf="@+id/btnUserResume"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/btnUserSearch"
-        android:layout_width="170dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/home_Btn_Color"
-        android:drawableTop="@drawable/search_home"
-        android:focusableInTouchMode="false"
-        android:text="@string/search"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnUserJobs"
-        app:layout_constraintVertical_bias="0.0" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtWelMsg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="@string/welcome_msg"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.103" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="53dp" />
 
-    <TextView
-        android:id="@+id/txtWelMsg2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="serif-monospace"
-        android:text="@string/user_home_msg"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnUserJobs"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtWelMsg"
-        app:layout_constraintVertical_bias="0.01" />
+            <TextView
+                android:id="@+id/txtWelMsg"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="center"
+                android:text="@string/welcome_msg"
+                android:textAlignment="center"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/txtWelMsg2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif-monospace"
+                android:text="@string/user_home_msg"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="430dp">
+
+                <Button
+                    android:id="@+id/btnUserJobs"
+                    android:layout_width="170dp"
+                    android:layout_height="150dp"
+                    android:backgroundTint="@color/home_Btn_Color"
+                    android:drawableTop="@drawable/jobs"
+                    android:focusableInTouchMode="false"
+                    android:text="@string/all_jobs"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/btnUserSearch"
+                    app:layout_constraintEnd_toStartOf="@+id/btnUserResume"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.47000003" />
+
+                <Button
+                    android:id="@+id/btnUserResume"
+                    android:layout_width="170dp"
+                    android:layout_height="150dp"
+                    android:backgroundTint="@color/home_Btn_Color"
+                    android:drawableTop="@drawable/user_home"
+                    android:focusableInTouchMode="false"
+                    android:text="@string/resume"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/btnUserHelpCenter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/btnUserJobs"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btnUserHelpCenter"
+                    android:layout_width="170dp"
+                    android:layout_height="150dp"
+                    android:backgroundTint="@color/home_Btn_Color"
+                    android:drawableTop="@drawable/helpcenter"
+                    android:focusableInTouchMode="false"
+                    android:text="@string/help_center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/btnUserSearch"
+                    app:layout_constraintTop_toBottomOf="@+id/btnUserResume" />
+
+                <Button
+                    android:id="@+id/btnUserSearch"
+                    android:layout_width="170dp"
+                    android:layout_height="150dp"
+                    android:backgroundTint="@color/home_Btn_Color"
+                    android:drawableTop="@drawable/search_home"
+                    android:focusableInTouchMode="false"
+                    android:text="@string/search"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnUserHelpCenter"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnUserJobs" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/txtBanner2"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_marginTop="20dp"
+                android:background="#EFE9E9"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/job_ad_user_msg"
+                android:textAlignment="gravity"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

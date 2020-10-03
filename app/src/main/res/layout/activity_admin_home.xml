@@ -8,7 +8,7 @@
     tools:context=".AdminHomeActivity">
 
     <Button
-        android:id="@+id/btnCompanyResume"
+        android:id="@+id/btnAdminCompanyResume"
         android:layout_width="170dp"
         android:layout_height="150dp"
         android:layout_marginTop="244dp"
@@ -19,11 +19,11 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toEndOf="@+id/btnCompanyJobs"
+        app:layout_constraintStart_toEndOf="@+id/btnAdmJobsAds"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnCompanyJobs"
+        android:id="@+id/btnAdmJobsAds"
         android:layout_width="170dp"
         android:layout_height="150dp"
         android:layout_marginStart="32dp"
@@ -37,7 +37,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnCompanyHelpCenter"
+        android:id="@+id/btnAdminHelpCenter"
         android:layout_width="170dp"
         android:layout_height="150dp"
         android:layout_marginTop="40dp"
@@ -49,12 +49,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toEndOf="@+id/btnCompanySearch"
-        app:layout_constraintTop_toBottomOf="@+id/btnCompanyResume"
+        app:layout_constraintStart_toEndOf="@+id/btnAdminCompanyJobApproval"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdminCompanyResume"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btnCompanySearch"
+        android:id="@+id/btnAdminCompanyJobApproval"
         android:layout_width="170dp"
         android:layout_height="150dp"
         android:layout_marginStart="32dp"
@@ -66,7 +66,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCompanyJobs"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdmJobsAds"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView

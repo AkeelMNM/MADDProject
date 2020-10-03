@@ -1,6 +1,7 @@
 package com.firstapp.jobfixer;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,41 +12,28 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firstapp.jobfixer.Database.DBMaster;
+import com.firstapp.jobfixer.ViewAdapters.AdAdminRecycleViewAdepter;
 import com.firstapp.jobfixer.ViewAdapters.AdRecycleViewAdapter;
-
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import com.firstapp.jobfixer.Model.Helpcenter;
-
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import com.google.firebase.database.ValueEventListener;
 
-import static android.app.ProgressDialog.show;
-
-public class MainActivity extends AppCompatActivity {
-
-    Button HUserJobs,HUserResume,HUserSearch,HUserHelpCenter;
-    String SesName,SesUID,SesType,SesEmail;
+public class JobAdAdminViewActivity extends AppCompatActivity {
 
     private static final String TAG ="Main Activity" ;
-    private ArrayList<String> mJobId = new ArrayList<>();
     private ArrayList<String> mJobCat = new ArrayList<>();
     private ArrayList<String> mJobName = new ArrayList<>();
     private ArrayList<String> mCompName = new ArrayList<>();
@@ -53,40 +41,44 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> mJobQualification = new ArrayList<>();
     private ArrayList<String> mJobSalary = new ArrayList<>();
     private ArrayList<String> mJobType = new ArrayList<>();
+    private ArrayList<String> mJobID = new ArrayList<>();
 
-    DatabaseReference dbRef;
+    Button btnCreate;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_job_ad_admin_view);
         initImageBitmaps();
 
-        HUserJobs=findViewById(R.id.btnUserJobs);
-        HUserResume=findViewById(R.id.btnUserResume);
-        HUserSearch=findViewById(R.id.btnUserSearch);
-        HUserHelpCenter=findViewById(R.id.btnUserHelpCenter);
+        btnCreate=findViewById(R.id.btnCreateAd);
 
-        /** Session Application class to get user Details**/
-        SesUID=SessionApplication.getUserID();
-        SesName=SessionApplication.getUserName();
-        SesType=SessionApplication.getUserType();
-        SesEmail=SessionApplication.getUserEmail();
+        btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                /**Redirecting to Create ad from via Intent**/
+                Intent intent = new Intent(JobAdAdminViewActivity.this,JobAdCreateActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
     private void initImageBitmaps() {
-        /** Retrieving Data's from Firebase Database According to the user specification**/
 
-        dbRef=FirebaseDatabase.getInstance().getReference().child(DBMaster.Advertisement.TABLE_NAME);
-        Query data = dbRef.orderByChild(DBMaster.Advertisement.COLUMN_NAME_JOB_TITLE).equalTo("Software Engineer");
+        /** Retrieving All Data's from Firebase Database **/
+
+        Query data = FirebaseDatabase.getInstance().getReference().child(DBMaster.Advertisement.TABLE_NAME);
 
         data.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for(DataSnapshot st: dataSnapshot.getChildren()){
-                    mJobId.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_ID).getValue().toString());
+                    mJobID.add(st.getKey().toString());
                     mJobCat.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_CATEGORY).getValue().toString());
                     mJobName.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_TITLE).getValue().toString());
                     mCompName.add(st.child(DBMaster.Advertisement.COLUMN_NAME_COMPANY_NAME).getValue().toString());
@@ -104,6 +96,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void initRecyclerView() {
+        Log.d(TAG, "initRecyclerView: started");
+        RecyclerView recyclerView = findViewById(R.id.adminADRecyclerView);
+
+        /** Assigning the Retrieved Data's to admin_ad_recycleView_layout.xml via Constructor of AdAdminRecycleViewAdepter.java **/
+        AdAdminRecycleViewAdepter adapter = new AdAdminRecycleViewAdepter(mJobCat,mJobName,mCompName,mCompLocation,mJobQualification,mJobSalary,mJobType,mJobID,this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        for(int i=0;i<3;i++){ recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));}
+
 
     }
 
@@ -113,16 +117,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    private void initRecyclerView() {
-        Log.d(TAG, "initRecyclerView: started");
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        AdRecycleViewAdapter adapter = new AdRecycleViewAdapter(mJobId,mJobCat,mJobName,mCompName,mCompLocation,mJobQualification,mJobSalary,mJobType,this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
-
-
-    }
 
     /** Menu bar actions**/
     @Override
@@ -146,15 +140,14 @@ public class MainActivity extends AppCompatActivity {
         SessionApplication.setUserType("");
         SessionApplication.setUserEmail("");
 
-        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+        Intent intent = new Intent(JobAdAdminViewActivity.this,AdminLoginActivity.class);
         startActivity(intent);
 
 
     }
 
     private void helpCenter() {
-
-        /*Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
+         /*Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
         startActivity(intent);*/
     }
 
@@ -163,9 +156,10 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         /** check user is log in**/
         if(SessionApplication.getUserName().equals("")){
-            Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+            Intent intent = new Intent(JobAdAdminViewActivity.this,AdminLoginActivity.class);
             startActivity(intent);
         }
 
     }
+
 }
