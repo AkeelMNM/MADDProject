@@ -38,12 +38,28 @@ public final class DBMaster {
 
         public static final String TABLE_NAME ="CompViewApplicantRequest";
         public static final String COLUMN_NAME_JOB_ID ="jobID";
-            public static final String COLUMN_NAME_RESUME_ID ="resumeID";
+        public static final String COLUMN_NAME_RESUME_ID ="resumeID";
         public static final String COLUMN_NAME_JOB_NAME ="jobName";
         public static final String COLUMN_NAME_COMPANY_NAME ="compName";
         public static final String COLUMN_NAME_APPLICANT_NAME ="applicantName";
         public static final String COLUMN_NAME_APPLICANT_EMAIL ="applicantEmail";
         public static final String COLUMN_NAME_APPLY_DATE ="applyDate";
+
+
+    }
+
+    public static class SendReplyToApplicant implements BaseColumns{
+
+        public static final String TABLE_NAME ="UserViewCompRequest";
+        public static final String COLUMN_NAME_USER_ID ="userID";
+        public static final String COLUMN_NAME_JOB_NAME ="jobName";
+        public static final String COLUMN_NAME_COMPANY_NAME ="compName";
+        public static final String COLUMN_NAME_COMPANY_EMAIL ="compEmail";
+        public static final String COLUMN_NAME_SEND_DATE ="sendDate";
+        public static final String COLUMN_NAME_APPLICANT_NAME ="applicantName";
+        public static final String COLUMN_NAME_APPLICANT_EMAIL ="applicantEmail";
+        public static final String COLUMN_NAME_COMPANY_MESSAGE ="compMsg";
+
 
 
     }

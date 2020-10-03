@@ -21,14 +21,16 @@ public class UserViewCompJobReqAdapter extends RecyclerView.Adapter<UserViewComp
     private ArrayList<String> ReqSendCompEmail = new ArrayList<>();
     private ArrayList<String> ReqSendCompMessage = new ArrayList<>();
     private ArrayList<String> ReqSendCompDate = new ArrayList<>();
+    private ArrayList<String> ReqSendJobName = new ArrayList<>();
 
     private Context mContext;
 
-    public UserViewCompJobReqAdapter(ArrayList<String> reqSendCompName, ArrayList<String> reqSendCompEmail, ArrayList<String> reqSendCompMessage, ArrayList<String> reqSendCompDate, Context mContext) {
+    public UserViewCompJobReqAdapter(ArrayList<String> reqSendCompName, ArrayList<String> reqSendCompEmail, ArrayList<String> reqSendCompMessage, ArrayList<String> reqSendCompDate, ArrayList<String> reqSendJobName, Context mContext) {
         ReqSendCompName = reqSendCompName;
         ReqSendCompEmail = reqSendCompEmail;
         ReqSendCompMessage = reqSendCompMessage;
         ReqSendCompDate = reqSendCompDate;
+        ReqSendJobName = reqSendJobName;
         this.mContext = mContext;
     }
 
@@ -52,6 +54,7 @@ public class UserViewCompJobReqAdapter extends RecyclerView.Adapter<UserViewComp
         holder.ReqCompMail.setText(ReqSendCompEmail.get(position));
         holder.ReqCompMsg.setText(ReqSendCompMessage.get(position));
         holder.ReqCompDate.setText(ReqSendCompDate.get(position));
+        holder.ReqJobName.setText(ReqSendJobName.get(position));
     }
 
     @Override
@@ -62,7 +65,7 @@ public class UserViewCompJobReqAdapter extends RecyclerView.Adapter<UserViewComp
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView ReqCompN,ReqCompMail,ReqCompMsg,ReqCompDate;
+        TextView ReqCompN,ReqCompMail,ReqCompMsg,ReqCompDate,ReqJobName;
         RelativeLayout compReqViewLayout;
 
         public ViewHolder(@NonNull View itemView) {
@@ -73,6 +76,7 @@ public class UserViewCompJobReqAdapter extends RecyclerView.Adapter<UserViewComp
             ReqCompMail = itemView.findViewById(R.id.userViewCompEmail);
             ReqCompMsg = itemView.findViewById(R.id.userViewCompMessage);
             ReqCompDate = itemView.findViewById(R.id.userViewCompDate);
+            ReqJobName=itemView.findViewById(R.id.appJobName);
             compReqViewLayout = itemView.findViewById(R.id.cmpReqToUserRecycleLayout);
 
         }

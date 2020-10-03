@@ -3,7 +3,8 @@
     android:id="@+id/JobRequestLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/User_View_List_Bg_Color">
+    android:background="@color/User_View_List_Bg_Color"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/textViewUName"
@@ -11,10 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="14dp"
         android:text="TextView"
-        android:textSize="30sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textViewUnEmail"
@@ -22,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewUName"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="6dp"
         android:text="TextView"
         android:textSize="18sp" />
@@ -36,20 +37,21 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="251dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="19dp"
+        android:layout_marginEnd="5dp"
         android:text="User Job Request"
         android:textAlignment="center" />
 
     <TextView
         android:id="@+id/textViewDate"
-        android:layout_width="wrap_content"
+        android:layout_width="98dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="166dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="26dp"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="5dp"
         android:layout_toEndOf="@+id/textViewUName"
+        android:gravity="center"
         android:text="TextView" />
 
     <TextView
@@ -58,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewUnEmail"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="23dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="7dp"
         android:text="Job :" />
 

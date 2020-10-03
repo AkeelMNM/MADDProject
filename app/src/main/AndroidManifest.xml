@@ -10,19 +10,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CompViewAllApplicantJobRequestActivity"></activity>
-        <activity android:name=".ComReplyToJobRequestedUserActivity" />
-        <activity android:name=".AdminLoginActivity">
+        <activity android:name=".UserViewAppliedCompanyRequestActivity"></activity>
+        <activity android:name=".CompViewAllApplicantJobRequestActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".ComReplyToJobRequestedUserActivity" />
+        <activity android:name=".AdminLoginActivity">
+
         </activity>
         <activity android:name=".UserRegisterActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".JobViewForUserActivity" />
-        <activity android:name=".JobAdAdminViewActivity" />
+        <activity android:name=".JobAdAdminViewActivity" >
+
+        </activity>
         <activity android:name=".JobAdUpdateActivity" />
         <activity android:name=".JobAdCreateActivity" />
         <activity android:name=".AdminHomeActivity" />

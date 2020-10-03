@@ -85,7 +85,7 @@ public class JobViewForUserActivity extends AppCompatActivity {
                         req.setResumeID(SessionApplication.getResumeID());
 
                         //Insert into Database
-                        dbRef.setValue(req);
+                        dbRef.push().setValue(req);
 
                     }
 

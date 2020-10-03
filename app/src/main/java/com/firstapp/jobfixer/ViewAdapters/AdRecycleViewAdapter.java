@@ -125,7 +125,7 @@ public class AdRecycleViewAdapter  extends RecyclerView.Adapter<AdRecycleViewAda
                         req.setResumeID(SessionApplication.getResumeID());
 
                         //Insert into Database
-                        dbRef.setValue(req);
+                        dbRef.push().setValue(req);
 
                     }
 

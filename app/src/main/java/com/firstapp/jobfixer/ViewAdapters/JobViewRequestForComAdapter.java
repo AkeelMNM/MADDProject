@@ -41,7 +41,7 @@ public class JobViewRequestForComAdapter extends RecyclerView.Adapter<JobViewReq
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.resume_req_comp_view_layout,parent,false);
 
         /** Create ViewHolder **/
-        JobViewRequestForComAdapter.ViewHolder viewHolder = new JobViewRequestForComAdapter.ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view);
 
         /** return View Holder **/
         return viewHolder;
@@ -79,9 +79,9 @@ public class JobViewRequestForComAdapter extends RecyclerView.Adapter<JobViewReq
             /** Accessing the Views and Button of Recycle View **/
             ReqUserN = itemView.findViewById(R.id.textViewUName);
             ReqUserMail = itemView.findViewById(R.id.textViewUnEmail);
-            ReqUserDate = itemView.findViewById(R.id.userViewCompDate);
+            ReqUserDate = itemView.findViewById(R.id.textViewDate);
             ReqUserJobTitle=itemView.findViewById(R.id.applyJobName);
-            compReqViewLayout = itemView.findViewById(R.id.adminAdViewLayout);
+            compReqViewLayout = itemView.findViewById(R.id.JobRequestLayout);
 
         }
     }

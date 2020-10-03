@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -85,15 +86,29 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                        Advertisement ad = new Advertisement();
-                        ad.setJobID("J003");
-                        ad.setJobCategory(Select);
-                        ad.setJobTitle(Select2);
-                        ad.setCompanyName("IFS");
-                        ad.setJobType(Select3);
-                        ad.setCompanyAddress(txtCompanyAddress.getText().toString().trim());
-                        ad.setJobSalary(txtJobSalary.getText().toString().trim());
-                        ad.setQualification(txtQualification.getText().toString().trim());
+                        if(TextUtils.isEmpty(txtCompanyAddress.getText())){
+                            Toast.makeText(JobAdCreateActivity.this,"Enter Company Address.. ",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else if(TextUtils.isEmpty(txtJobSalary.getText())){
+                            Toast.makeText(JobAdCreateActivity.this,"Enter Salary.. ",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else if(TextUtils.isEmpty(txtQualification.getText())){
+                            Toast.makeText(JobAdCreateActivity.this,"Enter Description.. ",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else {
+                            Advertisement ad = new Advertisement();
+                            ad.setJobID("J003");
+                            ad.setJobCategory(Select);
+                            ad.setJobTitle(Select2);
+                            ad.setCompanyName("IFS");
+                            ad.setJobType(Select3);
+                            ad.setCompanyAddress(txtCompanyAddress.getText().toString().trim());
+                            ad.setJobSalary(txtJobSalary.getText().toString().trim());
+                            ad.setQualification(txtQualification.getText().toString().trim());
+                        }
 
                         for(DataSnapshot st: dataSnapshot.getChildren()){
                             AdID.add(st.getKey().toString());
