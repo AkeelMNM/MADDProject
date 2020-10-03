@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -109,8 +110,30 @@ public class CompanyEditJobActivity extends AppCompatActivity {
 
                         }
 
-                        DBRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME).child(txtJobID.getText().toString().trim());
-                        DBRef.setValue(job);
+                        if(TextUtils.isEmpty(txtComName.getText())){
+                            Toast.makeText(CompanyEditJobActivity.this,"Enter Company Name",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else if(TextUtils.isEmpty(txtComAddress.getText())){
+                            Toast.makeText(CompanyEditJobActivity.this,"Enter Company Address",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else if(TextUtils.isEmpty(txtSalary.getText())){
+                            Toast.makeText(CompanyEditJobActivity.this,"Enter Salary",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else if(TextUtils.isEmpty(txtDes.getText())){
+                            Toast.makeText(CompanyEditJobActivity.this,"Enter Description",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else
+                        {
+                            DBRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME).child(txtJobID.getText().toString().trim());
+                            DBRef.setValue(job);
+
+                            Intent intent = new Intent(CompanyEditJobActivity.this,CompanyViewJobActivity.class);
+                            startActivity(intent);
+                        }
 
                     }
 
@@ -119,9 +142,6 @@ public class CompanyEditJobActivity extends AppCompatActivity {
 
                     }
                 });
-
-                Intent intent = new Intent(CompanyEditJobActivity.this,CompanyViewJobActivity.class);
-                startActivity(intent);
             }
         });
 
@@ -129,7 +149,7 @@ public class CompanyEditJobActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(CompanyEditJobActivity.this, "Cancel Edit job..",Toast.LENGTH_SHORT).show();
+                Toast.makeText(CompanyEditJobActivity.this, "Cancel Update Job successfully..!! ",Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(CompanyEditJobActivity.this,CompanyViewJobActivity.class);
                 startActivity(intent);

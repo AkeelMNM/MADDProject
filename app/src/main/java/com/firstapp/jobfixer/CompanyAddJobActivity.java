@@ -91,6 +91,11 @@ public class CompanyAddJobActivity extends AppCompatActivity {
                         job.setSalary(txtComSal.getText().toString().trim());
                         job.setDescription(txtComDes.getText().toString().trim());
 
+                        for(DataSnapshot jb: snapshot.getChildren())
+                        {
+                            JobID.add(jb.getValue().toString());
+                        }
+
                         String id = null ;
                         int alSize = JobID.size();
                         alSize++;
@@ -103,27 +108,23 @@ public class CompanyAddJobActivity extends AppCompatActivity {
                         }
 
                         if(TextUtils.isEmpty(txtComName.getText())){
-                            Toast.makeText(CompanyAddJobActivity.this,"Enter Company Name.. ",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CompanyAddJobActivity.this,"Enter Company Name",Toast.LENGTH_SHORT).show();
                             return;
                         }
                         else if(TextUtils.isEmpty(txtComAdd.getText())){
-                            Toast.makeText(CompanyAddJobActivity.this,"Enter Company Address.. ",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CompanyAddJobActivity.this,"Enter Company Address",Toast.LENGTH_SHORT).show();
                             return;
                         }
                         else if(TextUtils.isEmpty(txtComSal.getText())){
-                            Toast.makeText(CompanyAddJobActivity.this,"Enter Salary.. ",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CompanyAddJobActivity.this,"Enter Salary",Toast.LENGTH_SHORT).show();
                             return;
                         }
                         else if(TextUtils.isEmpty(txtComDes.getText())){
-                            Toast.makeText(CompanyAddJobActivity.this,"Enter Description.. ",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CompanyAddJobActivity.this,"Enter Description",Toast.LENGTH_SHORT).show();
                             return;
                         }
                         else
                         {
-                            for(DataSnapshot jb: snapshot.getChildren())
-                            {
-                                JobID.add(jb.getValue().toString());
-                            }
                             //Insert into Database
                             DBRef.child(id).setValue(job);
 
@@ -147,7 +148,7 @@ public class CompanyAddJobActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(CompanyAddJobActivity.this, "Cancel Add job",Toast.LENGTH_SHORT).show();
+                Toast.makeText(CompanyAddJobActivity.this, "Cancel Add Job successfully..!!",Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(CompanyAddJobActivity.this,CompanyViewJobActivity.class);
                 startActivity(intent);
