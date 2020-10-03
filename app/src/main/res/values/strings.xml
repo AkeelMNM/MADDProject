@@ -84,6 +84,9 @@
     <string name="user_link">User Login</string>
     <string name="admin_login_title">Admin Log In</string>
     <string name="register_uType">User Type</string>
+    <string name="comp_rep_to_user_job_btn">Send Message</string>
+    <string name="com_req_job_rep_layout_title">Respone to the Applicant</string>
+    <string name="applicant_req_title">Applicant Requests</string>
 
 
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->

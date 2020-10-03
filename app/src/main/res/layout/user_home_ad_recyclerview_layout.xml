@@ -8,16 +8,17 @@
 
     <TextView
         android:id="@+id/textViewADL"
-        android:layout_width="wrap_content"
+        android:layout_width="47dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="377dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="7dp"
+        android:layout_marginStart="345dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="19dp"
         android:layout_marginBottom="5dp"
         android:background="#FF9800"
+        android:gravity="center"
         android:paddingStart="3dp"
         android:text="@string/job_view_ad"
         android:textDirection="locale"
@@ -132,6 +133,12 @@
         android:text="@string/quaTit"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/userViewForJobID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible" />
 
 
 </RelativeLayout>

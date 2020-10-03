@@ -9,11 +9,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.firstapp.jobfixer.Database.DBMaster;
+import com.firstapp.jobfixer.Model.SendRequestToCompany;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class JobViewForUserActivity extends AppCompatActivity {
 
     TextView jc,jt,cn,ca,jq,jType,jSal;
     Button btnAp,btnHome;
+    DatabaseReference dbRef;
+    String jID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +55,46 @@ public class JobViewForUserActivity extends AppCompatActivity {
         jSal.setText(bundle.getString("jFSal"));
         jType.setText(bundle.getString("jFType"));
         jq.setText(bundle.getString("jFQua"));
+        jID =bundle.getString("jFID");
+
 
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(JobViewForUserActivity.this,MainActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnAp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.SendRequestToCompany.TABLE_NAME);
+                dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        SendRequestToCompany req = new SendRequestToCompany();
+                        req.setJobID(jID);
+                        req.setUserID(SessionApplication.getUserID());
+                        req.setApplicantName(SessionApplication.getUserName());
+                        req.setApplicantEmail(SessionApplication.getUserEmail());
+                        req.setApplyDate(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
+                        req.setJobName(jt.getText().toString().trim());
+                        req.setCompName(cn.getText().toString().trim());
+                        req.setResumeID(SessionApplication.getResumeID());
+
+                        //Insert into Database
+                        dbRef.setValue(req);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                Toast.makeText(JobViewForUserActivity.this, "Request Send Successfully", Toast.LENGTH_SHORT).show();
             }
         });
     }

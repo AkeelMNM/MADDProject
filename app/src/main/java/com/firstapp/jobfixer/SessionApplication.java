@@ -8,6 +8,8 @@ public class SessionApplication extends Application {
     private static String userName;
     private static String userType;
     private static String userEmail;
+    private static String resumeID;
+
 
     @Override
     public void onCreate() {
@@ -16,6 +18,15 @@ public class SessionApplication extends Application {
         userName="";
         userType="";
         userEmail="";
+        resumeID="";
+    }
+
+    public static String getResumeID() {
+        return resumeID;
+    }
+
+    public static void setResumeID(String resumeID) {
+        SessionApplication.resumeID = resumeID;
     }
 
     public static String getUserID() {
