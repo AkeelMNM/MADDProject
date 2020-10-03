@@ -76,7 +76,89 @@
 
     <!-- ****************************************************************************** -->
 
+ <!-- **************************Nushky**************************************************** -->
+    <!-- Search interface-->
+    <string name="job_view_n">Software Engineer</string>
+    <string name="comp_view_n">Sysco Lab </string>
+    <string name="com_view_a">Colombo 02</string>
+    <string name="job_view_t">Full Time</string>
+    <string name="job_view_ad">AD</string>
+    <string name="job_view_s">Up to 60000/Month</string>
+    <string name="ad_view_cte_btn">Create Advertisements</string>
+    <string name="view_ap_btn">Apply</string>
+    <string name="view_j_btn">View</string>
+    <string name="job_view_n2">Software Architect</string>
+    <string name="comp_view_n2">IFS </string>
+    <string name="com_view_a2">Colombo 03</string>
+    <string name="job_view_s2">Up to 80000/Month</string>
+    <string name="job_search_title">Search for your next job</string>
+    <!-- ****************************************************************************** -->
+    <!-- Helpcenter interface-->
+    <string name="job_helpcenter1">Get in Touch</string>
+    <string name="job_helpcenter2">want to Get in Touch?We love to hear from you</string>
+    <string name="job_helpcenter3">Here is how you can reach us...</string>
+    <string name="job_helpcenter4">Name :</string>
+    <string name="job_helpcenter5">Email :</string>
+    <string name="job_helpcenter6">How can we help ?</string>
+    <string name="job_helpcenter7">Contact Customer Support</string>
+    <string name="job_helpcenter8">Talk to us</string>
+    <string name="job_helpcenter14">Just pick up the phone to speak with a member  </string>
+    <string name="job_helpcenter10">of our team</string>
+    <string name="job_helpcenter13">+945976585491</string>
+    <string name="job_viewreq1">View Requests</string>
+    <!-- ****************************************************************************** -->
+    <!-- Admin request interface-->
+    <string name="adminreq">Admin Requests</string>
+    <string name="adminmsg1">PAUL</string>
+    <string name="adminmsg11">I’m also in the </string>
+    <string name="adminmsg2">SMITH</string>
+    <string name="adminmsg22">I’m a college senior interested in working in marketing. For the last year, I’ve been following your work for Bryan and Associates, and it’s really impressed me. I particularly  </string>
+    <string name="adminmsg3">I’ve been following your work for Bryan and Associates, and it’s really impressed me. I particularly </string>
+    <string name="adminmsg31">JESICA</string>
+    <string name="adminmsg33">I was really impressed by the </string>
+    <string name="adminmsg4"> social media strategy you put together for Bella Bru Coffee Shop. I’m also a small business owner </string>
+    <!-- ****************************************************************************** -->
+    <!-- user request interface-->
+    <string name="usermsg1">USER REQUEST</string>
+    <string name="usermsg11">COM BANK</string>
+    <string name="usermsg2">You have satisfied the prerequisites for the Job Request application. For more information, see Job Requests</string>
+    <string name="usermsg22">VIRTUZA</string>
+    <string name="usermsg3">Financial institutions are experiencing a wave of transformation as emerging technology and market conditions impact client behavior. To help banks retain clients and remain relevant in a competitive industry, we designed Virtu</string>
+    <string name="usermsg33">IFS</string>
+    <string name="usermsg4">Register today for this segment of an upcoming Amazon Web Services (AWS) webinar series, featuring Eric Martinez, CEO, and Founder of modjoul. Learn how he partnered with Virtusa and AWS to create a mobile app and intelligent workplace  </string>
+    <string name="usermsg44">UNILIVER</string>
+    <string name="usermsg5">Prepare for the upcoming compliance deadline for the final Centers for Medicare and Medicaid Services (CMS) interoperability rules with a streamlined solution for coordinated care and improved health outcomes. Download the brochu</string>
+    <string name="usermsg55">For insurance companies, agility and speed are critical in the underwriting process. Read on to learn how we</string>
+    <!-- ****************************************************************************** -->
+    <!-- user reply interface-->
+    <string name="userrep1">GET IN </string>
+    <string name="userrep12">TOUCH</string>
+    <string name="userrep2">Heres  </string>
+    <string name="userrep21">how you  </string>
+    <string name="userrep22"> can </string>
+    <string name="userrep23"> reach us</string>
+    <string name="userrep3">USER REPLY</string>
+    <string name="userrep4">Cc/</string>
+    <string name="userrep5">Bcc</string>
+    <string name="userep6">Mesage</string>
+    <!-- ****************************************************************************** -->
+    <!-- adminreply interface-->
+    <string name="adminrep1">GET IN </string>
+    <string name="adminrep12">TOUCH</string>
+    <string name="adminrep2">Heres </string>
+    <string name="adminrep21">how you </string>
+    <string name="adminrep22">can </string>
+    <string name="adminrep23">reach us</string>
+    <string name="adminrep3">Admin REPLY</string>
+    <string name="adminrep4">Cc/</string>
+    <string name="adminrep5">Bcc</string>
+    <string name="adminrep6">Mesage</string>
+    <!-- ****************************************************************************** -->
+
+
+ <!-- **************************Nushky**************************************************** -->
     <!-- All Register Strings  -->
+ <!-- **************************Nushky**************************************************** -->
 
     <string name="sign_up">Sign Up</string>
     <string name="su_name">username</string>
