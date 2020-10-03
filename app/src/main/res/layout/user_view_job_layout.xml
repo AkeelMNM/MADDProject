@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/user_parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/Layout_Color">
+
+
+    <TextView
+        android:id="@+id/CV_tit"
+        android:layout_width="398dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="13dp"
+        android:paddingStart="5dp"
+        android:text="@string/Company_view_title"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Cv_Nam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CV_tit"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="232dp"
+        android:paddingStart="5dp"
+        android:text="@string/Company_view_Cname" />
+
+    <TextView
+        android:id="@+id/Cv_Add"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Cv_Nam"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="232dp"
+        android:layout_toEndOf="@+id/imageView"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:text="@string/Company_view_Address" />
+
+    <TextView
+        android:id="@+id/Cv_Sal"
+        android:layout_width="86dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CV_Des"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="319dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="7dp"
+        android:text="90,000"
+        android:textDirection="rtl" />
+
+    <TextView
+        android:id="@+id/Cv_typ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Cv_Sal"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="268dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="7dp"
+        android:text="Full time"
+        android:textDirection="rtl" />
+
+    <Button
+        android:id="@+id/userViewMoreBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_below="@+id/Cv_typ"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="3dp"
+        android:backgroundTint="@color/View_List_Up_Color"
+        android:text="@string/user_View_btn"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/userApplyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_below="@+id/userViewMoreBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="209dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/user_apply_btn"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Cv_Nam"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="4dp"
+        app:srcCompat="@drawable/location" />
+
+    <TextView
+        android:id="@+id/Rs"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CV_Des"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="298dp"
+        android:layout_marginTop="0dp"
+        android:text="@string/Rs"
+        android:textDirection="rtl" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Cv_Add"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="232dp"
+        android:paddingStart="5dp"
+        android:text="@string/JobDesc"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/CV_Des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="148dp"
+        android:gravity="left"
+        android:paddingStart="6dp"
+        android:text="Degree in IT or SE, 2 Years Minimum Job Experience. A good team player, Good communication Skills."
+        android:textSize="12sp" />
+
+</RelativeLayout>
