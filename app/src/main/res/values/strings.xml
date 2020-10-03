@@ -34,6 +34,47 @@
     <string name="login_failed">"Login failed"</string>
 
     <!-- ****************************************************************************** -->
+<!-- ****************************************** Zumry ****************************************************************** -->
+
+
+    <string name="job_Category">Job Category</string>
+    <string name="job_title">Job Title </string>
+    <string name="Work_place_address">Company Address </string>
+    <string name="Work_place_address_hint">Work place Address</string>
+    <string name="job_type">Job Type </string>
+    <string name="Salary">Salary (per month)</string>
+    <string name="Salary_hint">Salary</string>
+    <string name="Job_Description">Job Description</string>
+    <string name="Job_Description_hint">Job Description</string>
+    <string name="Post_Job_btn">Post Job</string>
+
+    <string name="Update_Job_btn">Update</string>
+    <string name="Cancel_btn">Cancel</string>
+
+    <string name="Company_Jobs_Heading">  Company Jobs</string>
+
+    <!-- Company LinearLayout Start -->
+    <string name="Company_view_title">Software Engineer </string>
+    <string name="Company_view_Cname">IFS</string>
+    <string name="Company_view_Address"> Colombo 10 </string>
+
+    <string name="Rs">Rs </string>
+
+    <string name="Company_View_Remove_btn">Remove</string>
+    <string name="Company_View_Edit_btn">Edit</string>
+    <string name="compName">Company Name</string>
+    <string name="AddNewJob">Add New Job</string>
+    <string name="user_View_btn">View more</string>
+    <string name="user_apply_btn">Apply</string>
+    <string name="JobDesc">Job Description :</string>
+    <string name="job">Jobs</string>
+    <string name="Job_Request_Btn">Job Request</string>
+
+<!-- **************************************************************************************************************** -->
+
+<!-- Company LinearLayout End -->
+
+    <!-- ****************************************************************************** -->
 
  <!-- **************************Nushky**************************************************** -->
     <!-- Search interface-->

@@ -28,6 +28,7 @@
         <activity android:name=".SearchActivity">
  <!-- **************************Nushky**************************************************** -->
         android:theme="@style/AppTheme">
+ <!-- **************************Nushky**************************************************** -->
         <activity android:name=".CompanyViewResumeActivity"></activity>
         <activity android:name=".ResumeMain">
             <intent-filter>
@@ -42,6 +43,22 @@
         <activity android:name=".CompanyHomeActivity" />
         <activity android:name=".MainActivity" />
  <!-- **************************Nushky**************************************************** -->
+ <!-- **************************Nushky**************************************************** -->
+      
+        <activity android:name=".UserViewJobActivity">  <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter> </activity>
+        <activity android:name=".CompanyViewJobActivity"></activity>
+        <activity android:name=".CompanyAddJobActivity"> </activity>
+        <activity android:name=".CompanyEditJobActivity"></activity>
+        <activity android:name=".AdminHomeActivity" />
+        <activity android:name=".CompanyHomeActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".CompanyViewResumeActivity"> </activity>
+        <activity android:name=".ResumeMain"> </activity>
+ <!-- **************************Nushky**************************************************** -->
         <activity android:name=".ViewResume"></activity>
         <activity android:name=".UpdateResume"></activity>
         <activity android:name=".CreateResume"></activity>
@@ -52,6 +69,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+ <!-- **************************Nushky**************************************************** -->
+ <!-- **************************Nushky**************************************************** -->
+=======
  <!-- **************************Nushky**************************************************** -->
     </application>
 
