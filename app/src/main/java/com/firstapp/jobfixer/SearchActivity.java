@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
-
+/*
     private ArrayList<String> seJobID = new ArrayList<>();
     private ArrayList<String> seJobName = new ArrayList<>();
     private ArrayList<String> seComName = new ArrayList<>();
@@ -55,7 +55,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private void initImageBitmaps() {
         //Query data = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME);
-        Query data =dbRef.orderByChild(DBMaster.Job.TABLE_NAME).startAt(seText).endAt(seText +"\uf8ff");
+//        Query data =dbRef.orderByChild(DBMaster.Job.TABLE_NAME).startAt(seText).endAt(seText +"\uf8ff");
         data.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -97,4 +97,6 @@ public class SearchActivity extends AppCompatActivity {
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
+
+ */
 }

@@ -11,32 +11,20 @@
         android:layout_width="371dp"
         android:layout_height="73dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:text="Message"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/displayname" />
 
     <EditText
-        android:id="@+id/AdminSendMsg"
-        android:layout_width="358dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Mesage :"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/Adminsendemail"
         android:layout_width="360dp"
         android:layout_height="42dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Admin Email"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AdminSendTo" />
@@ -70,7 +58,7 @@
         android:id="@+id/btnAdminSend"
         android:layout_width="352dp"
         android:layout_height="42dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="84dp"
         android:backgroundTint="#009688"
         android:text="Send"
         android:textColor="#FFFFFF"
@@ -90,12 +78,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/msgtitle" />
 
+    <EditText
+        android:id="@+id/AdminSendMsg"
+        android:layout_width="358dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="56dp"
+        android:ems="10"
+        android:hint="Admin Mesage :"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Adminsendemail" />
+
     <TextView
         android:id="@+id/msgtitle"
         android:layout_width="368dp"
         android:layout_height="37dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
         android:text="User Message"
         android:textColor="#050505"
         android:textSize="24sp"

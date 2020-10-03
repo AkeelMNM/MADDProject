@@ -1,5 +1,6 @@
 package com.firstapp.jobfixer;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,13 +14,21 @@ import android.widget.Toast;
 
 import com.firstapp.jobfixer.Database.DBMaster;
 import com.firstapp.jobfixer.Model.Helpcenter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 import static android.app.ProgressDialog.show;
 
 public class HelpCenterActivity extends AppCompatActivity {
 
+    public static final String HCID_PREFIX ="H0";
+
+    private ArrayList<String> HCID = new ArrayList<>();
 
     EditText editTextPName,editTextPemail,editTextPmsg;
     Button btnsend,btnview;
@@ -49,7 +58,7 @@ public class HelpCenterActivity extends AppCompatActivity {
         btnsend=findViewById(R.id.btnsend);
         btnview=findViewById(R.id.btnview);
 
-        hlpc = new Helpcenter();
+
 
 
 
@@ -57,19 +66,53 @@ public class HelpCenterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.HelpCenter.TABLE_NAME);
-                //take inputs from user and assigning them to this instance (hlpc) of the student...
-                hlpc.setName(editTextPName.getText().toString().trim());
-                hlpc.setEmail(editTextPemail.getText().toString().trim());
-                hlpc.setMessage(editTextPmsg.getText().toString().trim());
+                dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                //insert into the database
-                dbRef.child("H02").setValue(hlpc);
+                        hlpc = new Helpcenter();
+                        //take inputs from user and assigning them to this instance (hlpc) of the student...
+                        hlpc.setName(editTextPName.getText().toString().trim());
+                        hlpc.setEmail(editTextPemail.getText().toString().trim());
+                        hlpc.setMessage(editTextPmsg.getText().toString().trim());
 
-                //feedback to the user via toast
+                        for (DataSnapshot st:dataSnapshot.getChildren()){
 
-                Toast.makeText(HelpCenterActivity.this, "Message Sent Succesfully", Toast.LENGTH_SHORT).show();
+                            HCID.add(st.getKey().toString());
 
-                clearControls();
+                        }
+
+
+                        String id = null ;
+                        int alSize = HCID.size();
+                        alSize++;
+                        id = HCID_PREFIX + alSize;
+                        if(HCID.contains(id))
+                        {
+                            alSize++;
+                            id = HCID_PREFIX + alSize;
+                        }
+
+
+                        //insert into the database
+                        dbRef.child(id).setValue(hlpc);
+                        //feedback to the user via toast
+
+                        Toast.makeText(HelpCenterActivity.this, "Message Sent Succesfully", Toast.LENGTH_SHORT).show();
+
+                        clearControls();
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+
             }
         });
 
