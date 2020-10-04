@@ -14,8 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firstapp.jobfixer.CompanyEditJobActivity;
+import com.firstapp.jobfixer.CompanyViewJobActivity;
 import com.firstapp.jobfixer.Database.DBMaster;
+import com.firstapp.jobfixer.JobViewForUserActivity;
+import com.firstapp.jobfixer.Model.SendRequestToCompany;
 import com.firstapp.jobfixer.R;
+import com.firstapp.jobfixer.SessionApplication;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +27,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.ObjectInputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class JobUserViewAdapter extends RecyclerView.Adapter<JobUserViewAdapter.ViewHolder>{
 
@@ -36,6 +43,7 @@ public class JobUserViewAdapter extends RecyclerView.Adapter<JobUserViewAdapter.
     private ArrayList<String> mJobDes = new ArrayList<>();
     private ArrayList<String> mJobCate = new ArrayList<>();
     private Context mContext;
+    DatabaseReference dbRef;
 
     public JobUserViewAdapter(ArrayList<String> mJobID, ArrayList<String> mJobTitle, ArrayList<String> mComName, ArrayList<String> mJobAdd, ArrayList<String> mJobType, ArrayList<String> mJobSal, ArrayList<String> mJobDes , ArrayList<String> mJobCate, Context mContext) {
         this.mJobID = mJobID;
@@ -64,6 +72,7 @@ public class JobUserViewAdapter extends RecyclerView.Adapter<JobUserViewAdapter.
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
+        //Set text
         holder.txtTi.setText(mJobTitle.get(position));
         holder.txtComNa.setText(mComName.get(position));
         holder.txtComAdd.setText(mJobAdd.get(position));
@@ -75,11 +84,54 @@ public class JobUserViewAdapter extends RecyclerView.Adapter<JobUserViewAdapter.
             @Override
             public void onClick(View view) {
 
+                Intent intent = new Intent(mContext, JobViewForUserActivity.class);
+                intent.putExtra("jFCat",mJobCate.get(position));
+                intent.putExtra("jFTitle",mJobTitle.get(position));
+                intent.putExtra("cFName",mComName.get(position));
+                intent.putExtra("cFLoc",mJobAdd.get(position));
+                intent.putExtra("jFSal",mJobSal.get(position));
+                intent.putExtra("jFType",mJobType.get(position));
+                intent.putExtra("jFQua",mJobDes.get(position));
+
+                mContext.startActivity(intent);
 
             }
         });
 
+        holder.btnApply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.SendRequestToCompany.TABLE_NAME);
+                dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        SendRequestToCompany req = new SendRequestToCompany();
+                        req.setUserID(SessionApplication.getUserID());
+                        req.setApplicantName(SessionApplication.getUserName());
+                        req.setApplicantEmail(SessionApplication.getUserEmail());
+                        req.setApplyDate(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
+                        req.setJobName(mJobTitle.get(position));
+                        req.setCompName(mComName.get(position));
+                        req.setResumeID(SessionApplication.getResumeID());
+
+                        //Insert into Database
+                        dbRef.push().setValue(req);
+
+                        Toast.makeText(mContext.getApplicationContext(), "Request Send Successfully", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+
     }
+
 
     @Override
     public int getItemCount()
