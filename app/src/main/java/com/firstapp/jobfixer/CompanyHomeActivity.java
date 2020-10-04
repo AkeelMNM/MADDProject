@@ -24,7 +24,7 @@ public class CompanyHomeActivity extends AppCompatActivity {
         HCompJobs=findViewById(R.id.btnCompanyJobs);
         HCompProfile=findViewById(R.id.btnCompanyProfile);
         HCompRequests=findViewById(R.id.btnCompanyRequest);
-        HCompHelpCent=findViewById(R.id.btnUserHelpCenter);
+        HCompHelpCent=findViewById(R.id.btnCompanyHelpCenter);
 
         /** Session Application class to get user Details**/
         SesUID=SessionApplication.getUserID();
@@ -36,6 +36,7 @@ public class CompanyHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CompanyHomeActivity.this,CompanyViewJobActivity.class);
+                startActivity(intent);
             }
         });
         HCompHelpCent.setOnClickListener(new View.OnClickListener() {

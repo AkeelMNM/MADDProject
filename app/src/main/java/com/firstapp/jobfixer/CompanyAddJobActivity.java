@@ -8,12 +8,13 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firstapp.jobfixer.Database.DBMaster;
@@ -26,18 +27,19 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class CompanyAddJobActivity extends AppCompatActivity {
+public class CompanyAddJobActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private ArrayList<String> JobID = new ArrayList<>();
     public static final String JOBS_ID_PREFIX ="job0";
 
     EditText txtComName,txtComAdd,txtComSal,txtComDes;
     Button AddJobBtn;
-    Button CanBtn;
     Spinner jobCategory,JobTitle,JobType;
-    String[] JobCategoryArray,JobTitleArray,JobTypeArray;
+    String[] JobCategoryArray,JobTypeArray;
     ArrayAdapter CategoryAdapter,TileAdapter,TypeAdapter;
     DatabaseReference DBRef;
+
+    private String SelectCat ,SelectTit ,SelectType ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +50,8 @@ public class CompanyAddJobActivity extends AppCompatActivity {
         JobTitle =(Spinner) findViewById(R.id.AddJobTitleSpinner);
         JobType =(Spinner) findViewById(R.id.AddJobTypeSpinner);
 
-        JobCategoryArray = getResources().getStringArray(R.array.arJobCat);
-        //JobTitleArray = getResources().getStringArray(R.array.);
-        //JobTypeArray = getResources().getStringArray(R.array.JobType);
+        JobCategoryArray = getResources().getStringArray(R.array.jobCat);
+        JobTypeArray = getResources().getStringArray(R.array.jobTy);
 
         txtComName = (EditText) findViewById(R.id.AddComName);
         txtComAdd = (EditText) findViewById(R.id.AddCompanyAddress);
@@ -58,19 +59,23 @@ public class CompanyAddJobActivity extends AppCompatActivity {
         txtComDes = (EditText) findViewById(R.id.AddtxtDesc);
 
         AddJobBtn = (Button) findViewById(R.id.AddJobPostBtn);
-        CanBtn = (Button) findViewById(R.id.AddJobCancelBtn);
 
+        /**Assigning the values to Job Category Spinner in the Activity**/
         CategoryAdapter = new ArrayAdapter(CompanyAddJobActivity.this,android.R.layout.simple_spinner_item,JobCategoryArray);
         CategoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         jobCategory.setAdapter(CategoryAdapter);
+        jobCategory.setOnItemSelectedListener(this);
 
-        TileAdapter = new ArrayAdapter(CompanyAddJobActivity.this,android.R.layout.simple_spinner_item,JobTitleArray);
-        TileAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        JobTitle.setAdapter(TileAdapter);
-
+        /**Assigning the values to Job Type Spinner in the Activity**/
         TypeAdapter = new ArrayAdapter(CompanyAddJobActivity.this,android.R.layout.simple_spinner_item,JobTypeArray);
         TypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         JobType.setAdapter(TypeAdapter);
+
+        /**Reading the values in Job Type Spinner in the Activity**/
+        SelectType = JobType.getSelectedItem().toString().trim();
+
+        /**Reading the values in Company Name in the Activity**/
+        txtComName.setText(SessionApplication.getUserName());
 
         AddJobBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,12 +87,12 @@ public class CompanyAddJobActivity extends AppCompatActivity {
 
                         Jobs job = new Jobs();
 
-                        job.setUserID("01");
-                        job.setCategory(jobCategory.getSelectedItem().toString().trim());
-                        job.setTitle(JobTitle.getSelectedItem().toString().trim());
+                        job.setUserID(SessionApplication.getUserID());
+                        job.setCategory(SelectCat);
+                        job.setTitle(SelectTit);
                         job.setCompanyName(txtComName.getText().toString().trim());
                         job.setCompanyAddress(txtComAdd.getText().toString().trim());
-                        job.setType(JobType.getSelectedItem().toString().trim());
+                        job.setType(SelectType);
                         job.setSalary(txtComSal.getText().toString().trim());
                         job.setDescription(txtComDes.getText().toString().trim());
 
@@ -144,22 +149,104 @@ public class CompanyAddJobActivity extends AppCompatActivity {
             }
         });
 
-        CanBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Toast.makeText(CompanyAddJobActivity.this, "Cancel Add Job successfully..!!",Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(CompanyAddJobActivity.this,CompanyViewJobActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
+    }
+
+    @Override
+    public void onItemSelected (AdapterView< ? > parent, View view, int position, long id){
+
+        /**Reading the values in Job Category Spinner in the Activity**/
+        SelectCat = parent.getItemAtPosition(position).toString();
+
+
+        /**Change the values in Job Title according to the user selection of the job Category and assigning values to the job title Spinner in the Activity**/
+
+        if (SelectCat.equals("Information Technology")) {
+            TileAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.itJobCat));
+            TileAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            JobTitle.setAdapter(TileAdapter);
+
+        }
+        else if(SelectCat.equals("Business Management and Administration")){
+            TileAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.bmJobCat));
+            TileAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            JobTitle.setAdapter(TileAdapter);
+
+        }
+        else if(SelectCat.equals("Engineering")){
+            TileAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.enJobCat));
+            TileAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            JobTitle.setAdapter(TileAdapter);
+
+        }
+        else if(SelectCat.equals("Hospitality and Tourism")){
+            TileAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.htJobCat));
+            TileAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            JobTitle.setAdapter(TileAdapter);
+        }
+        else if(SelectCat.equals("Architecture and Construction")){
+            TileAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.arJobCat));
+            TileAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            JobTitle.setAdapter(TileAdapter);
+        }
+
+        /**Reading the values in Job Title Spinner in the Activity**/
+        SelectTit = JobTitle.getSelectedItem().toString();
+
+    }
+
+    @Override
+    public void onNothingSelected (AdapterView < ? > parent){
+
+    }
+
+    /** Menu bar actions**/
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_help:
+                helpCenter();
+                return true;
+            case R.id.action_logout:
+                logOut();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    /** Logout from device**/
+    private void logOut() {
+        SessionApplication.setUserID("");
+        SessionApplication.setUserName("");
+        SessionApplication.setUserType("");
+        SessionApplication.setUserEmail("");
+
+        Intent intent = new Intent(CompanyAddJobActivity.this,AdminLoginActivity.class);
+        startActivity(intent);
+
+
+    }
+
+    private void helpCenter() {
+        Intent intent = new Intent(CompanyAddJobActivity.this,HelpCenterActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        /** check user is log in**/
+        if(SessionApplication.getUserName().equals("")){
+            Intent intent = new Intent(CompanyAddJobActivity.this,AdminLoginActivity.class);
+            startActivity(intent);
+        }
+
     }
 
 }

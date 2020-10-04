@@ -13,7 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firstapp.jobfixer.CompanyAddJobActivity;
 import com.firstapp.jobfixer.CompanyEditJobActivity;
+import com.firstapp.jobfixer.CompanyViewJobActivity;
 import com.firstapp.jobfixer.Database.DBMaster;
 import com.firstapp.jobfixer.R;
 import com.google.firebase.database.DataSnapshot;
@@ -104,6 +106,8 @@ public class JobViewAdapter extends RecyclerView.Adapter<JobViewAdapter.ViewHold
                             DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME).child(id);
                             dbRef.removeValue();
                             Toast.makeText(mContext.getApplicationContext(), "Job Deleted Successfully", Toast.LENGTH_SHORT).show();
+
+
                         }
                     }
 

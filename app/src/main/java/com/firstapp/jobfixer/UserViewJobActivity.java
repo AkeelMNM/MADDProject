@@ -6,10 +6,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 import android.widget.Button;
 
 import com.firstapp.jobfixer.Database.DBMaster;
@@ -44,6 +46,15 @@ public class UserViewJobActivity extends AppCompatActivity {
         Request_Btn = findViewById(R.id.ReqBtn);
 
         initImageBitmaps();
+
+        Request_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserViewJobActivity.this,UserViewAppliedCompanyRequestActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void initImageBitmaps() {
