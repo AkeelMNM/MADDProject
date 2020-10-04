@@ -68,8 +68,7 @@ public class CreateResume extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 insertResume();
-                Intent intent = new Intent(CreateResume.this,ViewResume.class);
-                startActivity(intent);
+
 
             }
         });
@@ -81,19 +80,19 @@ public class CreateResume extends AppCompatActivity {
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Resume resume = new Resume();
+                Resume res = new Resume();
 
-                resume.setUserId(SessionApplication.getUserID());
-                resume.setFirstName(firstName.getText().toString().trim());
-                resume.setLastName(lastName.getText().toString().trim());
-                resume.setPhone(phone.getText().toString().trim());
-                resume.setLocation(location.getText().toString().trim());
-                resume.setEmail(email.getText().toString().trim());
-                resume.setEducation(education.getText().toString().trim());
-                resume.setWorkExp(workExperience.getText().toString().trim());
-                resume.setAboutMe(aboutMe.getText().toString().trim());
-                resume.setJobCat("IT");
-                resume.setJobTit("Software Engineer");
+                res.setUserId(SessionApplication.getUserID());
+                res.setFirstName(firstName.getText().toString().trim());
+                res.setLastName(lastName.getText().toString().trim());
+                res.setPhone(phone.getText().toString().trim());
+                res.setLocation(location.getText().toString().trim());
+                res.setEmail(email.getText().toString().trim());
+                res.setEducation(education.getText().toString().trim());
+                res.setWorkExp(workExperience.getText().toString().trim());
+                res.setAboutMe(aboutMe.getText().toString().trim());
+                res.setJobCat("IT");
+                res.setJobTit("Software Engineer");
 
 
 
@@ -148,11 +147,12 @@ public class CreateResume extends AppCompatActivity {
                 else
                 {
                     //Insert into Database
-                    dbRef.child(id).setValue(resume);
+                    dbRef.child(id).setValue(res);
 
                     Toast.makeText(CreateResume.this, "Data Updated Successfully", Toast.LENGTH_SHORT).show();
 
-
+                    Intent intent = new Intent(CreateResume.this,ViewResume.class);
+                    startActivity(intent);
                 }
 
 

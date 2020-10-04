@@ -47,7 +47,7 @@ public class ViewResume extends AppCompatActivity {
 
 
                 dBRead = FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME);
-                 Query data = dBRead.orderByChild(DBMaster.Resume.COLUMN_NAME_USER_ID).equalTo("Us02");
+                 Query data = dBRead.orderByChild(DBMaster.Resume.COLUMN_NAME_USER_ID).equalTo(SessionApplication.getUserID());
 
                 data.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -101,9 +101,9 @@ public class ViewResume extends AppCompatActivity {
                         dre.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                if(dataSnapshot.hasChild("Re08")){
+                                if(dataSnapshot.hasChild(SessionApplication.getResumeID())){
 
-                                   dBRead =FirebaseDatabase.getInstance().getReference().child("Resume").child("Re08");
+                                   dBRead =FirebaseDatabase.getInstance().getReference().child("Resume").child(SessionApplication.getResumeID());
                                    dBRead.removeValue();
                                     Toast.makeText(ViewResume.this, "Data Deleted Successfully", Toast.LENGTH_SHORT).show();
 
