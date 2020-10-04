@@ -38,7 +38,7 @@
 
     <EditText
         android:id="@+id/txtInputQualifcAdd"
-        android:layout_width="403dp"
+        android:layout_width="385dp"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
         android:ems="10"
@@ -126,7 +126,7 @@
 
     <Spinner
         android:id="@+id/JobCatAddSpinner"
-        android:layout_width="403dp"
+        android:layout_width="385dp"
         android:layout_height="46dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewJobTit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -136,7 +136,7 @@
 
     <Spinner
         android:id="@+id/JobTiAddSpinner"
-        android:layout_width="403dp"
+        android:layout_width="385dp"
         android:layout_height="46dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewComName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -146,7 +146,7 @@
 
     <Spinner
         android:id="@+id/ComNaAddSpinner"
-        android:layout_width="403dp"
+        android:layout_width="385dp"
         android:layout_height="46dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewComAdd"
         app:layout_constraintEnd_toEndOf="parent"
@@ -156,7 +156,7 @@
 
     <EditText
         android:id="@+id/TxtInputCompAdd"
-        android:layout_width="409dp"
+        android:layout_width="385dp"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
         android:ems="10"

@@ -85,7 +85,16 @@ public class CompanyViewResumeActivity extends AppCompatActivity {
                 intent.putExtra("AppName",AName1+" "+AName2);
                 intent.putExtra("AppEmail",UEmail);
                 intent.putExtra("AppJob",AJob);
+                startActivity(intent);
 
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CompanyViewResumeActivity.this,CompViewAllApplicantJobRequestActivity.class);
+                startActivity(intent);
             }
         });
     }

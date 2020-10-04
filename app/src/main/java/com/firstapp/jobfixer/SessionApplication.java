@@ -9,6 +9,7 @@ public class SessionApplication extends Application {
     private static String userType;
     private static String userEmail;
     private static String resumeID;
+    private static String jobName;
 
 
     @Override
@@ -19,6 +20,16 @@ public class SessionApplication extends Application {
         userType="";
         userEmail="";
         resumeID="";
+        jobName="";
+    }
+
+
+    public static String getJobName() {
+        return jobName;
+    }
+
+    public static void setJobName(String jobName) {
+        SessionApplication.jobName = jobName;
     }
 
     public static String getResumeID() {

@@ -83,7 +83,7 @@ public class CreateResume extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Resume resume = new Resume();
 
-                resume.setUserId("Us02");
+                resume.setUserId(SessionApplication.getUserID());
                 resume.setFirstName(firstName.getText().toString().trim());
                 resume.setLastName(lastName.getText().toString().trim());
                 resume.setPhone(phone.getText().toString().trim());
@@ -93,7 +93,7 @@ public class CreateResume extends AppCompatActivity {
                 resume.setWorkExp(workExperience.getText().toString().trim());
                 resume.setAboutMe(aboutMe.getText().toString().trim());
                 resume.setJobCat("IT");
-                resume.setJobTit("Software Eng");
+                resume.setJobTit("Software Engineer");
 
 
 

@@ -128,8 +128,8 @@ public class JobViewForUserActivity extends AppCompatActivity {
     }
 
     private void helpCenter() {
-         /*Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
-        startActivity(intent);*/
+         Intent intent = new Intent(JobViewForUserActivity.this,HelpCenterActivity.class);
+        startActivity(intent);
     }
 
     @Override

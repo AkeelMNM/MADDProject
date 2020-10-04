@@ -36,6 +36,7 @@ public class CompanyHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CompanyHomeActivity.this,CompanyViewJobActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -91,8 +92,8 @@ public class CompanyHomeActivity extends AppCompatActivity {
     }
 
     private void helpCenter() {
-         /*Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
-        startActivity(intent);*/
+         Intent intent = new Intent(CompanyHomeActivity.this,HelpCenterActivity.class);
+        startActivity(intent);
     }
 
     @Override

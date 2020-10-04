@@ -147,8 +147,8 @@ public class JobAdAdminViewActivity extends AppCompatActivity {
     }
 
     private void helpCenter() {
-         /*Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
-        startActivity(intent);*/
+         Intent intent = new Intent(JobAdAdminViewActivity.this,HelpCenterActivity.class);
+        startActivity(intent);
     }
 
     @Override

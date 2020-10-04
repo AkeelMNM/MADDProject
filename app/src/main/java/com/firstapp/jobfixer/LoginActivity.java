@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText UName,UPassword;
     Button btnLogIn,btnLogUp;
     TextView adminLog;
-    String GName,GPassword,GType,GUserID,GEmail;
+    String GName,GPassword,GType,GUserID,GEmail,GResID,GJobT;
 
     private FirebaseAuth firebaseAuth;
     DatabaseReference dbRef;
@@ -90,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             String id = user.getUid();
+                            setResumeAndJobDetails(id);
                             getUserDetails(id);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -103,7 +104,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void getUserDetails(String id) {
-
         dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Register.TABLE_NAME).child(id);
 
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -142,5 +142,36 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    private void setResumeAndJobDetails(String id){
+
+        Toast.makeText(this, id, Toast.LENGTH_SHORT).show();
+
+        dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME);//.child(id);
+        Query data = dbRef.orderByChild(DBMaster.Resume.COLUMN_NAME_USER_ID).equalTo(id);
+
+        data.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot d : dataSnapshot.getChildren()){
+                    GResID = d.getKey();
+                    GJobT = d.child(DBMaster.Resume.COLUMN_NAME_JOB_TITLE).getValue().toString();
+                }
+                SessionApplication.setResumeID(GResID);
+                SessionApplication.setJobName(GJobT);
+
+                Toast.makeText(LoginActivity.this, GResID, Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 }

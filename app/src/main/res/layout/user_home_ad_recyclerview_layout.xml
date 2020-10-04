@@ -81,10 +81,14 @@
 
     <TextView
         android:id="@+id/textViewJS"
-        android:layout_width="405dp"
+        android:layout_width="142dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textQualifuc"
-        android:layout_marginTop="0dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="263dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="6dp"
         android:text="@string/job_view_sal"
         android:textDirection="rtl"
         android:textSize="18sp" />
@@ -107,7 +111,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="209dp"
         android:layout_marginTop="-1dp"
-        android:backgroundTint="@color/View_List_Up_Color"
+        android:backgroundTint="@color/View_List_Sview_Color"
         android:text="@string/view_job_btn"
         android:textSize="14sp" />
 
@@ -119,7 +123,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="209dp"
         android:layout_marginTop="-2dp"
-        android:backgroundTint="@color/View_List_Re_Color"
+        android:backgroundTint="@color/View_List_Sapply_Color"
         android:text="@string/view_apply_btn"
         android:textColor="#FFFFFF"
         android:textSize="14sp" />

@@ -23,6 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -32,8 +33,10 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
     private ArrayList<String> AdID = new ArrayList<>();
     public static final String AD_ID_PREFIX ="AD0";
 
+    private ArrayList<String> JName = new ArrayList<>();
+
     EditText txtCompanyAddress, txtJobSalary, txtQualification;
-    String Select,Select2,Select3;
+    String Select,Select2,Select3,Select4;
 
     Advertisement ad;
     DatabaseReference dbRef;
@@ -54,7 +57,6 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
         /**Accessing the Spinners,TextViews and button in the Activity**/
 
         Spinner spJobCategory = (Spinner) findViewById(R.id.JobCatAddSpinner);
-        Spinner spCompanyName = (Spinner) findViewById(R.id.ComNaAddSpinner);
         Spinner spJobType = (Spinner) findViewById(R.id.jobTypeAddSpinner);
 
         txtCompanyAddress = findViewById(R.id.TxtInputCompAdd);
@@ -85,22 +87,7 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
                 dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                        if(TextUtils.isEmpty(txtCompanyAddress.getText())){
-                            Toast.makeText(JobAdCreateActivity.this,"Enter Company Address.. ",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        else if(TextUtils.isEmpty(txtJobSalary.getText())){
-                            Toast.makeText(JobAdCreateActivity.this,"Enter Salary.. ",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        else if(TextUtils.isEmpty(txtQualification.getText())){
-                            Toast.makeText(JobAdCreateActivity.this,"Enter Description.. ",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        else {
                             Advertisement ad = new Advertisement();
-                            ad.setJobID("J003");
                             ad.setJobCategory(Select);
                             ad.setJobTitle(Select2);
                             ad.setCompanyName("IFS");
@@ -108,7 +95,7 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
                             ad.setCompanyAddress(txtCompanyAddress.getText().toString().trim());
                             ad.setJobSalary(txtJobSalary.getText().toString().trim());
                             ad.setQualification(txtQualification.getText().toString().trim());
-                        }
+                        //}
 
                         for(DataSnapshot st: dataSnapshot.getChildren()){
                             AdID.add(st.getKey().toString());
@@ -124,8 +111,23 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
                             id=AD_ID_PREFIX + alSize;
                         }
 
-                        //Insert into Database
-                        dbRef.child(id).setValue(ad);
+                         if(TextUtils.isEmpty(txtCompanyAddress.getText())){
+                            Toast.makeText(JobAdCreateActivity.this,"Enter Company Address.. ",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else if(TextUtils.isEmpty(txtJobSalary.getText())){
+                            Toast.makeText(JobAdCreateActivity.this,"Enter Salary.. ",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else if(TextUtils.isEmpty(txtQualification.getText())){
+                            Toast.makeText(JobAdCreateActivity.this,"Enter Description.. ",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else {
+                            //Insert into Database
+                            dbRef.child(id).setValue(ad);
+                        }
+
 
                     }
 
@@ -155,6 +157,7 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
 
 
         Spinner spJobTitle = (Spinner) findViewById(R.id.JobTiAddSpinner);
+        Spinner spCompanyName = (Spinner) findViewById(R.id.ComNaAddSpinner);
 
         /**Change the values in Job Title according to the user selection of the job Category and assigning values to the job title Spinner in the Activity**/
 
@@ -189,6 +192,31 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
 
         /**Reading the values in Job Title Spinner in the Activity**/
         Select2 = spJobTitle.getSelectedItem().toString();
+
+        /**dbRef=FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME);
+        Query data = dbRef.orderByChild(DBMaster.Job.COLUMN_NAME_TITLE).equalTo(Select2);
+
+        data.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot st: dataSnapshot.getChildren()){
+                    JName.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_ID).getValue().toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        ArrayAdapter<String> arrayAdapterCompName = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,JName);
+        arrayAdapterCompName.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spJobTitle.setAdapter(arrayAdapterCompName);
+
+        /**Reading the values in Company Name Spinner in the Activity**/
+        //Select4 = spJobTitle.getSelectedItem().toString();
 
     }
 
@@ -226,8 +254,8 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
     }
 
     private void helpCenter() {
-         /*Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
-        startActivity(intent);*/
+         Intent intent = new Intent(JobAdCreateActivity.this,HelpCenterActivity.class);
+        startActivity(intent);
     }
 
     @Override

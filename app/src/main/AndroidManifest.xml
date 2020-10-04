@@ -24,7 +24,7 @@
         <activity android:name=".SearchActivity" />
 
         <activity android:name=".UserViewAppliedCompanyRequestActivity" />
-        <activity android:name=".CompViewAllApplicantJobRequestActivity" /> >
+        <activity android:name=".CompViewAllApplicantJobRequestActivity" />
           
         <activity android:name=".CompanyViewResumeActivity" />
         <activity android:name=".ResumeMain" />
@@ -43,7 +43,7 @@
         <activity android:name=".JobAdUpdateActivity" />
         <activity android:name=".JobAdCreateActivity" />
         <activity android:name=".AdminHomeActivity" />
-        <activity android:name=".CompanyHomeActivity"/> >
+        <activity android:name=".CompanyHomeActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".UserViewJobActivity">
 
