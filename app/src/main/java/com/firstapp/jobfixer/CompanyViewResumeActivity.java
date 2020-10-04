@@ -60,8 +60,9 @@ public class CompanyViewResumeActivity extends AppCompatActivity {
                     phone.setText(st.child(DBMaster.Resume.COLUMN_NAME_PHONE).getValue().toString());
                     email.setText(st.child(DBMaster.Resume.COLUMN_NAME_EMAIL).getValue().toString());
                     jName.setText(st.child(DBMaster.Resume.COLUMN_NAME_JOB_TITLE).getValue().toString());
-                    workEx.setText(st.child(DBMaster.Resume.COLUMN_NAME_JOB_ABOUT_ME).getValue().toString());
-                    Edu.setText(st.child(DBMaster.Resume.COLUMN_NAME_JOB_WORK_EXPERIENCE).getValue().toString());
+                    aboutMe.setText(st.child(DBMaster.Resume.COLUMN_NAME_JOB_ABOUT_ME).getValue().toString());
+                    workEx.setText(st.child(DBMaster.Resume.COLUMN_NAME_JOB_WORK_EXPERIENCE).getValue().toString());
+                    Edu.setText(st.child(DBMaster.Resume.COLUMN_NAME_JOB_EDUCTION).getValue().toString());
 
                     AID = st.child(DBMaster.Resume.COLUMN_NAME_USER_ID).getValue().toString();
                     AName1 = st.child(DBMaster.Resume.COLUMN_NAME_FIRST_NAME).getValue().toString();

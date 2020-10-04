@@ -68,8 +68,6 @@
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewQualificAdd"
-        app:layout_constraintEnd_toStartOf="@+id/TxtInputJobSal"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewJobType" />
 
@@ -115,10 +113,10 @@
         android:id="@+id/textViewJobSal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="105dp"
         android:text="@string/job_sal"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/TxtInputJobSal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textViewJobType"
@@ -168,20 +166,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewComAdd" />
 
-    <EditText
-        android:id="@+id/TxtInputJobSal"
-        android:layout_width="193dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="24dp"
-        android:ems="10"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtInputQualifcAdd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/jobTypeAddSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/textViewJobSal" />
-
     <TextView
         android:id="@+id/textViewJobTit"
         android:layout_width="wrap_content"
@@ -207,5 +191,17 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtInputQualifcAdd" />
+
+    <EditText
+        android:id="@+id/TxtInputJobSal"
+        android:layout_width="179dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toEndOf="@+id/jobTypeAddSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/textViewJobSal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

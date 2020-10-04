@@ -59,6 +59,7 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
         Spinner spJobCategory = (Spinner) findViewById(R.id.JobCatAddSpinner);
         Spinner spJobType = (Spinner) findViewById(R.id.jobTypeAddSpinner);
 
+
         txtCompanyAddress = findViewById(R.id.TxtInputCompAdd);
         txtJobSalary = findViewById(R.id.TxtInputJobSal);
         txtQualification = findViewById(R.id.txtInputQualifcAdd);
@@ -77,6 +78,8 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
 
         /**Reading the values in Job Type Spinner in the Activity**/
         Select3 = spJobType.getSelectedItem().toString();
+
+        selectJobCompany();
 
         /**Adding a new advertisement in firebase DB**/
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -157,7 +160,6 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
 
 
         Spinner spJobTitle = (Spinner) findViewById(R.id.JobTiAddSpinner);
-        Spinner spCompanyName = (Spinner) findViewById(R.id.ComNaAddSpinner);
 
         /**Change the values in Job Title according to the user selection of the job Category and assigning values to the job title Spinner in the Activity**/
 
@@ -191,33 +193,54 @@ public class JobAdCreateActivity extends AppCompatActivity implements AdapterVie
         }
 
         /**Reading the values in Job Title Spinner in the Activity**/
-        Select2 = spJobTitle.getSelectedItem().toString();
+        //Select2 = spJobTitle.getSelectedItem().toString();
 
-        /**dbRef=FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME);
-        Query data = dbRef.orderByChild(DBMaster.Job.COLUMN_NAME_TITLE).equalTo(Select2);
-
-        data.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for(DataSnapshot st: dataSnapshot.getChildren()){
-                    JName.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_ID).getValue().toString());
-                }
+        spJobTitle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                Select2 = parent.getItemAtPosition(pos).toString();
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onNothingSelected(AdapterView<?> parent) {
             }
+        });
+
+
+    }
+
+    public void  selectJobCompany(){
+
+        Spinner spCompanyName = (Spinner) findViewById(R.id.ComNaAddSpinner);
+
+        dbRef=FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME);
+         Query data = dbRef.orderByChild(DBMaster.Job.COLUMN_NAME_TITLE).equalTo(Select2);
+
+         data.addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+            for(DataSnapshot st: dataSnapshot.getChildren()){
+                JName.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_ID).getValue().toString());
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
         });
 
         ArrayAdapter<String> arrayAdapterCompName = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,JName);
         arrayAdapterCompName.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spJobTitle.setAdapter(arrayAdapterCompName);
+        spCompanyName.setAdapter(arrayAdapterCompName);
 
+        spCompanyName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                Select4 = parent.getItemAtPosition(pos).toString();
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
         /**Reading the values in Company Name Spinner in the Activity**/
-        //Select4 = spJobTitle.getSelectedItem().toString();
-
+        //Select4 = spCompanyName.getSelectedItem().toString();
     }
 
     @Override

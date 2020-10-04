@@ -45,7 +45,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="430dp">
+                android:layout_height="414dp">
 
                 <Button
                     android:id="@+id/btnUserJobs"
@@ -135,7 +135,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </ScrollView>

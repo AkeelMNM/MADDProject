@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ public class UserRegisterActivity extends AppCompatActivity {
     String UName,UPassword,UEmail;
     DatabaseReference dbRef;
     private FirebaseAuth firebaseAuth;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,9 @@ public class UserRegisterActivity extends AppCompatActivity {
 
         btnLogin=findViewById(R.id.btnRegisterToLogin);
         btnRe=findViewById(R.id.btnUserRegister);
+
+        progressBar=findViewById(R.id.RegisterprogressBar);
+        progressBar.setVisibility(View.INVISIBLE);
 
         firebaseAuth=FirebaseAuth.getInstance();
 
@@ -76,6 +81,7 @@ public class UserRegisterActivity extends AppCompatActivity {
         btnRe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 registerUser(type);
             }
         });

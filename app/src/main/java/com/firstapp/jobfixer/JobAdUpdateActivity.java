@@ -109,7 +109,7 @@ public class JobAdUpdateActivity extends AppCompatActivity {
 
                             ad.setJobCategory(jCa);
                             ad.setJobTitle(jTitle);
-                            ad.setCompanyName("IFS");
+                            ad.setCompanyName("Person");
                             ad.setJobType(jType);
                             ad.setCompanyAddress(txtCompanyAddress.getText().toString().trim());
                             ad.setJobSalary(txtJobSalary.getText().toString().trim());
