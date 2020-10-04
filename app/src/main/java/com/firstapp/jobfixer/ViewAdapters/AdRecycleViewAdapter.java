@@ -37,7 +37,6 @@ import java.util.Locale;
 
 public class AdRecycleViewAdapter  extends RecyclerView.Adapter<AdRecycleViewAdapter.ViewHolder> {
 
-    private ArrayList<String> jobID = new ArrayList<>();
     private ArrayList<String> jobCat = new ArrayList<>();
     private ArrayList<String> jobName = new ArrayList<>();
     private ArrayList<String> compName = new ArrayList<>();
@@ -49,8 +48,7 @@ public class AdRecycleViewAdapter  extends RecyclerView.Adapter<AdRecycleViewAda
 
     DatabaseReference dbRef;
 
-    public AdRecycleViewAdapter(ArrayList<String> jobID, ArrayList<String> jobCat, ArrayList<String> jobName, ArrayList<String> compName, ArrayList<String> compLocation, ArrayList<String> jobQualification, ArrayList<String> jobSalary, ArrayList<String> jobType, Context mContext) {
-        this.jobID = jobID;
+    public AdRecycleViewAdapter(ArrayList<String> jobCat, ArrayList<String> jobName, ArrayList<String> compName, ArrayList<String> compLocation, ArrayList<String> jobQualification, ArrayList<String> jobSalary, ArrayList<String> jobType, Context mContext) {
         this.jobCat = jobCat;
         this.jobName = jobName;
         this.compName = compName;
@@ -85,14 +83,12 @@ public class AdRecycleViewAdapter  extends RecyclerView.Adapter<AdRecycleViewAda
         holder.jobSal.setText(jobSalary.get(position));
         holder.jobT.setText(jobType.get(position));
         holder.jobQua.setText(jobQualification.get(position));
-        holder.jobId.setText(jobID.get(position));
 
         holder.btnView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(mContext, JobViewForUserActivity.class);
-                intent.putExtra("jFID",jobID.get(position));
                 intent.putExtra("jFCat",jobCat.get(position));
                 intent.putExtra("jFTitle",jobName.get(position));
                 intent.putExtra("cFName",compName.get(position));
@@ -114,7 +110,6 @@ public class AdRecycleViewAdapter  extends RecyclerView.Adapter<AdRecycleViewAda
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         SendRequestToCompany req = new SendRequestToCompany();
-                        req.setJobID(jobID.get(position));
                         req.setUserID(SessionApplication.getUserID());
                         req.setApplicantName(SessionApplication.getUserName());
                         req.setApplicantEmail(SessionApplication.getUserEmail());

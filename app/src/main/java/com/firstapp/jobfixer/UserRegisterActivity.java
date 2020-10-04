@@ -54,8 +54,16 @@ public class UserRegisterActivity extends AppCompatActivity {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         uType.setAdapter(arrayAdapter);
 
+        uType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                type = parent.getItemAtPosition(pos).toString();
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
         /**Reading the values in Job Type Spinner in the Activity**/
-        type = uType.getSelectedItem().toString();
+        //type = uType.getSelectedItem().toString().trim();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +94,7 @@ public class UserRegisterActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     FirebaseUser user = firebaseAuth.getCurrentUser();
 
-                    Register register =new Register(UName,UEmail,UPassword,"Admin");
+                    Register register =new Register(UName,UEmail,UPassword,type);
                     dbRef  = FirebaseDatabase.getInstance().getReference().child(DBMaster.Register.TABLE_NAME);
                     dbRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(register);
 

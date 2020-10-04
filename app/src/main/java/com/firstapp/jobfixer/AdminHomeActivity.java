@@ -83,8 +83,8 @@ public class AdminHomeActivity extends AppCompatActivity {
     }
 
     private void helpCenter() {
-         /*Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
-        startActivity(intent);*/
+         Intent intent = new Intent(AdminHomeActivity.this,HelpCenterActivity.class);
+        startActivity(intent);
     }
 
     @Override

@@ -39,6 +39,7 @@ public class CompanyHomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         HCompHelpCent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,8 +92,8 @@ public class CompanyHomeActivity extends AppCompatActivity {
     }
 
     private void helpCenter() {
-         /*Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
-        startActivity(intent);*/
+         Intent intent = new Intent(CompanyHomeActivity.this,HelpCenterActivity.class);
+        startActivity(intent);
     }
 
     @Override

@@ -42,7 +42,7 @@ import static android.app.ProgressDialog.show;
 public class MainActivity extends AppCompatActivity {
 
     Button HUserJobs,HUserResume,HUserSearch,HUserHelpCenter;
-    String SesName,SesUID,SesType,SesEmail;
+    String SesName,SesUID,SesType,SesEmail,ResumeID,UJobName;
 
     private static final String TAG ="Main Activity" ;
     private ArrayList<String> mJobId = new ArrayList<>();
@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initImageBitmaps();
 
+
         HUserJobs=findViewById(R.id.btnUserJobs);
         HUserResume=findViewById(R.id.btnUserResume);
         HUserSearch=findViewById(R.id.btnUserSearch);
@@ -72,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
         SesName=SessionApplication.getUserName();
         SesType=SessionApplication.getUserType();
         SesEmail=SessionApplication.getUserEmail();
+
+        /** Setting the Resume id and Job title of the user to session**/
+        //SessionApplication.setResumeID(ResumeID);
+        //SessionApplication.setJobName(UJobName);
+
+        Toast.makeText(this, SessionApplication.getJobName(), Toast.LENGTH_SHORT).show();
 
         HUserJobs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for(DataSnapshot st: dataSnapshot.getChildren()){
-                    mJobId.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_ID).getValue().toString());
+                    //mJobId.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_ID).getValue().toString());
                     mJobCat.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_CATEGORY).getValue().toString());
                     mJobName.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_TITLE).getValue().toString());
                     mCompName.add(st.child(DBMaster.Advertisement.COLUMN_NAME_COMPANY_NAME).getValue().toString());
@@ -148,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
     private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: started");
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        AdRecycleViewAdapter adapter = new AdRecycleViewAdapter(mJobId,mJobCat,mJobName,mCompName,mCompLocation,mJobQualification,mJobSalary,mJobType,this);
+        AdRecycleViewAdapter adapter = new AdRecycleViewAdapter(mJobCat,mJobName,mCompName,mCompLocation,mJobQualification,mJobSalary,mJobType,this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
@@ -186,8 +193,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void helpCenter() {
 
-        /*Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
-        startActivity(intent);*/
+        Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
+        startActivity(intent);
     }
 
     @Override
