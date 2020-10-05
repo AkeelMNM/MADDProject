@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,6 +19,7 @@ import com.firstapp.jobfixer.Database.DBMaster;
 import com.firstapp.jobfixer.ViewAdapters.JobViewAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -37,6 +39,7 @@ public class CompanyViewJobActivity extends AppCompatActivity {
     private ArrayList<String> mJobCate = new ArrayList<>();
 
     Button AddJob;
+    DatabaseReference dBRead;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +63,8 @@ public class CompanyViewJobActivity extends AppCompatActivity {
 
     private void initImageBitmaps() {
 
-        Query data = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME);
+        dBRead = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME);
+        Query data = dBRead.orderByChild(DBMaster.Job.COLUMN_NAME_USER_ID).equalTo(SessionApplication.getUserID());
 
         data.addValueEventListener(new ValueEventListener() {
             @Override
@@ -105,6 +109,49 @@ public class CompanyViewJobActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
+    }
+    /** Menu bar actions**/
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_help:
+                helpCenter();
+                return true;
+            case R.id.action_logout:
+                logOut();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    /** Logout from device**/
+    private void logOut() {
+        SessionApplication.setUserID("");
+        SessionApplication.setUserName("");
+        SessionApplication.setUserType("");
+        SessionApplication.setUserEmail("");
+
+        Intent intent = new Intent(CompanyViewJobActivity.this,AdminLoginActivity.class);
+        startActivity(intent);
+
+
+    }
+
+    private void helpCenter() {
+        Intent intent = new Intent(CompanyViewJobActivity.this,HelpCenterActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        /** check user is log in**/
+        if(SessionApplication.getUserName().equals("")){
+            Intent intent = new Intent(CompanyViewJobActivity.this,AdminLoginActivity.class);
+            startActivity(intent);
+        }
+
     }
 
 }
