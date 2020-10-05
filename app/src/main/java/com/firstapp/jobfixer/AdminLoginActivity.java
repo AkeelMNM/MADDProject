@@ -53,6 +53,9 @@ public class AdminLoginActivity extends AppCompatActivity {
         progressBar=findViewById(R.id.AdminLoginprogressBar);
         progressBar.setVisibility(View.INVISIBLE);
 
+        /*AName.setText("Admin@jobfixer.lk");
+        APassword.setText("123456789");*/
+
         firebaseAuth=FirebaseAuth.getInstance();
 
         userLog.setOnClickListener(new View.OnClickListener() {
