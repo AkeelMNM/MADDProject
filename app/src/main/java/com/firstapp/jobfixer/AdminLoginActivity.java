@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +36,7 @@ public class AdminLoginActivity extends AppCompatActivity {
     String GName,GPassword,GType,GUserID,GEmail;
     private FirebaseAuth firebaseAuth;
     DatabaseReference dbRef;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,12 @@ public class AdminLoginActivity extends AppCompatActivity {
         btnLogIn=findViewById(R.id.btnAdminLogIn);
 
         userLog=findViewById(R.id.userLogLink);
+
+        progressBar=findViewById(R.id.AdminLoginprogressBar);
+        progressBar.setVisibility(View.INVISIBLE);
+
+        /*AName.setText("Admin@jobfixer.lk");
+        APassword.setText("123456789");*/
 
         firebaseAuth=FirebaseAuth.getInstance();
 
@@ -77,6 +85,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
+                            progressBar.setVisibility(View.VISIBLE);
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             String id = user.getUid();
                             getUserDetails(id);
@@ -91,20 +100,19 @@ public class AdminLoginActivity extends AppCompatActivity {
                 });
     }
 
-    private void getUserDetails(final String id) {
-        dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Register.TABLE_NAME);
-        Query data =dbRef.orderByChild(id);
+    private void getUserDetails(String id) {
 
-        data.addListenerForSingleValueEvent(new ValueEventListener() {
+        dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Register.TABLE_NAME).child(id);
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot st: dataSnapshot.getChildren()) {
-                    GUserID=st.getKey();
-                    GName=st.child(DBMaster.Register.COLUMN_NAME_USER_NAME).getValue().toString();
-                    GPassword=st.child(DBMaster.Register.COLUMN_NAME_USER_PASSWORD).getValue().toString();
-                    GType=st.child(DBMaster.Register.COLUMN_NAME_USER_TYPE).getValue().toString();
-                    GEmail=st.child(DBMaster.Register.COLUMN_NAME_USER_EMAIL).getValue().toString();
+                if(dataSnapshot.hasChildren()){
+                    GUserID=dataSnapshot.getKey();
+                    GName=dataSnapshot.child(DBMaster.Register.COLUMN_NAME_USER_NAME).getValue().toString();
+                    GPassword=dataSnapshot.child(DBMaster.Register.COLUMN_NAME_USER_PASSWORD).getValue().toString();
+                    GType=dataSnapshot.child(DBMaster.Register.COLUMN_NAME_USER_TYPE).getValue().toString();
+                    GEmail=dataSnapshot.child(DBMaster.Register.COLUMN_NAME_USER_EMAIL).getValue().toString();
                 }
                 SessionApplication.setUserID(GUserID);
                 SessionApplication.setUserName(GName);
@@ -113,7 +121,7 @@ public class AdminLoginActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(AdminLoginActivity.this, AdminHomeActivity.class);
                     intent.putExtra("AdminName", GName);
-                    intent.putExtra("AdminID", id);
+                    intent.putExtra("AdminID", GUserID);
                     startActivity(intent);
 
             }

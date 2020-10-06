@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -47,23 +48,27 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
-        if(seText != null) {
-            initImageBitmaps();
-        }
         seBox = findViewById(R.id.searchBox);
         btnSe=findViewById(R.id.btnsearch);
-
         seText = seBox.getText().toString();
+
+        btnSe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    initImageBitmaps();
+
+            }
+        });
 
     }
 
 
 
     private void initImageBitmaps() {
-
-      Query data =dbRef.orderByChild(DBMaster.Job.TABLE_NAME).startAt(seText).endAt(seText +"\uf8ff");
-        data.addValueEventListener(new ValueEventListener() {
+        String n = seBox.getText().toString().trim();
+      dbRef=FirebaseDatabase.getInstance().getReference();
+      Query data =dbRef.orderByChild(DBMaster.Job.TABLE_NAME).startAt(seBox.getText().toString().trim()).endAt("\uf8ff");
+        data.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 

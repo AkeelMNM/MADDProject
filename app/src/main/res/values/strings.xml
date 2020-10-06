@@ -103,6 +103,7 @@
     <!-- Job category and Job Title String arrays-->
 
     <string-array name="jobCat">
+        <item>Select a Category</item>
         <item>Information Technology</item>
         <item>Business Management and Administration</item>
         <item>Engineering</item>
