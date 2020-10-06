@@ -77,7 +77,6 @@ public class JobViewForUserActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         SendRequestToCompany req = new SendRequestToCompany();
-                        req.setJobID(jID);
                         req.setUserID(SessionApplication.getUserID());
                         req.setApplicantName(SessionApplication.getUserName());
                         req.setApplicantEmail(SessionApplication.getUserEmail());

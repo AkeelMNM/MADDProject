@@ -162,6 +162,16 @@
         <item>Company</item>
     </string-array>
 
+    <string-array name="search_cat">
+        <item>Search Type</item>
+        <item>Job Name</item>
+        <item>Company Name</item>
+        <item>Company Address</item>
+        <item>Salary</item>
+        <item>Job Type</item>
+
+    </string-array>
+
 
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <!-- ****************************************************************************** -->
@@ -285,9 +295,9 @@
     <!-- ****************************************************************************** -->
 
 
- <!-- **************************Nushky**************************************************** -->
+
     <!-- All Register Strings  -->
- <!-- **************************Nushky**************************************************** -->
+
 
     <string name="sign_up">Sign Up</string>
     <string name="su_name">username</string>
@@ -326,37 +336,7 @@
     <string name="r_work">Work Experience</string>
     <string name="r_edu">Education</string>
     <string name="r_submit">Submit</string>
-    <string-array name="City">
-        <item>Kandy</item>
-        <item>Colombo</item>
-        <item>Kegalle</item>
-        <item>Galle</item>
-        <item>Kurunegala</item>
-        <item>Jaffna</item>
-        <item>Nuwaraeliya</item>
-        <item>Anuradhapura</item>
-        <item>Negombo</item>
-        <item>Matara</item>
-        <item>Dambulla</item>
-    </string-array>
 
-    <string-array name="job_cat">
-        <item>Accounts</item>
-        <item>Technology sector</item>
-        <item>Software Engineering</item>
-        <item>Sales Job</item>
-        <item>Medical</item>
-
-    </string-array>
-
-    <string-array name="job_role">
-        <item>Accountant</item>
-        <item>Technology Assistant</item>
-        <item>Software Engineer</item>
-        <item>Sales Manger</item>
-        <item>Medical Distributor</item>
-
-    </string-array>
 
 
     <!-- ****************************************************************************** -->
