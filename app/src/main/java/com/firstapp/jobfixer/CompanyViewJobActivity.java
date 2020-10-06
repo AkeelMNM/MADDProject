@@ -110,6 +110,7 @@ public class CompanyViewJobActivity extends AppCompatActivity {
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
+
     /** Menu bar actions**/
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

@@ -34,21 +34,30 @@ public class CompanyAddJobActivity extends AppCompatActivity implements AdapterV
 
     EditText txtComName,txtComAdd,txtComSal,txtComDes;
     Button AddJobBtn;
-    Spinner jobCategory,JobTitle,JobType;
     String[] JobCategoryArray,JobTypeArray;
-    ArrayAdapter CategoryAdapter,TileAdapter,TypeAdapter;
+    ArrayAdapter<String> CategoryAdapter,TileAdapter,TypeAdapter;
     DatabaseReference DBRef;
 
     private String SelectCat ,SelectTit ,SelectType ;
+
+    //Method to clear all inputs
+    private void clearControls() {
+        txtComName.setText("");
+        txtComAdd.setText("");
+        txtComSal.setText("");
+        txtComDes.setText("");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_add_job);
 
-        jobCategory =(Spinner) findViewById(R.id.AddJobCatogorySpinner);
-        JobTitle =(Spinner) findViewById(R.id.AddJobTitleSpinner);
-        JobType =(Spinner) findViewById(R.id.AddJobTypeSpinner);
+        /**Accessing the Spinners,TextViews and button in the Activity**/
+
+        Spinner jobCategory =(Spinner) findViewById(R.id.AddJobCatogorySpinner);
+
+        Spinner JobType =(Spinner) findViewById(R.id.AddJobTypeSpinner);
 
         JobCategoryArray = getResources().getStringArray(R.array.jobCat);
         JobTypeArray = getResources().getStringArray(R.array.jobTy);
@@ -133,10 +142,6 @@ public class CompanyAddJobActivity extends AppCompatActivity implements AdapterV
                             //Insert into Database
                             DBRef.child(id).setValue(job);
 
-                            Toast.makeText(CompanyAddJobActivity.this, "Your Job Posted successfully..!! ",Toast.LENGTH_LONG).show();
-
-                            Intent intent = new Intent(CompanyAddJobActivity.this,CompanyViewJobActivity.class);
-                            startActivity(intent);
                         }
 
                     }
@@ -146,6 +151,10 @@ public class CompanyAddJobActivity extends AppCompatActivity implements AdapterV
 
                     }
                 });
+
+                Toast.makeText(CompanyAddJobActivity.this, "Your Job Posted successfully..!! ",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(CompanyAddJobActivity.this,CompanyViewJobActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -163,6 +172,7 @@ public class CompanyAddJobActivity extends AppCompatActivity implements AdapterV
         /**Reading the values in Job Category Spinner in the Activity**/
         SelectCat = parent.getItemAtPosition(position).toString();
 
+        Spinner JobTitle =(Spinner) findViewById(R.id.AddJobTitleSpinner);
 
         /**Change the values in Job Title according to the user selection of the job Category and assigning values to the job title Spinner in the Activity**/
 
@@ -196,8 +206,15 @@ public class CompanyAddJobActivity extends AppCompatActivity implements AdapterV
         }
 
         /**Reading the values in Job Title Spinner in the Activity**/
-        SelectTit = JobTitle.getSelectedItem().toString();
+       //SelectTit = JobTitle.getSelectedItem().toString();
 
+        JobTitle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                SelectTit = parent.getItemAtPosition(pos).toString();
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
     }
 
     @Override
