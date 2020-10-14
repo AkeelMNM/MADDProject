@@ -180,10 +180,15 @@ public class JobAdCreateActivity extends AppCompatActivity {//implements Adapter
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         for(DataSnapshot st : dataSnapshot.getChildren()){
-                            Address = st.child(DBMaster.Job.COLUMN_NAME_COMPANY_ADDRESS).getValue().toString();
-                            jSal=st.child(DBMaster.Job.COLUMN_NAME_SALARY).getValue().toString();
-                            jQu=st.child(DBMaster.Job.COLUMN_NAME_DESCRIPTION).getValue().toString();
-                            jType=st.child(DBMaster.Job.COLUMN_NAME_TYPE).getValue().toString();
+                            if(st.child(DBMaster.Job.COLUMN_NAME_TITLE).exists()) {
+                                Address = st.child(DBMaster.Job.COLUMN_NAME_COMPANY_ADDRESS).getValue().toString();
+                                jSal = st.child(DBMaster.Job.COLUMN_NAME_SALARY).getValue().toString();
+                                jQu = st.child(DBMaster.Job.COLUMN_NAME_DESCRIPTION).getValue().toString();
+                                jType = st.child(DBMaster.Job.COLUMN_NAME_TYPE).getValue().toString();
+                            }
+                            else{
+                                Toast.makeText(JobAdCreateActivity.this, "There are no Job Posted in the Selected Company", Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                         /**Assigning the values to All EditText in the Activity**/
@@ -252,12 +257,13 @@ public class JobAdCreateActivity extends AppCompatActivity {//implements Adapter
                             ad.setCompanyAddress(txtCompanyAddress.getText().toString().trim());
                             ad.setJobSalary(txtJobSalary.getText().toString().trim());
                             ad.setQualification(txtQualification.getText().toString().trim());
-                        //}
 
+                        /** Retrieving the Existing Job ad Keys **/
                         for(DataSnapshot st: dataSnapshot.getChildren()){
                             AdID.add(st.getKey().toString());
                         }
 
+                        /** Generating new key for Ad going to post **/
                         String id = null;
                         int alSize = AdID.size();
                         alSize++;
@@ -268,23 +274,37 @@ public class JobAdCreateActivity extends AppCompatActivity {//implements Adapter
                             id=AD_ID_PREFIX + alSize;
                         }
 
-                         if(TextUtils.isEmpty(txtCompanyAddress.getText())){
-                            Toast.makeText(JobAdCreateActivity.this,"Enter Company Address.. ",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        else if(TextUtils.isEmpty(txtJobSalary.getText())){
-                            Toast.makeText(JobAdCreateActivity.this,"Enter Salary.. ",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        else if(TextUtils.isEmpty(txtQualification.getText())){
-                            Toast.makeText(JobAdCreateActivity.this,"Enter Description.. ",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        else {
-                            //Insert into Database
-                            dbRef.child(id).setValue(ad);
-                        }
+                        /** Checking if there are already a ad posted **/
+                        for(DataSnapshot st: dataSnapshot.getChildren()){
 
+                            if(Select4 != st.child(DBMaster.Advertisement.COLUMN_NAME_COMPANY_NAME).getValue() && Select2 != st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_TITLE).getValue()){
+                                Toast.makeText(JobAdCreateActivity.this, "There is an Ad Already Available ", Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+
+                                if(TextUtils.isEmpty(txtCompanyAddress.getText())){
+                                    Toast.makeText(JobAdCreateActivity.this,"Enter Company Address.. ",Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                else if(TextUtils.isEmpty(txtJobSalary.getText())){
+                                    Toast.makeText(JobAdCreateActivity.this,"Enter Salary.. ",Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                else if(TextUtils.isEmpty(txtQualification.getText())){
+                                    Toast.makeText(JobAdCreateActivity.this,"Enter Description.. ",Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                else {
+                                    //Insert into Database
+                                    dbRef.child(id).setValue(ad);
+
+                                    Toast.makeText(JobAdCreateActivity.this, "Advertisement Created Successfully", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(JobAdCreateActivity.this,JobAdAdminViewActivity.class);
+                                    startActivity(intent);
+                                }
+
+                            }
+                        }
 
                     }
 
@@ -293,9 +313,7 @@ public class JobAdCreateActivity extends AppCompatActivity {//implements Adapter
 
                     }
                 });
-                Toast.makeText(JobAdCreateActivity.this, "Advertisement Created Successfully", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(JobAdCreateActivity.this,JobAdAdminViewActivity.class);
-                startActivity(intent);
+
             }
         });
 
