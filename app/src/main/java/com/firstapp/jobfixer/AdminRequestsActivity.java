@@ -28,6 +28,7 @@ public class AdminRequestsActivity extends AppCompatActivity {
     private ArrayList<String> name = new ArrayList<>();
     private ArrayList<String> message = new ArrayList<>();
     private ArrayList<String> email = new ArrayList<>();
+    private ArrayList<String> userid = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,7 @@ public class AdminRequestsActivity extends AppCompatActivity {
                     name.add(ds.child(DBMaster.HelpCenter.COLUM_NAME_USERNAME).getValue().toString());
                     message.add(ds.child(DBMaster.HelpCenter.COLUM_NAME_MESSAGE).getValue().toString());
                     email.add(ds.child(DBMaster.HelpCenter.COLUM_NAME_EMAIL).getValue().toString());
+                    userid.add(ds.child(DBMaster.HelpCenter.COLUM_NAME_USER_ID).getValue().toString());
                     initRecyclerView();
                 }
             }
@@ -66,7 +68,7 @@ public class AdminRequestsActivity extends AppCompatActivity {
     private void initRecyclerView(){
         Log.d(TAG, "initRecyclerView: started");
         RecyclerView recyclerView =(RecyclerView) findViewById(R.id.reqrecycler_view);
-        AdminRequestViewAdapter adapter = new AdminRequestViewAdapter(name,message,email,this);
+        AdminRequestViewAdapter adapter = new AdminRequestViewAdapter(name,message,email,userid,this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

@@ -19,16 +19,27 @@ import android.widget.Toast;
 import com.firstapp.jobfixer.Database.DBMaster;
 //import com.firstapp.jobfixer.Model.UserRequest;
 import com.firstapp.jobfixer.Model.UserRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class AdminReplyActivity extends AppCompatActivity {
+
+    public static final String UPID_PREFIX ="MSG";
+
+    private ArrayList<String> UPID = new ArrayList<>();
 
     TextView display2,display3;
     EditText replyname,replymsg,replyemail;
 
     EditText editTextAdminToName,editTextAdminToemail,editTextAdminmsg;
     Button btnadminsend;
+    UserRequest ur;
+    String uid;
 
     DatabaseReference dbRef;
     //  Helpcenter AdminReplymsg;
@@ -71,6 +82,7 @@ public class AdminReplyActivity extends AppCompatActivity {
         Bundle bundle =getIntent().getExtras();
         display2.setText(bundle.getString("name"));
         display3.setText(bundle.getString("msg"));
+        uid=bundle.getString("uid");
 
         replyname.setText(bundle.getString("name"));
        // replyemail.setText(bundle.getString("email"));
@@ -78,7 +90,7 @@ public class AdminReplyActivity extends AppCompatActivity {
         editTextAdminToName.setText(bundle.getString("name"));
         editTextAdminToemail.setText(SessionApplication.getUserEmail());
 
-        btnadminsend.setOnClickListener(new View.OnClickListener() {
+      /*  btnadminsend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.UserRequest.TABLE_NAME);
@@ -97,9 +109,74 @@ public class AdminReplyActivity extends AppCompatActivity {
 
 
             }
+        });*/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        btnadminsend.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.UserRequest.TABLE_NAME);
+                dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        ur = new UserRequest();
+                        //take inputs from user and assigning them to this instance (hlpc) of the student...
+                        ur.setAdminname(editTextAdminToName.getText().toString().trim());
+                        ur.setAdminemail(editTextAdminToemail.getText().toString().trim());
+                        ur.setAdminmsg(editTextAdminmsg.getText().toString().trim());
+                        ur.setUserId(uid);
+
+
+                        for (DataSnapshot st:dataSnapshot.getChildren()){
+
+                            UPID.add(st.getKey().toString());
+
+                        }
+
+
+                        String id = null ;
+                        int alSize = UPID.size();
+                        alSize++;
+                        id = UPID_PREFIX + alSize;
+                        if(UPID.contains(id))
+                        {
+                            alSize++;
+                            id = UPID_PREFIX + alSize;
+                        }
+
+
+                        //insert into the database
+                        dbRef.child(id).setValue(ur);
+                        //feedback to the user via toast
+
+                        Toast.makeText(AdminReplyActivity.this, "Message Reply Succesfully", Toast.LENGTH_SHORT).show();
+
+
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+
+            }
         });
 
 
+
+
+
+
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     }
 
