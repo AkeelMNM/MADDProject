@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -64,7 +65,18 @@ public class SearchActivity extends AppCompatActivity {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         searchSp.setAdapter(arrayAdapter);
 
-        Ty = searchSp.getSelectedItem().toString();
+        searchSp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Ty = parent.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
         btnSe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +92,6 @@ public class SearchActivity extends AppCompatActivity {
 
     private void initImageBitmaps() {
         String SeText = seBox.getText().toString().trim();
-        Toast.makeText(this, SeText, Toast.LENGTH_SHORT).show();
       dbRef=FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME);
       Query data = null;
       if(Ty.equals("Job Name")){
@@ -106,14 +117,6 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-               /* seJobID.clear();
-                seJobName.clear();
-                seComName.clear();
-                seJobAdd.clear();
-                seJobType.clear();
-                seJobSal.clear();
-                seJobDes.clear();
-                seJobCate.clear();*/
 
                 for (DataSnapshot jb : snapshot.getChildren()) {
                     seJobID.add(jb.getKey().toString());
