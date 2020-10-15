@@ -1,13 +1,18 @@
 package com.firstapp.jobfixer;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.firstapp.jobfixer.Database.DBMaster;
@@ -25,7 +30,7 @@ import java.util.ArrayList;
 
 
 
-public class CreateResume extends AppCompatActivity {
+public class CreateResume extends AppCompatActivity  {
 
     EditText firstName,lastName,location ,phone , email ,aboutMe ,workExperience , education;
     public static final String RESUME_ID_PREFIX ="Re";
@@ -49,19 +54,75 @@ public class CreateResume extends AppCompatActivity {
         workExperience = findViewById(R.id.txtWorkExp);
         education = findViewById(R.id.txtEdu);
         btnCreate = findViewById(R.id.btnCreate);
-        //Spinner JobCategory = (Spinner) findViewById(R.id.JobCatSpinner);
+        Spinner JobCategory = (Spinner) findViewById(R.id.JobCatSpinner);
 
+        final Spinner JobTitle = (Spinner) findViewById(R.id.JobTitSpinner);
 
 
 
 
         /** Assigning a the values to job category **/
 
-        /** ArrayAdapter<String> arrayAdapter = new ArrayAdapter<~>(this, android.R.layout.simple_spinner_dropdown_item, getResources().getString(R.array.jobCat))
-         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-         JobCategory.setAdapter(arrayAdapter);
-         JobCategory.setOnItemSelectedListener(this);
-         /** need to combine above code **/
+        /**Assigning the values to Job Category Spinner in the Activity**/
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(CreateResume.this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.jobCat));
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        JobCategory.setPrompt("Select a Category");
+        JobCategory.setAdapter(arrayAdapter);
+
+        JobCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                JobCat = adapterView.getItemAtPosition(i).toString();
+
+                if (JobCat.equals("Information Technology")) {
+                    ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(CreateResume.this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.itJobCat));
+                    arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    JobTitle.setAdapter(arrayAdapterJ);
+
+                }
+                else if(JobCat.equals("Business Management and Administration")){
+                    ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(CreateResume.this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.bmJobCat));
+                    arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    JobTitle.setAdapter(arrayAdapterJ);
+
+                }
+                else if(JobCat.equals("Engineering")){
+                    ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(CreateResume.this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.enJobCat));
+                    arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    JobTitle.setAdapter(arrayAdapterJ);
+
+                }
+                else if(JobCat.equals("Hospitality and Tourism")){
+                    ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(CreateResume.this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.htJobCat));
+                    arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    JobTitle.setAdapter(arrayAdapterJ);
+                }
+                else if(JobCat.equals("Architecture and Construction")){
+                    ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(CreateResume.this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.arJobCat));
+                    arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    JobTitle.setAdapter(arrayAdapterJ);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        JobTitle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                JobTit = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         /** reading the value in Job Type spinner in activity **/
         btnCreate.setOnClickListener(new View.OnClickListener() {
@@ -91,8 +152,8 @@ public class CreateResume extends AppCompatActivity {
                 res.setEducation(education.getText().toString().trim());
                 res.setWorkExp(workExperience.getText().toString().trim());
                 res.setAboutMe(aboutMe.getText().toString().trim());
-                res.setJobCat("IT");
-                res.setJobTit("Software Engineer");
+                res.setJobCat(JobCat);
+                res.setJobTit(JobTit);
 
 
 
@@ -155,11 +216,6 @@ public class CreateResume extends AppCompatActivity {
                     startActivity(intent);
                 }
 
-
-
-
-
-
             }
 
             @Override
@@ -175,55 +231,50 @@ public class CreateResume extends AppCompatActivity {
         return true;
     }
 
+    /** Menu bar actions**/
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_help:
+                helpCenter();
+                return true;
+            case R.id.action_logout:
+                logOut();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
-    /**@Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+    /** Logout from device**/
+    private void logOut() {
+        SessionApplication.setUserID("");
+        SessionApplication.setUserName("");
+        SessionApplication.setUserType("");
+        SessionApplication.setUserEmail("");
 
-    Spinner JobTitle = (Spinner) findViewById(R.id.JobTitSpinner);
-
-    JobCat = adapterView.getItemAtPosition(i).toString();
-
+        Intent intent = new Intent(CreateResume.this,LoginActivity.class);
+        startActivity(intent);
 
 
+    }
 
-    /**Change the values in Job Title according to the user selection of the job Category and assigning values to the job title Spinner in the Activity**/
+    private void helpCenter() {
+        Intent intent = new Intent(CreateResume.this,HelpCenterActivity.class);
+        startActivity(intent);
+    }
 
-    /**
-     if (JobCat.equals("Information Technology")) {
-     ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.itJobCat));
-     arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-     JobTitle.setAdapter(arrayAdapterJ);
+    @Override
+    protected void onStart() {
+        super.onStart();
+        /** check user is log in**/
+        if(SessionApplication.getUserName().equals("")){
+            Intent intent = new Intent(CreateResume.this,LoginActivity.class);
+            startActivity(intent);
+        }
 
-     }
-     else if(JobCat.equals("Business Management and Administration")){
-     ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.bmJobCat));
-     arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-     JobTitle.setAdapter(arrayAdapterJ);
+    }
 
-     }
-     else if(JobCat.equals("Engineering")){
-     ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.enJobCat));
-     arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-     JobTitle.setAdapter(arrayAdapterJ);
 
-     }
-     else if(JobCat.equals("Hospitality and Tourism")){
-     ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.htJobCat));
-     arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-     JobTitle.setAdapter(arrayAdapterJ);
-     }
-     else if(JobCat.equals("Architecture and Construction")){
-     ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.arJobCat));
-     arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-     JobTitle.setAdapter(arrayAdapterJ);
-     }
 
-     /**Reading the values in Job Title Spinner in the Activity**/
-    //JobTit = JobTitle.getSelectedItem().toString();
-    //}
-
-    /**@Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }**/
 }

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -97,13 +98,13 @@ public class ViewResume extends AppCompatActivity {
                 DeleteinV.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        final DatabaseReference dre =FirebaseDatabase.getInstance().getReference().child("Resume");
+                        final DatabaseReference dre =FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME);
                         dre.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 if(dataSnapshot.hasChild(SessionApplication.getResumeID())){
 
-                                   dBRead =FirebaseDatabase.getInstance().getReference().child("Resume").child(SessionApplication.getResumeID());
+                                   dBRead =FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME).child(SessionApplication.getResumeID());
                                    dBRead.removeValue();
                                     Toast.makeText(ViewResume.this, "Data Deleted Successfully", Toast.LENGTH_SHORT).show();
 
@@ -140,4 +141,48 @@ public class ViewResume extends AppCompatActivity {
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
+    /** Menu bar actions**/
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_help:
+                helpCenter();
+                return true;
+            case R.id.action_logout:
+                logOut();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    /** Logout from device**/
+    private void logOut() {
+        SessionApplication.setUserID("");
+        SessionApplication.setUserName("");
+        SessionApplication.setUserType("");
+        SessionApplication.setUserEmail("");
+
+        Intent intent = new Intent(ViewResume.this,LoginActivity.class);
+        startActivity(intent);
+
+
+    }
+
+    private void helpCenter() {
+        Intent intent = new Intent(ViewResume.this,HelpCenterActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        /** check user is log in**/
+        if(SessionApplication.getUserName().equals("")){
+            Intent intent = new Intent(ViewResume.this,LoginActivity.class);
+            startActivity(intent);
+        }
+
+    }
+
 }
