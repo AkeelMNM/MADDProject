@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogIn,btnLogUp;
     TextView adminLog;
     String GName,GPassword,GType,GUserID,GEmail,GResID,GJobT;
+    private ProgressBar progressBar;
 
     private FirebaseAuth firebaseAuth;
     DatabaseReference dbRef;
@@ -46,6 +48,9 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogIn=findViewById(R.id.btnLogIn);
         btnLogUp=findViewById(R.id.btnLogUp);
+
+        progressBar =findViewById(R.id.LoginProgressBar);
+        progressBar.setVisibility(View.INVISIBLE);
 
         firebaseAuth=FirebaseAuth.getInstance();
 
@@ -88,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
+                            progressBar.setVisibility(View.VISIBLE);
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             String id = user.getUid();
                             setResumeAndJobDetails(id);
@@ -147,9 +153,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void setResumeAndJobDetails(String id){
 
-        Toast.makeText(this, id, Toast.LENGTH_SHORT).show();
-
-        dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME);//.child(id);
+        dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME);
         Query data = dbRef.orderByChild(DBMaster.Resume.COLUMN_NAME_USER_ID).equalTo(id);
 
         data.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -163,7 +167,6 @@ public class LoginActivity extends AppCompatActivity {
                 SessionApplication.setResumeID(GResID);
                 SessionApplication.setJobName(GJobT);
 
-                Toast.makeText(LoginActivity.this, GResID, Toast.LENGTH_SHORT).show();
 
             }
 

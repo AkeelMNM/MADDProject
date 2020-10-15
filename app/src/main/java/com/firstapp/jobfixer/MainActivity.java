@@ -42,10 +42,9 @@ import static android.app.ProgressDialog.show;
 public class MainActivity extends AppCompatActivity {
 
     Button HUserJobs,HUserResume,HUserSearch,HUserHelpCenter;
-    String SesName,SesUID,SesType,SesEmail,ResumeID,UJobName;
+    String SesName,SesUID,SesType,SesEmail;
 
     private static final String TAG ="Main Activity" ;
-    private ArrayList<String> mJobId = new ArrayList<>();
     private ArrayList<String> mJobCat = new ArrayList<>();
     private ArrayList<String> mJobName = new ArrayList<>();
     private ArrayList<String> mCompName = new ArrayList<>();
@@ -74,11 +73,7 @@ public class MainActivity extends AppCompatActivity {
         SesType=SessionApplication.getUserType();
         SesEmail=SessionApplication.getUserEmail();
 
-        /** Setting the Resume id and Job title of the user to session**/
-        //SessionApplication.setResumeID(ResumeID);
-        //SessionApplication.setJobName(UJobName);
 
-        Toast.makeText(this, SessionApplication.getJobName(), Toast.LENGTH_SHORT).show();
 
         HUserJobs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,14 +113,13 @@ public class MainActivity extends AppCompatActivity {
         /** Retrieving Data's from Firebase Database According to the user specification**/
 
         dbRef=FirebaseDatabase.getInstance().getReference().child(DBMaster.Advertisement.TABLE_NAME);
-        Query data = dbRef.orderByChild(DBMaster.Advertisement.COLUMN_NAME_JOB_TITLE).equalTo("Software Engineer");
+        Query data = dbRef.orderByChild(DBMaster.Advertisement.COLUMN_NAME_JOB_TITLE).equalTo(SessionApplication.getJobName());
 
-        data.addValueEventListener(new ValueEventListener() {
+        data.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for(DataSnapshot st: dataSnapshot.getChildren()){
-                    //mJobId.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_ID).getValue().toString());
                     mJobCat.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_CATEGORY).getValue().toString());
                     mJobName.add(st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_TITLE).getValue().toString());
                     mCompName.add(st.child(DBMaster.Advertisement.COLUMN_NAME_COMPANY_NAME).getValue().toString());

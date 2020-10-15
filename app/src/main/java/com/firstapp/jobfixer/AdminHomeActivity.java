@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class AdminHomeActivity extends AppCompatActivity {
 
@@ -30,7 +31,6 @@ public class AdminHomeActivity extends AppCompatActivity {
         SesType=SessionApplication.getUserType();
         SesEmail=SessionApplication.getUserEmail();
 
-
         HAdminJobsAds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,6 +43,7 @@ public class AdminHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminHomeActivity.this,UserRequestsActivity.class);
+                startActivity(intent);
             }
         });
 

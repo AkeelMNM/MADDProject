@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -75,7 +77,6 @@ public class JobViewForUserActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         SendRequestToCompany req = new SendRequestToCompany();
-                        req.setJobID(jID);
                         req.setUserID(SessionApplication.getUserID());
                         req.setApplicantName(SessionApplication.getUserName());
                         req.setApplicantEmail(SessionApplication.getUserEmail());
@@ -97,6 +98,12 @@ public class JobViewForUserActivity extends AppCompatActivity {
                 Toast.makeText(JobViewForUserActivity.this, "Request Send Successfully", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
     }
 
     /** Menu bar actions**/

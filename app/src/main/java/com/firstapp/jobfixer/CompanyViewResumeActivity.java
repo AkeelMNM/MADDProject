@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -60,8 +63,9 @@ public class CompanyViewResumeActivity extends AppCompatActivity {
                     phone.setText(st.child(DBMaster.Resume.COLUMN_NAME_PHONE).getValue().toString());
                     email.setText(st.child(DBMaster.Resume.COLUMN_NAME_EMAIL).getValue().toString());
                     jName.setText(st.child(DBMaster.Resume.COLUMN_NAME_JOB_TITLE).getValue().toString());
-                    workEx.setText(st.child(DBMaster.Resume.COLUMN_NAME_JOB_ABOUT_ME).getValue().toString());
-                    Edu.setText(st.child(DBMaster.Resume.COLUMN_NAME_JOB_WORK_EXPERIENCE).getValue().toString());
+                    aboutMe.setText(st.child(DBMaster.Resume.COLUMN_NAME_JOB_ABOUT_ME).getValue().toString());
+                    workEx.setText(st.child(DBMaster.Resume.COLUMN_NAME_JOB_WORK_EXPERIENCE).getValue().toString());
+                    Edu.setText(st.child(DBMaster.Resume.COLUMN_NAME_JOB_EDUCTION).getValue().toString());
 
                     AID = st.child(DBMaster.Resume.COLUMN_NAME_USER_ID).getValue().toString();
                     AName1 = st.child(DBMaster.Resume.COLUMN_NAME_FIRST_NAME).getValue().toString();
@@ -97,5 +101,55 @@ public class CompanyViewResumeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    /** Menu bar actions**/
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_help:
+                helpCenter();
+                return true;
+            case R.id.action_logout:
+                logOut();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    /** Logout from device**/
+    private void logOut() {
+        SessionApplication.setUserID("");
+        SessionApplication.setUserName("");
+        SessionApplication.setUserType("");
+        SessionApplication.setUserEmail("");
+
+        Intent intent = new Intent(CompanyViewResumeActivity.this,LoginActivity.class);
+        startActivity(intent);
+
+
+    }
+
+    private void helpCenter() {
+        Intent intent = new Intent(CompanyViewResumeActivity.this,HelpCenterActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        /** check user is log in**/
+        if(SessionApplication.getUserName().equals("")){
+            Intent intent = new Intent(CompanyViewResumeActivity.this,LoginActivity.class);
+            startActivity(intent);
+        }
+
     }
 }

@@ -133,8 +133,6 @@ public class CompanyEditJobActivity extends AppCompatActivity {
                             DBRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME).child(txtJobID.getText().toString().trim());
                             DBRef.setValue(job);
 
-                            Intent intent = new Intent(CompanyEditJobActivity.this,CompanyViewJobActivity.class);
-                            startActivity(intent);
                         }
 
                     }
@@ -144,6 +142,10 @@ public class CompanyEditJobActivity extends AppCompatActivity {
 
                     }
                 });
+
+                Toast.makeText(CompanyEditJobActivity.this, "Job Details Updated successfully..!!",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(CompanyEditJobActivity.this,CompanyViewJobActivity.class);
+                startActivity(intent);
             }
         });
 
