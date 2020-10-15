@@ -21,19 +21,17 @@ public class AdminRequestViewAdapter extends RecyclerView.Adapter<AdminRequestVi
         private ArrayList<String> username = new ArrayList<>();
         private ArrayList<String> message = new ArrayList<>();
         private ArrayList<String> email = new ArrayList<>();
+        private ArrayList<String> userid = new ArrayList<>();
 
 
         private Context mContext;
 
-    public AdminRequestViewAdapter(ArrayList<String> username, ArrayList<String> message, ArrayList<String> email, Context mContext) {
+    public AdminRequestViewAdapter(ArrayList<String> username, ArrayList<String> message, ArrayList<String> email, ArrayList<String> userid, Context mContext) {
         this.username = username;
         this.message = message;
         this.email = email;
+        this.userid = userid;
         this.mContext = mContext;
-
-
-
-
     }
 
     @NonNull
@@ -58,6 +56,9 @@ public class AdminRequestViewAdapter extends RecyclerView.Adapter<AdminRequestVi
                     msg.putExtra("name",username.get(position));
                     msg.putExtra("msg",message.get(position));
                     msg.putExtra("email",email.get(position));
+                    msg.putExtra("uid",userid.get(position));
+
+
 
 
                     mContext.startActivity(msg);

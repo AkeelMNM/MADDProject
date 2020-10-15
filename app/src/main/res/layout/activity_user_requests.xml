@@ -15,6 +15,7 @@
         android:text="USER REQUESTS"
         android:textColor="#090909"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
