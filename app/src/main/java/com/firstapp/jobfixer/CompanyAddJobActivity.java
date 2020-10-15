@@ -142,6 +142,9 @@ public class CompanyAddJobActivity extends AppCompatActivity implements AdapterV
                             //Insert into Database
                             DBRef.child(id).setValue(job);
 
+                            Toast.makeText(CompanyAddJobActivity.this, "Your Job Posted successfully..!! ",Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(CompanyAddJobActivity.this,CompanyViewJobActivity.class);
+                            startActivity(intent);
                         }
 
                     }
@@ -152,9 +155,6 @@ public class CompanyAddJobActivity extends AppCompatActivity implements AdapterV
                     }
                 });
 
-                Toast.makeText(CompanyAddJobActivity.this, "Your Job Posted successfully..!! ",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(CompanyAddJobActivity.this,CompanyViewJobActivity.class);
-                startActivity(intent);
             }
         });
 
@@ -244,7 +244,7 @@ public class CompanyAddJobActivity extends AppCompatActivity implements AdapterV
         SessionApplication.setUserType("");
         SessionApplication.setUserEmail("");
 
-        Intent intent = new Intent(CompanyAddJobActivity.this,AdminLoginActivity.class);
+        Intent intent = new Intent(CompanyAddJobActivity.this,LoginActivity.class);
         startActivity(intent);
 
 
@@ -260,7 +260,7 @@ public class CompanyAddJobActivity extends AppCompatActivity implements AdapterV
         super.onStart();
         /** check user is log in**/
         if(SessionApplication.getUserName().equals("")){
-            Intent intent = new Intent(CompanyAddJobActivity.this,AdminLoginActivity.class);
+            Intent intent = new Intent(CompanyAddJobActivity.this,LoginActivity.class);
             startActivity(intent);
         }
 

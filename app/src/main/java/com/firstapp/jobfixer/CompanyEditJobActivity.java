@@ -133,6 +133,9 @@ public class CompanyEditJobActivity extends AppCompatActivity {
                             DBRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Job.TABLE_NAME).child(txtJobID.getText().toString().trim());
                             DBRef.setValue(job);
 
+                            Toast.makeText(CompanyEditJobActivity.this, "Job Details Updated successfully..!!",Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(CompanyEditJobActivity.this,CompanyViewJobActivity.class);
+                            startActivity(intent);
                         }
 
                     }
@@ -142,12 +145,9 @@ public class CompanyEditJobActivity extends AppCompatActivity {
 
                     }
                 });
-
-                Toast.makeText(CompanyEditJobActivity.this, "Job Details Updated successfully..!!",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(CompanyEditJobActivity.this,CompanyViewJobActivity.class);
-                startActivity(intent);
             }
         });
+
 
         CancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,8 +159,8 @@ public class CompanyEditJobActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -190,15 +190,15 @@ public class CompanyEditJobActivity extends AppCompatActivity {
         SessionApplication.setUserType("");
         SessionApplication.setUserEmail("");
 
-        Intent intent = new Intent(CompanyEditJobActivity.this,AdminLoginActivity.class);
+        Intent intent = new Intent(CompanyEditJobActivity.this,LoginActivity.class);
         startActivity(intent);
 
 
     }
 
     private void helpCenter() {
-         /*Intent intent = new Intent(MainActivity.this,HelpCenterActivity.class);
-        startActivity(intent);*/
+         Intent intent = new Intent(CompanyEditJobActivity.this,HelpCenterActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -206,7 +206,7 @@ public class CompanyEditJobActivity extends AppCompatActivity {
         super.onStart();
         /** check user is log in**/
         if(SessionApplication.getUserName().equals("")){
-            Intent intent = new Intent(CompanyEditJobActivity.this,AdminLoginActivity.class);
+            Intent intent = new Intent(CompanyEditJobActivity.this,LoginActivity.class);
             startActivity(intent);
         }
 
