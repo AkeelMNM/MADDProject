@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class UpdateResume extends AppCompatActivity {
-    EditText UpfirstName,UplastName,Uplocation ,Upphone , Upemail ,UpaboutMe ,UpworkExperience , Upeducation;
+    EditText UpfirstName,UplastName,Uplocation ,Upphone , Upemail ,UpaboutMe ,UpworkExperience ,upJob, Upeducation;
     String UJobCat ,UJobTit ,ResumID;
     Resume resu;
     DatabaseReference dbRef;
@@ -45,13 +46,13 @@ public class UpdateResume extends AppCompatActivity {
 
 
         dbRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME);
-        Query data = dbRef.orderByChild(DBMaster.Resume.COLUMN_NAME_USER_ID).equalTo("Us02");
+        Query data = dbRef.orderByChild(DBMaster.Resume.COLUMN_NAME_USER_ID).equalTo(SessionApplication.getUserID());
 
         data.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for(DataSnapshot st:dataSnapshot.getChildren()){
+               for(DataSnapshot st:dataSnapshot.getChildren()){
                     ResumID = st.getKey();
                     UpfirstName.setText(st.child("firstName").getValue().toString());
                     UplastName.setText(st.child("lastName").getValue().toString());
@@ -63,19 +64,18 @@ public class UpdateResume extends AppCompatActivity {
                     Upeducation.setText(st.child("education").getValue().toString());
 
                 }
-                /** if(dataSnapshot.hasChildren()){
-                 vfname.setText(dataSnapshot.child("firstName").getValue().toString());
-                 vlname.setText(dataSnapshot.child("lastName").getValue().toString());
-                 vloc.setText(dataSnapshot.child("location").getValue().toString());
-                 vphone.setText(dataSnapshot.child("phone").getValue().toString());
-                 vEmail.setText(dataSnapshot.child("email").getValue().toString());
-                 vJob.setText(dataSnapshot.child("jobTit").getValue().toString());
-                 vAbout.setText(dataSnapshot.child("aboutMe").getValue().toString());
-                 vWorkEx.setText(dataSnapshot.child("WorkEx").getValue().toString());
-                 vEdu.setText(dataSnapshot.child("education").getValue().toString());
+                /**   if(dataSnapshot.hasChildren()){
+                 UpfirstName.setText(dataSnapshot.child("firstName").getValue().toString());
+                 UplastName.setText(dataSnapshot.child("lastName").getValue().toString());
+                 Uplocation.setText(dataSnapshot.child("location").getValue().toString());
+                 Upphone.setText(dataSnapshot.child("phone").getValue().toString());
+                 Upemail.setText(dataSnapshot.child("email").getValue().toString());
+                 UpaboutMe.setText(dataSnapshot.child("aboutMe").getValue().toString());
+                 UpworkExperience.setText(dataSnapshot.child("WorkEx").getValue().toString());
+                 Upeducation.setText(dataSnapshot.child("education").getValue().toString());
                  }
                  else{
-                 Toast.makeText(ViewResume.this, "No Source Avilable", Toast.LENGTH_SHORT).show();
+                 Toast.makeText(UpdateResume.this, "No Source Avilable", Toast.LENGTH_SHORT).show();
                  }**/
             }
 
@@ -88,9 +88,7 @@ public class UpdateResume extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 updateResume();
-                Intent intent = new Intent(UpdateResume.this,ViewResume.class);
-                startActivity(intent);
-                Toast.makeText(UpdateResume.this, "Data Changed Successfully", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -104,7 +102,7 @@ public class UpdateResume extends AppCompatActivity {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             Resume resume =new Resume();
-            resume.setUserId("Us02");
+            resume.setUserId(SessionApplication.getUserID());
             resume.setFirstName(UpfirstName.getText().toString().trim());
             resume.setLastName(UplastName.getText().toString().trim());
             resume.setPhone(Upphone.getText().toString().trim());
@@ -114,10 +112,15 @@ public class UpdateResume extends AppCompatActivity {
             resume.setWorkExp(UpworkExperience.getText().toString().trim());
             resume.setAboutMe(UpaboutMe.getText().toString().trim());
             resume.setJobCat("IT");
-            resume.setJobTit("Software Eng");
+            resume.setJobTit("Software Engineer");
 //tis code is not working properly need to check
-            dbRef= FirebaseDatabase.getInstance().getReference().child("Resume").child("Re08");
+            dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME).child(SessionApplication.getResumeID());
             dbRef.setValue(resume);
+
+            Toast.makeText(UpdateResume.this, "Data Changed Successfully", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(UpdateResume.this,ViewResume.class);
+            startActivity(intent);
+
 
 
         }
@@ -133,5 +136,49 @@ public class UpdateResume extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
+    }
+
+    /** Menu bar actions**/
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_help:
+                helpCenter();
+                return true;
+            case R.id.action_logout:
+                logOut();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    /** Logout from device**/
+    private void logOut() {
+        SessionApplication.setUserID("");
+        SessionApplication.setUserName("");
+        SessionApplication.setUserType("");
+        SessionApplication.setUserEmail("");
+
+        Intent intent = new Intent(UpdateResume.this,LoginActivity.class);
+        startActivity(intent);
+
+
+    }
+
+    private void helpCenter() {
+        Intent intent = new Intent(UpdateResume.this,HelpCenterActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        /** check user is log in**/
+        if(SessionApplication.getUserName().equals("")){
+            Intent intent = new Intent(UpdateResume.this,LoginActivity.class);
+            startActivity(intent);
+        }
+
     }
 }

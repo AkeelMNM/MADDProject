@@ -128,7 +128,7 @@ public class UserViewJobActivity extends AppCompatActivity {
         SessionApplication.setUserType("");
         SessionApplication.setUserEmail("");
 
-        Intent intent = new Intent(UserViewJobActivity.this,AdminLoginActivity.class);
+        Intent intent = new Intent(UserViewJobActivity.this,LoginActivity.class);
         startActivity(intent);
 
 
@@ -144,7 +144,7 @@ public class UserViewJobActivity extends AppCompatActivity {
         super.onStart();
         /** check user is log in**/
         if(SessionApplication.getUserName().equals("")){
-            Intent intent = new Intent(UserViewJobActivity.this,AdminLoginActivity.class);
+            Intent intent = new Intent(UserViewJobActivity.this,LoginActivity.class);
             startActivity(intent);
         }
 
