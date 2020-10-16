@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -109,7 +111,7 @@ public class JobAdUpdateActivity extends AppCompatActivity {
 
                             ad.setJobCategory(jCa);
                             ad.setJobTitle(jTitle);
-                            ad.setCompanyName("Person");
+                            ad.setCompanyName(jCn);
                             ad.setJobType(jType);
                             ad.setCompanyAddress(txtCompanyAddress.getText().toString().trim());
                             ad.setJobSalary(txtJobSalary.getText().toString().trim());
@@ -118,6 +120,11 @@ public class JobAdUpdateActivity extends AppCompatActivity {
 
                         dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Advertisement.TABLE_NAME).child(txtJobID.getText().toString().trim());
                         dbRef.setValue(ad);
+
+                        /**invoking jobAdAdminActivity via Intent after ad details updated **/
+                        Intent intent = new Intent(JobAdUpdateActivity.this,JobAdAdminViewActivity.class);
+                        Toast.makeText(JobAdUpdateActivity.this, "Advertisement Updated Successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
                     }
 
                     @Override
@@ -125,17 +132,14 @@ public class JobAdUpdateActivity extends AppCompatActivity {
 
                     }
                 });
-
-                /**invoking jobAdAdminActivity via Intent after ad details updated **/
-                Intent intent = new Intent(JobAdUpdateActivity.this,JobAdAdminViewActivity.class);
-                startActivity(intent);
+                
             }
 
         });
 
 
     }
-        public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
@@ -170,7 +174,7 @@ public class JobAdUpdateActivity extends AppCompatActivity {
     }
 
     private void helpCenter() {
-         Intent intent = new Intent(JobAdUpdateActivity.this,HelpCenterActivity.class);
+        Intent intent = new Intent(JobAdUpdateActivity.this,HelpCenterActivity.class);
         startActivity(intent);
     }
 

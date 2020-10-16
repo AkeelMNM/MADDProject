@@ -133,7 +133,7 @@ public class CompanyViewJobActivity extends AppCompatActivity {
         SessionApplication.setUserType("");
         SessionApplication.setUserEmail("");
 
-        Intent intent = new Intent(CompanyViewJobActivity.this,AdminLoginActivity.class);
+        Intent intent = new Intent(CompanyViewJobActivity.this,LoginActivity.class);
         startActivity(intent);
 
 
@@ -149,7 +149,7 @@ public class CompanyViewJobActivity extends AppCompatActivity {
         super.onStart();
         /** check user is log in**/
         if(SessionApplication.getUserName().equals("")){
-            Intent intent = new Intent(CompanyViewJobActivity.this,AdminLoginActivity.class);
+            Intent intent = new Intent(CompanyViewJobActivity.this,LoginActivity.class);
             startActivity(intent);
         }
 

@@ -100,7 +100,7 @@ public class HelpCenterActivity extends AppCompatActivity {
                         dbRef.child(id).setValue(hlpc);
                         //feedback to the user via toast
 
-                        Toast.makeText(HelpCenterActivity.this, "Message Sent Succesfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HelpCenterActivity.this, "Message Sent Successfully", Toast.LENGTH_SHORT).show();
 
                         clearControls();
 
@@ -121,7 +121,7 @@ public class HelpCenterActivity extends AppCompatActivity {
         btnview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(HelpCenterActivity.this,AdminRequestsActivity.class);
+                Intent intent= new Intent(HelpCenterActivity.this,HelpCenterActivity.class);
                 startActivity(intent);
             }
         });
@@ -157,7 +157,7 @@ public class HelpCenterActivity extends AppCompatActivity {
         SessionApplication.setUserType("");
         SessionApplication.setUserEmail("");
 
-        Intent intent = new Intent(HelpCenterActivity.this,AdminLoginActivity.class);
+        Intent intent = new Intent(HelpCenterActivity.this,LoginActivity.class);
         startActivity(intent);
 
 
@@ -173,7 +173,7 @@ public class HelpCenterActivity extends AppCompatActivity {
         super.onStart();
         /** check user is log in**/
         if(SessionApplication.getUserName().equals("")){
-            Intent intent = new Intent(HelpCenterActivity.this,AdminLoginActivity.class);
+            Intent intent = new Intent(HelpCenterActivity.this,LoginActivity.class);
             startActivity(intent);
         }
 

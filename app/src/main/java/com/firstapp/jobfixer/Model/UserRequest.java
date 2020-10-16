@@ -5,6 +5,7 @@ public class UserRequest {
 
     private String Adminname;
     private String Adminemail;
+    private String userId;
 
 
     private  String Adminmsg;
@@ -13,12 +14,6 @@ public class UserRequest {
     public UserRequest() {
     }
 
-
-    public UserRequest(String adminname, String adminemail, String adminmsg) {
-        Adminname = adminname;
-        Adminemail = adminemail;
-        Adminmsg = adminmsg;
-    }
 
     public String getAdminname() {
         return Adminname;
@@ -41,6 +36,22 @@ public class UserRequest {
     }
 
     public void setAdminmsg(String adminmsg) {
+        Adminmsg = adminmsg;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+
+    public UserRequest(String adminname, String adminemail, String userId, String adminmsg) {
+        Adminname = adminname;
+        Adminemail = adminemail;
+        this.userId = userId;
         Adminmsg = adminmsg;
     }
 }

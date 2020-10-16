@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#8B8E8B"
-    android:backgroundTint="#D1CFCF">
+    android:backgroundTint="#e1f0e5">
 
     <TextView
         android:id="@+id/AdminViewMsg"
@@ -30,8 +30,8 @@
 
     <TextView
         android:id="@+id/textViewAdminSee"
-        android:layout_width="wrap_content"
-        android:layout_height="53dp"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/AdminViewMsg"
         android:layout_alignParentStart="true"
         android:layout_marginStart="14dp"

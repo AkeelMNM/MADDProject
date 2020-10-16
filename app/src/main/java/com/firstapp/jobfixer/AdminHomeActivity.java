@@ -42,7 +42,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         HAdminHelpCent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminHomeActivity.this,UserRequestsActivity.class);
+                Intent intent = new Intent(AdminHomeActivity.this,AdminRequestsActivity.class);
                 startActivity(intent);
             }
         });

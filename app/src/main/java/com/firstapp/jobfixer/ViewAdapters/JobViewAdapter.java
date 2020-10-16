@@ -17,6 +17,7 @@ import com.firstapp.jobfixer.CompanyAddJobActivity;
 import com.firstapp.jobfixer.CompanyEditJobActivity;
 import com.firstapp.jobfixer.CompanyViewJobActivity;
 import com.firstapp.jobfixer.Database.DBMaster;
+import com.firstapp.jobfixer.JobAdAdminViewActivity;
 import com.firstapp.jobfixer.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -86,7 +87,6 @@ public class JobViewAdapter extends RecyclerView.Adapter<JobViewAdapter.ViewHold
                 intent.putExtra("jDes",mJobDes.get(position));
                 intent.putExtra("jCate",mJobCate.get(position));
                 intent.putExtra("jID",mJobID.get(position));
-
                 mContext.startActivity(intent);
 
             }
@@ -107,8 +107,11 @@ public class JobViewAdapter extends RecyclerView.Adapter<JobViewAdapter.ViewHold
                             dbRef.removeValue();
                             Toast.makeText(mContext.getApplicationContext(), "Job Deleted Successfully", Toast.LENGTH_SHORT).show();
 
+                            Intent intent = new Intent(mContext.getApplicationContext(), CompanyViewJobActivity.class);
+                            mContext.startActivity(intent);
 
                         }
+
                     }
 
                     @Override
@@ -119,6 +122,7 @@ public class JobViewAdapter extends RecyclerView.Adapter<JobViewAdapter.ViewHold
             }
         });
     }
+
 
     @Override
     public int getItemCount()

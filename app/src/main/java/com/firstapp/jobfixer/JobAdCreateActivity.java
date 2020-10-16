@@ -277,10 +277,10 @@ public class JobAdCreateActivity extends AppCompatActivity {//implements Adapter
                         /** Checking if there are already a ad posted **/
                         for(DataSnapshot st: dataSnapshot.getChildren()){
 
-                            if(Select4 != st.child(DBMaster.Advertisement.COLUMN_NAME_COMPANY_NAME).getValue() && Select2 != st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_TITLE).getValue()){
+                            /*if(Select4 != st.child(DBMaster.Advertisement.COLUMN_NAME_COMPANY_NAME).getValue() && Select2 != st.child(DBMaster.Advertisement.COLUMN_NAME_JOB_TITLE).getValue()){
                                 Toast.makeText(JobAdCreateActivity.this, "There is an Ad Already Available ", Toast.LENGTH_SHORT).show();
                             }
-                            else {
+                            else {*/
 
                                 if(TextUtils.isEmpty(txtCompanyAddress.getText())){
                                     Toast.makeText(JobAdCreateActivity.this,"Enter Company Address.. ",Toast.LENGTH_SHORT).show();
@@ -304,7 +304,7 @@ public class JobAdCreateActivity extends AppCompatActivity {//implements Adapter
                                 }
 
                             }
-                        }
+                        //}
 
                     }
 
