@@ -63,22 +63,10 @@ public class ViewResume extends AppCompatActivity {
                             vJob.setText(st.child("jobTit").getValue().toString());
                             vAbout.setText(st.child("aboutMe").getValue().toString());
                             vWorkEx.setText(st.child("workExp").getValue().toString());
+                            vEdu.setText(st.child("education").getValue().toString());
 
                         }
-                        /**  if( dataSnapshot.hasChildren()){
-                            vfname.setText(dataSnapshot.child("firstName").getValue().toString());
-                            vlname.setText(dataSnapshot.child("lastName").getValue().toString());
-                            vloc.setText(dataSnapshot.child("location").getValue().toString());
-                            vphone.setText(dataSnapshot.child("phone").getValue().toString());
-                            vEmail.setText(dataSnapshot.child("email").getValue().toString());
-                            vJob.setText(dataSnapshot.child("jobTit").getValue().toString());
-                            vAbout.setText(dataSnapshot.child("aboutMe").getValue().toString());
-                            vWorkEx.setText(dataSnapshot.child("workExp").getValue().toString());
-                            vEdu.setText(dataSnapshot.child("education").getValue().toString());
-                        }
-                        else{
-                            Toast.makeText(ViewResume.this, "No Source Avilable", Toast.LENGTH_SHORT).show();
-                        }**/
+
                     }
 
                     @Override
@@ -98,14 +86,15 @@ public class ViewResume extends AppCompatActivity {
                 DeleteinV.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        final DatabaseReference dre =FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME);
+                        final DatabaseReference dre = FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME);
                         dre.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 if(dataSnapshot.hasChild(SessionApplication.getResumeID())){
 
-                                   dBRead =FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME).child(SessionApplication.getResumeID());
+                                   dBRead = FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME).child(SessionApplication.getResumeID());
                                    dBRead.removeValue();
+
                                     Toast.makeText(ViewResume.this, "Data Deleted Successfully", Toast.LENGTH_SHORT).show();
 
 
