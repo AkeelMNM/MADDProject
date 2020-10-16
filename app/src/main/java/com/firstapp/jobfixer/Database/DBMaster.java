@@ -93,7 +93,7 @@ public final class DBMaster {
         public static final String COLUMN_NAME_JOB_TITLE ="jobTit";
         public static final String COLUMN_NAME_JOB_ABOUT_ME ="aboutMe";
         public static final String COLUMN_NAME_JOB_WORK_EXPERIENCE ="workExp";
-        public static final String COLUMN_NAME_JOB_EDUCTION ="eduction";
+        public static final String COLUMN_NAME_JOB_EDUCTION ="education";
 
 
     }

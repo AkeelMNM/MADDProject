@@ -17,7 +17,22 @@ public class Resume {
     private String education;
 
     public Resume(){
+    }
 
+    public Resume(String userId, String resId, String firstName, String lastName, String location, String phone, String email, String job, String jobCat, String jobTit, String aboutMe, String workExp, String education) {
+        this.userId = userId;
+        ResId = resId;
+        this.firstName = firstName;
+        LastName = lastName;
+        this.location = location;
+        this.phone = phone;
+        this.email = email;
+        this.job = job;
+        JobCat = jobCat;
+        JobTit = jobTit;
+        this.aboutMe = aboutMe;
+        this.workExp = workExp;
+        this.education = education;
     }
 
     public String getUserId() {

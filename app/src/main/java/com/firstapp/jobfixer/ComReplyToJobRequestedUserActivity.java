@@ -87,6 +87,11 @@ public class ComReplyToJobRequestedUserActivity extends AppCompatActivity {
                         //Insert into Database
                         dbRef.push().setValue(req);
 
+
+                        Toast.makeText(ComReplyToJobRequestedUserActivity.this, "Request Send Successfully", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ComReplyToJobRequestedUserActivity.this,CompViewAllApplicantJobRequestActivity.class);
+                        startActivity(intent);
+
                     }
 
                     @Override
@@ -94,7 +99,7 @@ public class ComReplyToJobRequestedUserActivity extends AppCompatActivity {
 
                     }
                 });
-                Toast.makeText(ComReplyToJobRequestedUserActivity.this, "Request Send Successfully", Toast.LENGTH_SHORT).show();
+
 
             }
         });

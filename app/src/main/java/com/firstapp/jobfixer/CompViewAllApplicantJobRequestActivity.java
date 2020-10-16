@@ -49,7 +49,7 @@ public class CompViewAllApplicantJobRequestActivity extends AppCompatActivity {
         /** Retrieving All Data's from Firebase Database **/
 
         dbRef=FirebaseDatabase.getInstance().getReference().child(DBMaster.SendRequestToCompany.TABLE_NAME);
-        Query data = dbRef.orderByChild("compName").equalTo("IFS");
+        Query data = dbRef.orderByChild(DBMaster.SendRequestToCompany.COLUMN_NAME_COMPANY_NAME).equalTo(SessionApplication.getUserName());
 
         data.addValueEventListener(new ValueEventListener() {
             @Override
