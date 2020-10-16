@@ -17,6 +17,18 @@ public class Jobs {
 
     public Jobs() {}
 
+    public Jobs(String jobID, String userID, String category, String title, String companyName, String companyAddress, String type, String salary, String description) {
+        JobID = jobID;
+        UserID = userID;
+        Category = category;
+        Title = title;
+        CompanyName = companyName;
+        CompanyAddress = companyAddress;
+        Type = type;
+        Salary = salary;
+        Description = description;
+    }
+
     public String getJobID() {
         return JobID;
     }
