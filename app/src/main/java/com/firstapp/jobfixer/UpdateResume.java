@@ -9,8 +9,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.firstapp.jobfixer.Database.DBMaster;
@@ -43,7 +46,70 @@ public class UpdateResume extends AppCompatActivity {
         UpworkExperience = findViewById(R.id.txtReUpWorkExp);
         Upeducation = findViewById(R.id.txtReUpEdu);
         BtnupdateRes = findViewById(R.id.btnReUpdate);
+        final Spinner UJobCategory = (Spinner) findViewById(R.id.JobReUpCatSpinner);
 
+        final Spinner UJobTitle = (Spinner) findViewById(R.id.JobReUpTitSpinner);
+
+        /**Assigning the values to Job Category Spinner in the Activity**/
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(UpdateResume.this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.jobCat));
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        UJobCategory.setPrompt("Select a Category");
+        UJobCategory.setAdapter(arrayAdapter);
+
+        UJobCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                UJobCat = adapterView.getItemAtPosition(i).toString();
+
+                if (UJobCat.equals("Information Technology")) {
+                    ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(UpdateResume.this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.itJobCat));
+                    arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    UJobTitle.setAdapter(arrayAdapterJ);
+
+                }
+                else if(UJobCat.equals("Business Management and Administration")){
+                    ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(UpdateResume.this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.bmJobCat));
+                    arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    UJobTitle.setAdapter(arrayAdapterJ);
+
+                }
+                else if(UJobCat.equals("Engineering")){
+                    ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(UpdateResume.this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.enJobCat));
+                    arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    UJobTitle.setAdapter(arrayAdapterJ);
+
+                }
+                else if(UJobCat.equals("Hospitality and Tourism")){
+                    ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(UpdateResume.this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.htJobCat));
+                    arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    UJobTitle.setAdapter(arrayAdapterJ);
+                }
+                else if(UJobCat.equals("Architecture and Construction")){
+                    ArrayAdapter<String> arrayAdapterJ = new ArrayAdapter<>(UpdateResume.this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.arJobCat));
+                    arrayAdapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    UJobTitle.setAdapter(arrayAdapterJ);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        UJobTitle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                UJobTit = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         dbRef = FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME);
         Query data = dbRef.orderByChild(DBMaster.Resume.COLUMN_NAME_USER_ID).equalTo(SessionApplication.getUserID());
@@ -64,19 +130,7 @@ public class UpdateResume extends AppCompatActivity {
                     Upeducation.setText(st.child("education").getValue().toString());
 
                 }
-                /**   if(dataSnapshot.hasChildren()){
-                 UpfirstName.setText(dataSnapshot.child("firstName").getValue().toString());
-                 UplastName.setText(dataSnapshot.child("lastName").getValue().toString());
-                 Uplocation.setText(dataSnapshot.child("location").getValue().toString());
-                 Upphone.setText(dataSnapshot.child("phone").getValue().toString());
-                 Upemail.setText(dataSnapshot.child("email").getValue().toString());
-                 UpaboutMe.setText(dataSnapshot.child("aboutMe").getValue().toString());
-                 UpworkExperience.setText(dataSnapshot.child("WorkEx").getValue().toString());
-                 Upeducation.setText(dataSnapshot.child("education").getValue().toString());
-                 }
-                 else{
-                 Toast.makeText(UpdateResume.this, "No Source Avilable", Toast.LENGTH_SHORT).show();
-                 }**/
+
             }
 
             @Override
@@ -111,8 +165,8 @@ public class UpdateResume extends AppCompatActivity {
             resume.setEducation(Upeducation.getText().toString().trim());
             resume.setWorkExp(UpworkExperience.getText().toString().trim());
             resume.setAboutMe(UpaboutMe.getText().toString().trim());
-            resume.setJobCat("IT");
-            resume.setJobTit("Software Engineer");
+            resume.setJobCat(UJobCat);
+            resume.setJobTit(UJobTit);
 //tis code is not working properly need to check
             dbRef= FirebaseDatabase.getInstance().getReference().child(DBMaster.Resume.TABLE_NAME).child(SessionApplication.getResumeID());
             dbRef.setValue(resume);

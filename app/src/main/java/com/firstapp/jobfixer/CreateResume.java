@@ -205,6 +205,7 @@ public class CreateResume extends AppCompatActivity  {
                     Toast.makeText(CreateResume.this,"Enter AboutMe.. ",Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 else
                 {
                     //Insert into Database

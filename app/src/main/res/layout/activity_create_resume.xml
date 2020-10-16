@@ -147,10 +147,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtWorkExp" />
+        app:layout_constraintTop_toBottomOf="@+id/txtAboutMe" />
 
     <EditText
-        android:id="@+id/txtWorkExp"
+        android:id="@+id/txtEdu"
         android:layout_width="355dp"
         android:paddingStart="7dp"
         android:background="@drawable/textview_border"
@@ -174,10 +174,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.095"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAboutMe" />
+        app:layout_constraintTop_toBottomOf="@+id/txtWorkExp" />
 
     <EditText
-        android:id="@+id/txtEdu"
+        android:id="@+id/txtWorkExp"
         android:layout_width="355dp"
         android:layout_height="54dp"
         android:background="@drawable/textview_border"
