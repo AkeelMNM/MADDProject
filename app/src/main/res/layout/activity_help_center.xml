@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:backgroundTint="#FFFFFF"
     tools:context=".HelpCenterActivity">
 
 
@@ -64,7 +62,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:background="#FBFBFB"
         android:text="@string/job_helpcenter7"
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
@@ -77,7 +74,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="186dp"
-        android:background="#FBFBFB"
         android:text="@string/job_helpcenter8"
         android:textAlignment="center"
         android:textColor="@android:color/background_dark"
@@ -92,7 +88,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
 
-        android:background="#FBFBFB"
         android:text="@string/job_helpcenter13"
         android:textAlignment="center"
         android:textColor="@android:color/background_dark"
@@ -108,7 +103,6 @@
 
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:background="#FBFBFB"
         android:text="@string/job_helpcenter14"
         android:textAlignment="center"
         android:textColor="@android:color/background_dark"

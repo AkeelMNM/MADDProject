@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="@string/main_head"
-        android:textColor="#8BC34A"
+        android:textColor="@color/AdUpForm_Btn_Color"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
